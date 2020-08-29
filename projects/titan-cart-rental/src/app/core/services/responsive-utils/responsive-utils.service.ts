@@ -6,5 +6,20 @@ import {BreakpointObserver} from '@angular/cdk/layout';
 })
 export class ResponsiveUtilsService {
 
-  constructor(private breakPointObserver: BreakpointObserver) { }
+  get smMin(): boolean {
+    return  this.breakpointObserver.isMatched('(min-width: 599px)');
+  }
+
+  get mdMin(): boolean {
+    return  this.breakpointObserver.isMatched('(min-width: 599px)');
+  }
+
+  get lgMin(): boolean {
+    return  this.breakpointObserver.isMatched('(min-width: 599px)');
+  }
+  get xlMin(): boolean {
+    return  this.breakpointObserver.isMatched('(min-width: 599px)');
+  }
+
+  constructor(private breakpointObserver: BreakpointObserver) { }
 }
