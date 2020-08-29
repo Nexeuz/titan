@@ -11,8 +11,8 @@
       {{ option }}
     </nb-option>
   </nb-autocomplete>
-  <nb-select formControlName="formHour" placeholder="Select Showcase">
-    <nb-option value="">From</nb-option>
+  <nb-select formControlName="formHour" placeholder="From">
+    <nb-option>From</nb-option>
     <nb-option value="0">Option 0</nb-option>
     <nb-option value="1">Option 1</nb-option>
     <nb-option value="2">Option 2</nb-option>
@@ -20,15 +20,19 @@
     <nb-option value="4">Option 4</nb-option>
   </nb-select>
   <input  formControlName="range" nbInput placeholder="Pick Date Range" [nbDatepicker]="formpicker">
-  <nb-rangepicker format="MMMM Do YYYY" #formpicker></nb-rangepicker>
-  <nb-select class="input-right" formControlName="untilHour" placeholder="Select Showcase">
-    <nb-option value="">Until</nb-option>
+  <nb-rangepicker format="DD-MM-YYYY" #formpicker></nb-rangepicker>
+  <nb-select class="input-right" formControlName="untilHour" placeholder="Until">
     <nb-option value="0">Option 0</nb-option>
     <nb-option value="1">Option 1</nb-option>
     <nb-option value="2">Option 2</nb-option>
     <nb-option value="3">Option 3</nb-option>
     <nb-option value="4">Option 4</nb-option>
   </nb-select>
+
+  <button style="margin-left: 8px" nbButton shape="round"  status="primary">
+    <nb-icon icon="search-outline">
+    </nb-icon>
+  </button>
 </form>
 
 

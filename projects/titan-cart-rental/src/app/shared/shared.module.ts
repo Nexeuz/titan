@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import {NbAutocompleteModule, NbDatepickerModule, NbInputModule, NbSelectModule} from '@nebular/theme';
+import {NbAutocompleteModule, NbButtonModule, NbDatepickerModule, NbIconModule, NbInputModule, NbSelectModule} from '@nebular/theme';
 import {NbMomentDateModule} from '@nebular/moment';
+import {NbEvaIconsModule} from '@nebular/eva-icons';
 
 
 
@@ -19,7 +20,10 @@ import {NbMomentDateModule} from '@nebular/moment';
     NbMomentDateModule,
     NbInputModule,
     NbSelectModule,
-    NbAutocompleteModule
+    NbAutocompleteModule,
+    NbButtonModule,
+    NbEvaIconsModule,
+    NbIconModule
   ]
 })
 export class SharedModule { }
