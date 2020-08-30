@@ -1,7 +1,8 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Observable, of} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import {ResponsiveUtilsService} from '../../../core/services/responsive-utils/responsive-utils.service';
 
 @Component({
   selector: 'titan-search-bar',
@@ -15,7 +16,9 @@ export class SearchBarComponent implements OnInit {
   filteredControlOptions$: Observable<string[]>;
   value: string;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+              public responsiveUtils: ResponsiveUtilsService,
+              private cd: ChangeDetectorRef) {
     this.createForm();
   }
 
@@ -40,6 +43,11 @@ export class SearchBarComponent implements OnInit {
         untilHour: ['', [Validators.required]]
       }
     );
+  }
+
+  @HostListener('window:resize', ['$event'])
+  resize(): void {
+    this.cd.markForCheck();
   }
 
 

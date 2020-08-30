@@ -11,14 +11,14 @@ export class ResponsiveUtilsService {
   }
 
   get mdMin(): boolean {
-    return  this.breakpointObserver.isMatched('(min-width: 599px)');
+    return  this.breakpointObserver.isMatched('(min-width: 768px)');
   }
 
   get lgMin(): boolean {
-    return  this.breakpointObserver.isMatched('(min-width: 599px)');
+    return  this.breakpointObserver.isMatched('(min-width: 992px)');
   }
   get xlMin(): boolean {
-    return  this.breakpointObserver.isMatched('(min-width: 599px)');
+    return  this.breakpointObserver.isMatched('(min-width: 1200px)');
   }
 
   constructor(private breakpointObserver: BreakpointObserver) { }

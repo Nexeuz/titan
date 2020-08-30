@@ -1,3 +1,14 @@
+.container-range {
+  &__card-mobile {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  &__btn-search-desktop {
+    margin-left: 8px;
+  }
+}
+
 .input-left {
   border-top-left-radius: 12px !important;
   border-bottom-left-radius: 12px !important;
