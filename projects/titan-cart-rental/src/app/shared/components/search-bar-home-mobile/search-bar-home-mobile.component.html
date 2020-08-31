@@ -1,0 +1,49 @@
+<nb-card [formGroup]="rangeForm">
+  <nb-card-body>
+    <div  class="container-range__card-mobile">
+      <nb-form-field>
+        <input
+          fieldSize="medium"
+          formControlName="where"
+          nbInput
+          fullWidth
+          shape="semi-round"
+          type="text"
+          placeholder="Where"
+          [nbAutocomplete]="autoControl" />
+        <nb-autocomplete #autoControl>
+          <nb-option *ngFor="let option of filteredControlOptions$ | async" [value]="option">
+            {{ option }}
+          </nb-option>
+        </nb-autocomplete>
+      </nb-form-field>
+
+      <nb-select  fullWidth
+                  shape="semi-round" formControlName="formHour" placeholder="From">
+        <nb-option [value]="option"
+                   *ngFor="let option of filteredControlOptions$ | async">
+          {{ option }}
+        </nb-option>
+
+      </nb-select>
+      <nb-form-field>
+        <input fullWidth
+               shape="semi-round"
+               formControlName="range"
+               nbInput placeholder="From to Until"
+               [nbDatepicker]="formpicker">
+        <nb-rangepicker  format="DD-MM-YYYY" #formpicker></nb-rangepicker>
+      </nb-form-field>
+      <nb-select fullWidth
+                 shape="semi-round" formControlName="untilHour" placeholder="Until">
+        <nb-option [value]="option"
+                   *ngFor="let option of filteredControlOptions$ | async">{{ option }}</nb-option>
+      </nb-select>
+      <button [disabled]="rangeForm.invalid" fullWidth  nbButton shape="rectangle"  status="primary">
+        <nb-icon icon="search-outline">
+        </nb-icon>
+        Search for cars
+      </button>
+    </div>
+  </nb-card-body>
+</nb-card>
