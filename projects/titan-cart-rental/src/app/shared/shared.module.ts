@@ -6,7 +6,7 @@ import {
   NbAutocompleteModule,
   NbButtonModule,
   NbCardModule,
-  NbDatepickerModule, NbFormFieldModule,
+  NbDatepickerModule, NbDialogModule, NbFormFieldModule,
   NbIconModule,
   NbInputModule,
   NbSelectModule
@@ -15,13 +15,26 @@ import {NbMomentDateModule} from '@nebular/moment';
 import {NbEvaIconsModule} from '@nebular/eva-icons';
 import { SearchBarHomeMobileComponent } from './components/search-bar-home-mobile/search-bar-home-mobile.component';
 import { SearchBarHomeDesktopComponent } from './components/search-bar-home-desktop/search-bar-home-desktop.component';
+import { SearchBarCarsListDesktopComponent } from './components/search-bar-cars-list-desktop/search-bar-cars-list-desktop.component';
+import { SearchBarCarsListMobileComponent } from './components/search-bar-cars-list-mobile/search-bar-cars-list-mobile.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SearchBarHeaderMobileComponent } from './components/shared/search-bar-header-mobile/search-bar-header-mobile.component';
 
 
 
 @NgModule({
-  declarations: [SearchBarComponent, SearchBarHomeMobileComponent, SearchBarHomeDesktopComponent],
+  declarations: [
+    SearchBarComponent,
+    SearchBarHomeMobileComponent,
+    SearchBarHomeDesktopComponent,
+    SearchBarCarsListDesktopComponent,
+    SearchBarCarsListMobileComponent,
+    HeaderComponent,
+    SearchBarHeaderMobileComponent],
   exports: [
-    SearchBarComponent
+    SearchBarComponent,
+    HeaderComponent,
+    SearchBarHeaderMobileComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +48,7 @@ import { SearchBarHomeDesktopComponent } from './components/search-bar-home-desk
     NbEvaIconsModule,
     NbIconModule,
     NbCardModule,
-    NbFormFieldModule
+    NbFormFieldModule,
   ]
 })
 export class SharedModule { }

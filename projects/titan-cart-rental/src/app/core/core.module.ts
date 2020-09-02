@@ -3,7 +3,7 @@ import {environment} from '@env/environment';
 import {AkitaNgDevtools} from '@datorama/akita-ngdevtools';
 import {AkitaNgRouterStoreModule} from '@datorama/akita-ng-router-store';
 import {NG_ENTITY_SERVICE_CONFIG} from '@datorama/akita-ng-entity-service';
-import {NbDatepickerModule} from '@nebular/theme';
+import {NbDatepickerModule, NbDialogModule} from '@nebular/theme';
 
 
 
@@ -12,7 +12,8 @@ import {NbDatepickerModule} from '@nebular/theme';
   imports: [
     environment.production ? [] : AkitaNgDevtools.forRoot(),
     AkitaNgRouterStoreModule.forRoot(),
-    NbDatepickerModule.forRoot()
+    NbDatepickerModule.forRoot(),
+    NbDialogModule.forRoot(),
   ],
   providers: [{ provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: 'https://jsonplaceholder.typicode.com' }}],
 })
