@@ -19,6 +19,7 @@ import { SearchBarCarsListDesktopComponent } from './components/search-bar-cars-
 import { SearchBarCarsListMobileComponent } from './components/search-bar-cars-list-mobile/search-bar-cars-list-mobile.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SearchBarHeaderMobileComponent } from './components/shared/search-bar-header-mobile/search-bar-header-mobile.component';
+import { HeaderMenuComponent } from './components/header-menu/header-menu.component';
 
 
 
@@ -30,7 +31,8 @@ import { SearchBarHeaderMobileComponent } from './components/shared/search-bar-h
     SearchBarCarsListDesktopComponent,
     SearchBarCarsListMobileComponent,
     HeaderComponent,
-    SearchBarHeaderMobileComponent],
+    SearchBarHeaderMobileComponent,
+    HeaderMenuComponent],
   exports: [
     SearchBarComponent,
     HeaderComponent,

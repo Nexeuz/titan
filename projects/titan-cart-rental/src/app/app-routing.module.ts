@@ -11,7 +11,10 @@ const routes: Routes = [
       {
         path: '',
         component: HomeComponent,
-
+      },
+      {
+        path: 'search-cars/:id',
+        loadChildren: () => import('./modules/car-search/car-search.module').then(m => m.CarSearchModule)
       }
     ]
   }
