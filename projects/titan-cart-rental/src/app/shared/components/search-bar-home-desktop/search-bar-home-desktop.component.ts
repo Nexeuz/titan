@@ -11,6 +11,8 @@ import {FormGroup} from '@angular/forms';
 export class SearchBarHomeDesktopComponent implements OnInit {
    @Input() filteredControlOptions$: Observable<string[]>;
    @Input() rangeForm: FormGroup;
+   @Input() fromHours: Array<any>;
+   @Input() untilHour: Array<any>;
   constructor() { }
 
   ngOnInit(): void {

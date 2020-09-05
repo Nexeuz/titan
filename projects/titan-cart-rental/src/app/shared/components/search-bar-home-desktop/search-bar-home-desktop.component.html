@@ -12,21 +12,16 @@
     </nb-option>
   </nb-autocomplete>
   <nb-select formControlName="formHour" placeholder="From">
-    <nb-option>From</nb-option>
-    <nb-option value="0">Option 0</nb-option>
-    <nb-option value="1">Option 1</nb-option>
-    <nb-option value="2">Option 2</nb-option>
-    <nb-option value="3">Option 3</nb-option>
-    <nb-option value="4">Option 4</nb-option>
+    <nb-option *ngFor="let hour of fromHours" [value]="hour">
+      {{hour}}
+    </nb-option>
   </nb-select>
   <input  formControlName="range" nbInput placeholder="Pick Date Range" [nbDatepicker]="formpicker">
   <nb-rangepicker format="DD-MM-YYYY" #formpicker></nb-rangepicker>
   <nb-select class="input-right" formControlName="untilHour" placeholder="Until">
-    <nb-option value="0">Option 0</nb-option>
-    <nb-option value="1">Option 1</nb-option>
-    <nb-option value="2">Option 2</nb-option>
-    <nb-option value="3">Option 3</nb-option>
-    <nb-option value="4">Option 4</nb-option>
+    <nb-option *ngFor="let hour of untilHour" [value]="hour">
+      {{hour}}
+    </nb-option>
   </nb-select>
 
   <button [disabled]="rangeForm.invalid" class="container-range__btn-search-desktop" nbButton shape="round"  status="primary">

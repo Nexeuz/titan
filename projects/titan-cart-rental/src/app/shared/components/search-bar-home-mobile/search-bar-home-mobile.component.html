@@ -21,7 +21,7 @@
       <nb-select  fullWidth
                   shape="semi-round" formControlName="formHour" placeholder="From">
         <nb-option [value]="option"
-                   *ngFor="let option of filteredControlOptions$ | async">
+                   *ngFor="let option of fromHours">
           {{ option }}
         </nb-option>
 
@@ -37,7 +37,7 @@
       <nb-select fullWidth
                  shape="semi-round" formControlName="untilHour" placeholder="Until">
         <nb-option [value]="option"
-                   *ngFor="let option of filteredControlOptions$ | async">{{ option }}</nb-option>
+                   *ngFor="let option of untilHour">{{ option }}</nb-option>
       </nb-select>
       <button [disabled]="rangeForm.invalid" fullWidth  nbButton shape="rectangle"  status="primary">
         <nb-icon icon="search-outline">

@@ -17,6 +17,7 @@ import {SearchBarHeaderDesktopComponent} from '../search-bar-header-desktop/sear
 import {Router} from '@angular/router';
 import {SearchBarHeaderMobileComponent} from '../search-bar-header-mobile/search-bar-header-mobile.component';
 import {SearchBarHomeMobileComponent} from '../search-bar-home-mobile/search-bar-home-mobile.component';
+import {hours} from '../../../core/mock/hours';
 
 export type ComponentsLayoutTypes = Type<SearchBarHomeDesktopComponent>  |
   Type<SearchBarHeaderDesktopComponent>;
@@ -65,6 +66,8 @@ export class SearchBarComponent implements OnInit {
     const componentRef = this.viewContainer.createComponent(factory);
     (componentRef.instance).filteredControlOptions$ = this.filteredControlOptions$;
     (componentRef.instance).rangeForm = this.rangeForm;
+    (componentRef.instance).fromHours = hours();
+    (componentRef.instance).untilHour = hours();
   }
 
   renderComponentsLayout(): void {
