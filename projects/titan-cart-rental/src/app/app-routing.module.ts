@@ -5,18 +5,12 @@ import {AppComponent} from './app.component';
 
 const routes: Routes = [
   {
-    component: AppComponent,
-    path: '',
-    children: [
-      {
-        path: '',
-        component: HomeComponent,
-      },
-      {
-        path: 'search-cars/:id',
-        loadChildren: () => import('./modules/car-search/car-search.module').then(m => m.CarSearchModule)
-      }
-    ]
+    component: HomeComponent,
+    path: ''
+  },
+  {
+    path: 'cars-search',
+    loadChildren: () => import('./modules/car-search/car-search.module').then(m => m.CarSearchModule)
   }
 ];
 

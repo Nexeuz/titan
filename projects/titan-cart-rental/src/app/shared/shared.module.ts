@@ -15,11 +15,10 @@ import {NbMomentDateModule} from '@nebular/moment';
 import {NbEvaIconsModule} from '@nebular/eva-icons';
 import { SearchBarHomeMobileComponent } from './components/search-bar-home-mobile/search-bar-home-mobile.component';
 import { SearchBarHomeDesktopComponent } from './components/search-bar-home-desktop/search-bar-home-desktop.component';
-import { SearchBarCarsListDesktopComponent } from './components/search-bar-cars-list-desktop/search-bar-cars-list-desktop.component';
-import { SearchBarCarsListMobileComponent } from './components/search-bar-cars-list-mobile/search-bar-cars-list-mobile.component';
 import { HeaderComponent } from './components/header/header.component';
-import { SearchBarHeaderMobileComponent } from './components/shared/search-bar-header-mobile/search-bar-header-mobile.component';
-import { HeaderMenuComponent } from './components/header-menu/header-menu.component';
+import { SearchBarHeaderMobileComponent } from './components/search-bar-header-mobile/search-bar-header-mobile.component';
+import { SearchBarHeaderDesktopComponent } from './components/search-bar-header-desktop/search-bar-header-desktop.component';
+import { HeaderHomeMenuComponent } from './components/header-home-menu/header-home-menu.component';
 
 
 
@@ -28,15 +27,13 @@ import { HeaderMenuComponent } from './components/header-menu/header-menu.compon
     SearchBarComponent,
     SearchBarHomeMobileComponent,
     SearchBarHomeDesktopComponent,
-    SearchBarCarsListDesktopComponent,
-    SearchBarCarsListMobileComponent,
     HeaderComponent,
     SearchBarHeaderMobileComponent,
-    HeaderMenuComponent],
+    SearchBarHeaderDesktopComponent,
+    HeaderHomeMenuComponent],
   exports: [
-    SearchBarComponent,
     HeaderComponent,
-    SearchBarHeaderMobileComponent
+    SearchBarComponent
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {FormGroup} from '@angular/forms';
 
@@ -9,8 +9,8 @@ import {FormGroup} from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchBarHomeDesktopComponent implements OnInit {
-  filteredControlOptions$: Observable<string[]>;
-  rangeForm: FormGroup;
+   @Input() filteredControlOptions$: Observable<string[]>;
+   @Input() rangeForm: FormGroup;
   constructor() { }
 
   ngOnInit(): void {

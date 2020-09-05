@@ -12,8 +12,14 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Observable, of} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {ResponsiveUtilsService} from '../../../core/services/responsive-utils/responsive-utils.service';
-import {SearchBarHomeMobileComponent} from '../search-bar-home-mobile/search-bar-home-mobile.component';
 import {SearchBarHomeDesktopComponent} from '../search-bar-home-desktop/search-bar-home-desktop.component';
+import {SearchBarHeaderDesktopComponent} from '../search-bar-header-desktop/search-bar-header-desktop.component';
+import {Router} from '@angular/router';
+import {SearchBarHeaderMobileComponent} from '../search-bar-header-mobile/search-bar-header-mobile.component';
+import {SearchBarHomeMobileComponent} from '../search-bar-home-mobile/search-bar-home-mobile.component';
+
+export type ComponentsLayoutTypes = Type<SearchBarHomeDesktopComponent>  |
+  Type<SearchBarHeaderDesktopComponent>;
 
 @Component({
   selector: 'titan-search-bar',
@@ -33,6 +39,7 @@ export class SearchBarComponent implements OnInit {
               public responsiveUtils: ResponsiveUtilsService,
               private cd: ChangeDetectorRef,
               private injector: Injector,
+              private router: Router,
               private resolver: ComponentFactoryResolver) {
     this.createForm();
   }
@@ -48,20 +55,26 @@ export class SearchBarComponent implements OnInit {
         map(filterString => this.filter(filterString)),
       );
 
-    this.switchComponent();
+    this.renderComponentsLayout();
   }
 
-  switchComponent(): void {
-    return this.responsiveUtils.lgMin ? this.renderMobileOrDesktop(SearchBarHomeDesktopComponent)
-      : this.renderMobileOrDesktop(SearchBarHomeMobileComponent);
-  }
 
-  renderMobileOrDesktop(component: Type<SearchBarHomeDesktopComponent> | Type<SearchBarHomeMobileComponent>): void {
+  renderDataComponents(component: ComponentsLayoutTypes): void {
     this.viewContainer.clear();
     const factory = this.resolver.resolveComponentFactory(component);
     const componentRef = this.viewContainer.createComponent(factory);
-    (componentRef.instance).filteredControlOptions$  = this.filteredControlOptions$;
-    (componentRef.instance).rangeForm  = this.rangeForm;
+    (componentRef.instance).filteredControlOptions$ = this.filteredControlOptions$;
+    (componentRef.instance).rangeForm = this.rangeForm;
+  }
+
+  renderComponentsLayout(): void {
+    if (this.responsiveUtils.lgMin && this.router.url.includes('cars-search')) {
+      this.renderDataComponents(SearchBarHeaderDesktopComponent);
+    } else if (this.responsiveUtils.lgMin) {
+      this.renderDataComponents(SearchBarHomeDesktopComponent);
+    } else {
+      this.renderDataComponents(SearchBarHomeMobileComponent);
+    }
   }
 
 
@@ -69,7 +82,7 @@ export class SearchBarComponent implements OnInit {
     this.rangeForm = this.fb.group(
       {
         where: ['', [Validators.required]],
-        formHour: ['',  [Validators.required]],
+        formHour: ['', [Validators.required]],
         range: ['', [Validators.required]],
         untilHour: ['', [Validators.required]]
       }
@@ -78,11 +91,9 @@ export class SearchBarComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   resize(): void {
-    this.switchComponent();
+    this.renderComponentsLayout();
     this.cd.markForCheck();
   }
-
-
 
 
   private filter(value: string): string[] {
