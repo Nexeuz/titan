@@ -1,0 +1,11 @@
+.header-home-menu {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  a {
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 700;
+  }
+
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {car} from '../../core/mock/car';
 
 @Component({
   selector: 'titan-car-search',
@@ -8,8 +9,9 @@ import {Router} from '@angular/router';
 })
 export class CarSearchComponent implements OnInit {
 
+    data = car();
+
   constructor(private router: Router) {
-    console.log(this.router.url)
   }
 
   ngOnInit(): void {

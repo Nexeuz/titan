@@ -1,0 +1,31 @@
+.bg-logo {
+  position: fixed;
+  width: 100%;
+  height: auto;
+  top: 0;
+  left: 0;
+  z-index: 0;
+
+}
+
+
+.home-container-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  position: relative;
+  z-index: 99999;
+
+  h1 {
+    font-size: 3rem;
+    max-width: 33vw;
+  }
+}
+
+.home-container-search-bar {
+  position:absolute;
+  top: -20px;
+  text-align: center;
+  width: 97%;
+
+}

@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'titan-search-bar-home-desktop',
@@ -13,9 +14,12 @@ export class SearchBarHomeDesktopComponent implements OnInit {
    @Input() rangeForm: FormGroup;
    @Input() fromHours: Array<any>;
    @Input() untilHour: Array<any>;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  doSearch(): void {
+    this.router.navigate(['cars-search']);
+  }
 }

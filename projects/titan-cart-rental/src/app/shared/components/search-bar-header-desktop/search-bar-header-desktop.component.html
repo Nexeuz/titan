@@ -1,5 +1,4 @@
-<ng-container [formGroup]="rangeForm">
-  Where
+<div class="container-search-bar" [formGroup]="rangeForm">
   <input
     class="input-left"
     formControlName="where"
@@ -12,19 +11,16 @@
       {{ option }}
     </nb-option>
   </nb-autocomplete>
-  From Hour
   <nb-select formControlName="formHour" placeholder="From">
     <nb-option *ngFor="let hour of fromHours" [value]="hour">
       {{hour}}
     </nb-option>
   </nb-select>
-  From to Until
   <input  formControlName="range" nbInput placeholder="Pick Date Range" [nbDatepicker]="formpicker">
   <nb-rangepicker format="DD-MM-YYYY" #formpicker></nb-rangepicker>
-  Until Hour
   <nb-select class="input-right" formControlName="untilHour" placeholder="Until">
     <nb-option *ngFor="let hour of untilHour" [value]="hour">
       {{hour}}
     </nb-option>
   </nb-select>
-</ng-container>
+</div>
