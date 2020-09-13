@@ -39,7 +39,12 @@
         <nb-option [value]="option"
                    *ngFor="let option of untilHour">{{ option }}</nb-option>
       </nb-select>
-      <button [disabled]="rangeForm.invalid" fullWidth  nbButton shape="rectangle"  status="primary">
+      <button [disabled]="rangeForm.invalid"
+              type="submit"
+              fullWidth
+              nbButton
+              shape="rectangle"
+              status="primary">
         <nb-icon icon="search-outline">
         </nb-icon>
         Search for cars

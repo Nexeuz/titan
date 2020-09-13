@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Observable, of} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import {map, startWith, tap} from 'rxjs/operators';
 import {ResponsiveUtilsService} from '../../../core/services/responsive-utils/responsive-utils.service';
 import {SearchBarHomeDesktopComponent} from '../search-bar-home-desktop/search-bar-home-desktop.component';
 import {SearchBarHeaderDesktopComponent} from '../search-bar-header-desktop/search-bar-header-desktop.component';
@@ -18,9 +18,10 @@ import {Router} from '@angular/router';
 import {SearchBarHeaderMobileComponent} from '../search-bar-header-mobile/search-bar-header-mobile.component';
 import {SearchBarHomeMobileComponent} from '../search-bar-home-mobile/search-bar-home-mobile.component';
 import {hours} from '../../../core/mock/hours';
+import {UserService} from '../../../core/state/user/user.service';
 
 export type ComponentsLayoutTypes = Type<SearchBarHomeDesktopComponent>  |
-  Type<SearchBarHeaderDesktopComponent>;
+  Type<SearchBarHeaderDesktopComponent> | Type<SearchBarHomeMobileComponent>;
 
 @Component({
   selector: 'titan-search-bar',
@@ -30,7 +31,7 @@ export type ComponentsLayoutTypes = Type<SearchBarHomeDesktopComponent>  |
 })
 export class SearchBarComponent implements OnInit {
   rangeForm: FormGroup;
-  options: string[];
+  cities: string[];
   filteredControlOptions$: Observable<string[]>;
   value: string;
 
@@ -41,14 +42,16 @@ export class SearchBarComponent implements OnInit {
               private cd: ChangeDetectorRef,
               private injector: Injector,
               private router: Router,
+              private userService: UserService,
               private resolver: ComponentFactoryResolver) {
     this.createForm();
   }
 
   ngOnInit(): void {
+    this.listenFormValueChanges();
 
-    this.options = ['Option 1', 'Option 2', 'Option 3'];
-    this.filteredControlOptions$ = of(this.options);
+    this.cities = ['Gwangju'];
+    this.filteredControlOptions$ = of(this.cities);
 
     this.filteredControlOptions$ = this.rangeForm.get('where').valueChanges
       .pipe(
@@ -80,6 +83,17 @@ export class SearchBarComponent implements OnInit {
     }
   }
 
+  listenFormValueChanges(): void {
+    this.rangeForm
+      .valueChanges
+      .pipe(
+        tap(it => {
+          console.log(it);
+        })
+      )
+      .subscribe();
+  }
+
 
   createForm(): void {
     this.rangeForm = this.fb.group(
@@ -101,7 +115,17 @@ export class SearchBarComponent implements OnInit {
 
   private filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-    return this.options.filter(optionValue => optionValue.toLowerCase().includes(filterValue));
+    return this.cities.filter(optionValue => optionValue.toLowerCase().includes(filterValue));
   }
 
+  submit(): void {
+    this.userService.dispatchUserValueForm( {
+      city: this.rangeForm.get('where').value,
+      select: 'model',
+      bkdt: `${this.rangeForm.get('range').value.start.format('YYYY-MM-DD')}-${this.rangeForm.get('range').value.end.format('YYYY-MM-DD')}`,
+      untilHour: this.rangeForm.get('untilHour').value,
+      fromHour: this.rangeForm.get('formHour').value
+    });
+    this.router.navigate(['cars-search']);
+  }
 }

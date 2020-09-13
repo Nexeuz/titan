@@ -6,7 +6,6 @@ import {
   Injector,
   ViewChild,
   ViewContainerRef,
-  ViewEncapsulation
 } from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
 import {filter, tap} from 'rxjs/operators';
@@ -14,6 +13,7 @@ import {SearchBarComponent} from './shared/components/search-bar/search-bar.comp
 import {HeaderHomeMenuComponent} from './shared/components/header-home-menu/header-home-menu.component';
 import {SearchBarHeaderMobileComponent} from './shared/components/search-bar-header-mobile/search-bar-header-mobile.component';
 import {ResponsiveUtilsService} from './core/services/responsive-utils/responsive-utils.service';
+import {GetCarsService} from './core/state/get-cars/get-cars.service';
 
 @Component({
   selector: 'titan-root',
@@ -27,6 +27,7 @@ export class AppComponent implements  AfterViewInit {
   constructor(private resolver: ComponentFactoryResolver,
               private injector: Injector,
               private router: Router,
+              private getCars: GetCarsService,
               private responsive: ResponsiveUtilsService) {
   }
 
@@ -41,7 +42,6 @@ export class AppComponent implements  AfterViewInit {
       factory = this.resolver.resolveComponentFactory(SearchBarHeaderMobileComponent);
     } else  {
       factory = this.resolver.resolveComponentFactory(HeaderHomeMenuComponent);
-
     }
     this.viewContainer.createComponent(factory);
   }

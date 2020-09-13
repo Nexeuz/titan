@@ -4,6 +4,7 @@ import { UserStore, UserState } from './user.store';
 
 @Injectable({ providedIn: 'root' })
 export class UserQuery extends Query<UserState> {
+  userKey$ = this.store._select(it => it.userKey);
 
   constructor(protected store: UserStore) {
     super(store);

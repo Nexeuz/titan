@@ -24,7 +24,11 @@
     </nb-option>
   </nb-select>
 
-  <button (click)="doSearch()" [disabled]="rangeForm.invalid" class="container-range__btn-search-desktop" nbButton shape="round"  status="primary">
+  <button  type="submit"
+          [disabled]="rangeForm.invalid"
+          class="container-range__btn-search-desktop"
+          nbButton shape="round"
+          status="primary">
     <nb-icon icon="search-outline">
     </nb-icon>
   </button>

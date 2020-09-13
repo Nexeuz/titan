@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {FormGroup} from '@angular/forms';
+import {FormGroup, Validators} from '@angular/forms';
+import {UserService} from '../../../core/state/user/user.service';
+import {tap} from 'rxjs/operators';
 
 @Component({
   selector: 'titan-search-bar-header-desktop',
@@ -13,11 +15,30 @@ export class SearchBarHeaderDesktopComponent implements OnInit {
   @Input() rangeForm: FormGroup;
   @Input() fromHours: Array<any>;
   @Input() untilHour: Array<any>;
-  constructor() { }
 
-  ngOnInit(): void {
+  constructor(private userService: UserService) {
   }
 
+  setFormValue(): void {
+    this.userService.userQuery.select(it => it)
+      .pipe(
+        tap(it => {
+          if (it.ui) {
+            this.rangeForm.patchValue({
+              where: it.ui.city,
+              formHour: it.ui.fromHour,
+              //range: it.ui.bkdt,
+              untilHour: it.ui.untilHour
+            });
+          }
+        })
+      ).subscribe();
+  }
+
+
+  ngOnInit(): void {
+    this.setFormValue();
+  }
 
 
 }

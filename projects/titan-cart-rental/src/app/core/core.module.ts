@@ -1,10 +1,9 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 import {environment} from '@env/environment';
 import {AkitaNgDevtools} from '@datorama/akita-ngdevtools';
 import {AkitaNgRouterStoreModule} from '@datorama/akita-ng-router-store';
 import {NG_ENTITY_SERVICE_CONFIG} from '@datorama/akita-ng-entity-service';
 import {NbDatepickerModule, NbDialogModule, NbThemeModule} from '@nebular/theme';
-
 
 
 @NgModule({
@@ -14,8 +13,15 @@ import {NbDatepickerModule, NbDialogModule, NbThemeModule} from '@nebular/theme'
     AkitaNgRouterStoreModule.forRoot(),
     NbDatepickerModule.forRoot(),
     NbDialogModule.forRoot(),
-    NbThemeModule.forRoot({ name: 'corporate' })
+    NbThemeModule.forRoot({name: 'corporate'})
   ],
-  providers: [{ provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: 'https://jsonplaceholder.typicode.com' }}],
+  providers: [
+    {
+      provide: NG_ENTITY_SERVICE_CONFIG, useValue: {
+        baseUrl: `${environment.host}`
+      }
+    }
+  ],
 })
-export class CoreModule { }
+export class CoreModule {
+}

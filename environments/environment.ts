@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  host: 'http://181.59.120.30/tamra/',
+  host: 'http://181.59.120.30/tamra',
 
 };
 

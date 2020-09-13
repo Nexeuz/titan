@@ -19,7 +19,5 @@ export class SearchBarHomeDesktopComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  doSearch(): void {
-    this.router.navigate(['cars-search']);
-  }
+
 }
