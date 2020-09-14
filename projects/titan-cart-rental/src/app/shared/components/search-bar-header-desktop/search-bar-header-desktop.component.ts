@@ -27,7 +27,7 @@ export class SearchBarHeaderDesktopComponent implements OnInit {
             this.rangeForm.patchValue({
               where: it.ui.city,
               formHour: it.ui.fromHour,
-              //range: it.ui.bkdt,
+              range: it.ui.bkdt,
               untilHour: it.ui.untilHour
             });
           }

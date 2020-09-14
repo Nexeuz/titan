@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store, StoreConfig } from '@datorama/akita';
+import {Moment} from 'moment';
 
 export interface UserState {
    userKey: string;
@@ -8,7 +9,10 @@ export interface UserState {
 
 export interface  UserFormSelected {
   select: string;
-  bkdt: string;
+  bkdt: {
+    start: Moment,
+    end: Moment
+  };
   city: string;
   untilHour: string;
   fromHour: string;

@@ -90,8 +90,7 @@ export class SearchBarComponent implements OnInit {
         tap(it => {
           console.log(it);
         })
-      )
-      .subscribe();
+      ).subscribe();
   }
 
 
@@ -122,7 +121,10 @@ export class SearchBarComponent implements OnInit {
     this.userService.dispatchUserValueForm( {
       city: this.rangeForm.get('where').value,
       select: 'model',
-      bkdt: `${this.rangeForm.get('range').value.start.format('YYYY-MM-DD')}-${this.rangeForm.get('range').value.end.format('YYYY-MM-DD')}`,
+      bkdt: {
+        start: this.rangeForm.get('range').value.start,
+        end: this.rangeForm.get('range').value.end
+      },
       untilHour: this.rangeForm.get('untilHour').value,
       fromHour: this.rangeForm.get('formHour').value
     });
