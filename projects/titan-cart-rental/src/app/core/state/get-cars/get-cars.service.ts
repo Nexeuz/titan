@@ -6,6 +6,7 @@ import {HttpParams} from '@angular/common/http';
 import {take, tap} from 'rxjs/operators';
 import {Car} from './get-car.model';
 import {Observable} from 'rxjs';
+import {RouterQuery} from '@datorama/akita-ng-router-store';
 
 @NgEntityServiceConfig({
   resourceName: 'admincars/carlist.php',
@@ -15,8 +16,11 @@ export class GetCarsService extends NgEntityService<GetCarsState> {
 
 
   constructor(protected store: GetCarsStore,
-              private userQuery: UserQuery) {
+              private userQuery: UserQuery,
+              private routerQuery: RouterQuery) {
     super(store);
+    this.routerQuery.selectParams()
+      .subscribe(console.log)
   }
 
   getCars(select = 'models', bkdt = '2020-01-01:2020-02-03', city = 'Gwangju'): Observable<Car[]> {
@@ -29,7 +33,7 @@ export class GetCarsService extends NgEntityService<GetCarsState> {
     return this.get<Car[]>('', {params})
       .pipe(
         tap(it => {
-          this.store.set(it);
+          this.store.set(it); // todo we cannot set params without id, that is the reason for what we do that
         })
       );
   }

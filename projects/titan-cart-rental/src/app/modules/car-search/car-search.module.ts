@@ -5,10 +5,11 @@ import { CarSearchRoutingModule } from './car-search-routing.module';
 import { CarSearchComponent } from './car-search.component';
 import { CardCarComponent } from './components/card-car/card-car.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { CardCarSkeletonComponent } from './components/card-car-skeleton/card-car-skeleton.component';
 
 
 @NgModule({
-  declarations: [CarSearchComponent, CardCarComponent],
+  declarations: [CarSearchComponent, CardCarComponent, CardCarSkeletonComponent],
   imports: [
     CommonModule,
     CarSearchRoutingModule,

@@ -4,10 +4,11 @@ import {CarSearchComponent} from './car-search.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':select/:bkdt/:city/:from/:until',
     component: CarSearchComponent
   }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

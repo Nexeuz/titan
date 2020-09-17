@@ -20,7 +20,7 @@ import {SearchBarHomeMobileComponent} from '../search-bar-home-mobile/search-bar
 import {hours} from '../../../core/mock/hours';
 import {UserService} from '../../../core/state/user/user.service';
 
-export type ComponentsLayoutTypes = Type<SearchBarHomeDesktopComponent>  |
+export type ComponentsLayoutTypes = Type<SearchBarHomeDesktopComponent> |
   Type<SearchBarHeaderDesktopComponent> | Type<SearchBarHomeMobileComponent>;
 
 @Component({
@@ -111,14 +111,8 @@ export class SearchBarComponent implements OnInit {
     this.cd.markForCheck();
   }
 
-
-  private filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return this.cities.filter(optionValue => optionValue.toLowerCase().includes(filterValue));
-  }
-
   submit(): void {
-    this.userService.dispatchUserValueForm( {
+    this.userService.dispatchUserValueForm({
       city: this.rangeForm.get('where').value,
       select: 'model',
       bkdt: {
@@ -128,6 +122,17 @@ export class SearchBarComponent implements OnInit {
       untilHour: this.rangeForm.get('untilHour').value,
       fromHour: this.rangeForm.get('formHour').value
     });
-    this.router.navigate(['cars-search']);
+    this.router.navigate(['cars-search',
+      this.rangeForm.get('where').value,
+      'model',
+      `${this.rangeForm.get('range').value.start.format('DD-MM-YYYY')}-${this.rangeForm.get('range').value.end.format('DD-MM-YYYY')}`,
+      this.rangeForm.get('formHour').value,
+      this.rangeForm.get('untilHour').value
+    ]);
+  }
+
+  private filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return this.cities.filter(optionValue => optionValue.toLowerCase().includes(filterValue));
   }
 }
