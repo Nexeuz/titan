@@ -6,7 +6,7 @@ import {
   HostListener,
   Inject,
   Injector,
-  OnInit, ViewChild, ViewContainerRef, Type
+  OnInit, ViewChild, ViewContainerRef, Type, OnDestroy
 } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Observable, of} from 'rxjs';
@@ -15,7 +15,6 @@ import {ResponsiveUtilsService} from '../../../core/services/responsive-utils/re
 import {SearchBarHomeDesktopComponent} from '../search-bar-home-desktop/search-bar-home-desktop.component';
 import {SearchBarHeaderDesktopComponent} from '../search-bar-header-desktop/search-bar-header-desktop.component';
 import {Router} from '@angular/router';
-import {SearchBarHeaderMobileComponent} from '../search-bar-header-mobile/search-bar-header-mobile.component';
 import {SearchBarHomeMobileComponent} from '../search-bar-home-mobile/search-bar-home-mobile.component';
 import {hours} from '../../../core/mock/hours';
 import {UserService} from '../../../core/state/user/user.service';
@@ -45,9 +44,11 @@ export class SearchBarComponent implements OnInit {
               private userService: UserService,
               private resolver: ComponentFactoryResolver) {
     this.createForm();
+
   }
 
   ngOnInit(): void {
+
     this.listenFormValueChanges();
 
     this.cities = ['Gwangju'];
@@ -61,6 +62,8 @@ export class SearchBarComponent implements OnInit {
 
     this.renderComponentsLayout();
   }
+
+
 
 
   renderDataComponents(component: ComponentsLayoutTypes): void {
@@ -132,7 +135,7 @@ export class SearchBarComponent implements OnInit {
   }
 
   private filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
+    const filterValue = value?.toLowerCase();
     return this.cities.filter(optionValue => optionValue.toLowerCase().includes(filterValue));
   }
 }

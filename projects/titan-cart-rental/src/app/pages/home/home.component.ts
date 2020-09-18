@@ -1,4 +1,5 @@
-import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, OnInit} from '@angular/core';
+import { ChangeDetectionStrategy,
+  ChangeDetectorRef, Component, DoCheck, OnInit } from '@angular/core';
 
 @Component({
   selector: 'titan-home',
