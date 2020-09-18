@@ -4,7 +4,6 @@ import {car} from '../../core/mock/car';
 import {GetCarsService} from '../../core/state/get-cars/get-cars.service';
 import {Observable} from 'rxjs';
 import {Car} from '../../core/state/get-cars/get-car.model';
-import {UserService} from '../../core/state/user/user.service';
 
 @Component({
   selector: 'titan-car-search',
@@ -18,31 +17,18 @@ export class CarSearchComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
   constructor(private router: Router,
-              private carsService: GetCarsService,
-              private userService: UserService,
-              private ngZone: NgZone) {
+              private carsService: GetCarsService) {
   }
 
   ngOnInit(): void {
-
     this.data$ = this.carsService.getCars();
-
   }
 
   ngAfterViewInit(): void {
-    this.ngZone.runOutsideAngular(it => {
-      this.userService.userStore.update(state => (
-        {...state, ui: {isHeaderWhite: true}}
-      ));
-    });
+
   }
 
   ngOnDestroy(): void {
-    this.ngZone.runOutsideAngular(it => {
-      this.userService.userStore.update(state => (
-        {...state, ui: {isHeaderWhite: false}}
-      ));
-    });
 
   }
 

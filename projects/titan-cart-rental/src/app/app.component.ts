@@ -7,7 +7,7 @@ import {
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
-import {NavigationEnd, Router} from '@angular/router';
+import {NavigationEnd, Route, Router} from '@angular/router';
 import {filter, tap} from 'rxjs/operators';
 import {SearchBarComponent} from './shared/components/search-bar/search-bar.component';
 import {HeaderHomeMenuComponent} from './shared/components/header-home-menu/header-home-menu.component';
@@ -26,10 +26,7 @@ export class AppComponent implements  AfterViewInit, DoCheck {
   @ViewChild('viewContainer', {read: ViewContainerRef, static: true}) viewContainer: ViewContainerRef;
   @ViewChild('img') img: HTMLImageElement;
 
-  isHeaderWhite$: Observable<boolean> =  this.userService.userQuery.select(it => it.ui?.isHeaderWhite)
-    .pipe(
-      tap(it => this.cd.detectChanges())
-    );
+  isHeaderWhite$: Observable<boolean> =  this.userService.userQuery.select(it => it.ui?.isHeaderWhite);
 
   constructor(private resolver: ComponentFactoryResolver,
               private injector: Injector,
@@ -42,7 +39,6 @@ export class AppComponent implements  AfterViewInit, DoCheck {
   }
 
   ngDoCheck(): void {
-    this.cd.detectChanges();
   }
 
 
@@ -63,7 +59,14 @@ export class AppComponent implements  AfterViewInit, DoCheck {
     this.router.events
       .pipe(
         filter(it => it instanceof NavigationEnd ),
-        tap(it => this.toggleComponents())
+        tap(it => this.toggleComponents()),
+        tap(it => this.toggleHeaderColor(this.router.url.includes('cars-search')))
       ).subscribe();
+  }
+
+  toggleHeaderColor(value: boolean): void {
+    this.userService.userStore.update(state => (
+      {...state, ui: {isHeaderWhite: value}}
+    ));
   }
 }
