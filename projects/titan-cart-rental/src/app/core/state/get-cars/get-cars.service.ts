@@ -7,6 +7,8 @@ import {take, tap} from 'rxjs/operators';
 import {Car} from './get-car.model';
 import {Observable} from 'rxjs';
 import {RouterQuery} from '@datorama/akita-ng-router-store';
+import {applyTransaction} from '@datorama/akita';
+import {GetCarsQuery} from './get-cars.query';
 
 @NgEntityServiceConfig({
   resourceName: 'admincars/carlist.php',
@@ -14,16 +16,17 @@ import {RouterQuery} from '@datorama/akita-ng-router-store';
 @Injectable({providedIn: 'root'})
 export class GetCarsService extends NgEntityService<GetCarsState> {
 
-
+  loading$ = this.getCarsQuery.selectLoading();
   constructor(protected store: GetCarsStore,
               private userQuery: UserQuery,
+              private getCarsQuery: GetCarsQuery,
               private routerQuery: RouterQuery) {
     super(store);
-    this.routerQuery.selectParams()
-      .subscribe(console.log)
+    /* this.routerQuery.selectParams* .subscribe(console.log) **/
   }
 
   getCars(select = 'models', bkdt = '2020-01-01:2020-02-03', city = 'Gwangju'): Observable<Car[]> {
+    this.store.setLoading(true);
     const params = new HttpParams().set(
       'token', `${  this.userQuery.getValue().userKey}`,
     ).set('select', select)
@@ -33,7 +36,10 @@ export class GetCarsService extends NgEntityService<GetCarsState> {
     return this.get<Car[]>('', {params})
       .pipe(
         tap(it => {
-          this.store.set(it); // todo we cannot set params without id, that is the reason for what we do that
+          applyTransaction(() => {
+            this.store.setLoading(false);
+            this.store.set(it); // todo we cannot set params without id, that is the reason for what we do that
+          });
         })
       );
   }

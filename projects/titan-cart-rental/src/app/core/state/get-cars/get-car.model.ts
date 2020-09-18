@@ -1,6 +1,7 @@
 
 
 export interface Car {
+  itemid: string;
   idescription: string;
   u_units: string;
   isale: string;
@@ -17,9 +18,10 @@ export interface Car {
   cargroup: string;
   tdescription: string;
   image?: string | null;
-  features: string;
+  features?: (string)[] | null;
   stock: string;
 }
+
 
 
 export function createGetCar(params: Partial<Car>) {

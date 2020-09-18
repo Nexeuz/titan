@@ -1,4 +1,30 @@
-<titan-card-car-skeleton>
-</titan-card-car-skeleton>
-
+<nb-card>
+  <nb-card-body>
+    <div class="card-car-container">
+      <img class="card-car-container__image" alt="car image" [src]="servImage + data.image">
+      <h3 class="card-car-container__title">{{ data.idescription }}</h3>
+      <p class="card-car-container__units">
+        <strong>Units:</strong>
+        {{ data.u_units }}
+      </p>
+      <p class="card-car-container__units">
+        <strong>Seats:</strong>
+        {{ data.cseats }}
+      </p>
+      <div class="card-car-container__badges">
+        <button
+          *ngFor="let badge of data.features | slice: 0:4"
+          nbButton
+          size="tiny">
+          {{badge}}
+        </button>
+      </div>
+    </div>
+  </nb-card-body>
+  <nb-card-footer>
+    <div class="card-footer">
+      {{ data.isale | currency:'USD'}} USD
+    </div>
+  </nb-card-footer>
+</nb-card>
 

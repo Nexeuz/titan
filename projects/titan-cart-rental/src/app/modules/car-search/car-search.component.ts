@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {car} from '../../core/mock/car';
-import {GetCarsStore} from '../../core/state/get-cars/get-cars.store';
 import {GetCarsService} from '../../core/state/get-cars/get-cars.service';
+import {Observable} from 'rxjs';
+import {Car} from '../../core/state/get-cars/get-car.model';
 
 @Component({
   selector: 'titan-car-search',
@@ -11,15 +12,15 @@ import {GetCarsService} from '../../core/state/get-cars/get-cars.service';
 })
 export class CarSearchComponent implements OnInit {
 
-    data = car();
+    data$: Observable<Car[]>;
+    loading$: Observable<boolean> = this.carsService.loading$;
 
   constructor(private router: Router,
               private carsService: GetCarsService) {
   }
 
   ngOnInit(): void {
-    this.carsService.getCars()
-      .subscribe();
+    this.data$ = this.carsService.getCars();
   }
 
 }

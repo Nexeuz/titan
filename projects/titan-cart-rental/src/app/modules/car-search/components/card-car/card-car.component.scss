@@ -1,0 +1,32 @@
+@import "../../../../../themes";
+.card-car-container {
+  display: flex;
+  flex-direction: column;
+
+  &__image {
+    width: 100%;
+    height: auto;
+  }
+  &__title {
+    font-size: 1.5rem;
+    color: $color-000000;
+  }
+
+  &__units {
+   color: $color-000000;
+  }
+
+  &__badges {
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+.card-footer {
+  display: flex;
+  font-weight: 700;
+  font-size: 1.3rem;
+  justify-content: flex-end;
+}
