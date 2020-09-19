@@ -9,7 +9,8 @@ import {
   NbDatepickerModule, NbDialogModule, NbFormFieldModule,
   NbIconModule,
   NbInputModule,
-  NbSelectModule
+  NbSelectModule,
+  NbLayoutModule
 } from '@nebular/theme';
 import {NbMomentDateModule} from '@nebular/moment';
 import {NbEvaIconsModule} from '@nebular/eva-icons';
@@ -19,6 +20,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SearchBarHeaderMobileComponent } from './components/search-bar-header-mobile/search-bar-header-mobile.component';
 import { SearchBarHeaderDesktopComponent } from './components/search-bar-header-desktop/search-bar-header-desktop.component';
 import { HeaderHomeMenuComponent } from './components/header-home-menu/header-home-menu.component';
+import { BenefitsComponent } from './components/benefits/benefits.component';
 
 
 
@@ -30,10 +32,12 @@ import { HeaderHomeMenuComponent } from './components/header-home-menu/header-ho
     HeaderComponent,
     SearchBarHeaderMobileComponent,
     SearchBarHeaderDesktopComponent,
-    HeaderHomeMenuComponent],
+    HeaderHomeMenuComponent,
+    BenefitsComponent],
   exports: [
     HeaderComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    BenefitsComponent
   ],
   imports: [
     CommonModule,
@@ -48,6 +52,7 @@ import { HeaderHomeMenuComponent } from './components/header-home-menu/header-ho
     NbIconModule,
     NbCardModule,
     NbFormFieldModule,
+    NbLayoutModule,
   ]
 })
 export class SharedModule { }

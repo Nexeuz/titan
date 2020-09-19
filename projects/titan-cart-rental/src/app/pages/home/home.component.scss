@@ -1,5 +1,5 @@
 .bg-logo {
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: auto;
   top: 0;
@@ -28,4 +28,16 @@
   text-align: center;
   width: 97%;
 
+}
+
+.home-container-benefits {
+  position:absolute;
+  text-align: center;
+  top: 1006px;
+  width: 97%;
+}
+
+.tamra-kr {
+  position: fixed;
+  opacity: 1;
 }
