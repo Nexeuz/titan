@@ -26,9 +26,8 @@ export class SearchBarHomeDesktopComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
   }
 
-  ngAfterViewInit() {
-    debugger
-    this.rangeForm.get('range').setValue({start: moment(), end: moment().add(1, 'day')});
+  ngAfterViewInit(): void {
+/*    this.rangeForm.get('range').setValue({start: moment(), end: moment().add(1, 'day')});
     let isStart = true;
     this.dateService.compareDates = (date1: Moment, date2: unknown) => {
       let inputVal: Moment;
@@ -41,7 +40,7 @@ export class SearchBarHomeDesktopComponent implements OnInit, AfterViewInit {
       }
       return date1 === inputVal ? 0 : date1 > inputVal ? 1 : -1;
     };
-    this.tomorrow = this.dateService.createDate(2020, 9, 18);
+    this.tomorrow = this.dateService.createDate(2020, 9, 18);*/
 
   }
 
