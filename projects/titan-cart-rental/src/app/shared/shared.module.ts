@@ -11,7 +11,7 @@ import {
   NbInputModule,
   NbSelectModule
 } from '@nebular/theme';
-import {NbMomentDateModule} from '@nebular/moment';
+import {NbMomentDateModule, NbMomentDateService} from '@nebular/moment';
 import {NbEvaIconsModule} from '@nebular/eva-icons';
 import { SearchBarHomeMobileComponent } from './components/search-bar-home-mobile/search-bar-home-mobile.component';
 import { SearchBarHomeDesktopComponent } from './components/search-bar-home-desktop/search-bar-home-desktop.component';

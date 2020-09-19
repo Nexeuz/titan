@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 import {FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../../core/state/user/user.service';
 import {tap} from 'rxjs/operators';
+import * as moment from 'moment';
 
 @Component({
   selector: 'titan-search-bar-header-desktop',
@@ -15,6 +16,8 @@ export class SearchBarHeaderDesktopComponent implements OnInit {
   @Input() rangeForm: FormGroup;
   @Input() fromHours: Array<any>;
   @Input() untilHour: Array<any>;
+
+  tomorrow = moment();
 
   constructor(private userService: UserService) {
   }

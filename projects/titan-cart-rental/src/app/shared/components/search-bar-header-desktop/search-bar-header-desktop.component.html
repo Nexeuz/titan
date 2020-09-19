@@ -17,7 +17,7 @@
     </nb-option>
   </nb-select>
   <input  formControlName="range" nbInput placeholder="Pick Date Range" [nbDatepicker]="formpicker">
-  <nb-rangepicker format="DD-MM-YYYY" #formpicker></nb-rangepicker>
+  <nb-rangepicker format="DD-MM-YYYY" [min]="tomorrow" #formpicker></nb-rangepicker>
   <nb-select class="input-right" formControlName="untilHour" placeholder="Until">
     <nb-option *ngFor="let hour of untilHour" [value]="hour">
       {{hour}}

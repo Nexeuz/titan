@@ -128,7 +128,7 @@ export class SearchBarComponent implements OnInit {
     this.router.navigate(['cars-search',
       this.rangeForm.get('where').value,
       'model',
-      `${this.rangeForm.get('range').value.start.format('DD-MM-YYYY')}-${this.rangeForm.get('range').value.end.format('DD-MM-YYYY')}`,
+      `${this.rangeForm.get('range').value.start.format('DD-MM-YYYY')}:${this.rangeForm.get('range').value.end.format('DD-MM-YYYY')}`,
       this.rangeForm.get('formHour').value,
       this.rangeForm.get('untilHour').value
     ]);

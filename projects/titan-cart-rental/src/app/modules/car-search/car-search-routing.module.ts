@@ -4,7 +4,7 @@ import {CarSearchComponent} from './car-search.component';
 
 const routes: Routes = [
   {
-    path: ':select/:bkdt/:city/:from/:until',
+    path: ':city/:select/:bkdt/:from/:until',
     component: CarSearchComponent
   }
 ];

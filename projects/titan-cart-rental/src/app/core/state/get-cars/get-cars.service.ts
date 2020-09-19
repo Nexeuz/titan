@@ -19,10 +19,8 @@ export class GetCarsService extends NgEntityService<GetCarsState> {
   loading$ = this.getCarsQuery.selectLoading();
   constructor(protected store: GetCarsStore,
               private userQuery: UserQuery,
-              private getCarsQuery: GetCarsQuery,
-              private routerQuery: RouterQuery) {
+              private getCarsQuery: GetCarsQuery) {
     super(store);
-    /* this.routerQuery.selectParams* .subscribe(console.log) **/
   }
 
   getCars(select = 'models', bkdt = '2020-01-01:2020-02-03', city = 'Gwangju'): Observable<Car[]> {

@@ -66,7 +66,7 @@ export class AppComponent implements  AfterViewInit, DoCheck {
 
   toggleHeaderColor(value: boolean): void {
     this.userService.userStore.update(state => (
-      {...state, ui: {isHeaderWhite: value}}
+      {...state, ui: {...state.ui, isHeaderWhite: value} }
     ));
   }
 }

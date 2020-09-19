@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {UserQuery} from './user.query';
 import {UserFormSelected, UserStore} from './user.store';
+import {RouterQuery} from '@datorama/akita-ng-router-store';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,8 @@ import {UserFormSelected, UserStore} from './user.store';
 export class UserService {
 
   constructor(public userQuery: UserQuery,
-              public userStore: UserStore) {
+              public userStore: UserStore,
+              public routerQuery: RouterQuery) {
 
   }
 

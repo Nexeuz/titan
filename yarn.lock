@@ -1108,20 +1108,20 @@
     merge-source-map "^1.1.0"
     schema-utils "^2.6.4"
 
-"@nebular/eva-icons@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@nebular/eva-icons/-/eva-icons-6.0.0.tgz#b15ada983a1e8a55df534754810b592dcc962f65"
-  integrity sha512-uxN+DV9OQBupvFzai3amufmZZ8YxlkXYotSf/VCW1+gxaCy+p/eRV/8aSwU3KtMKzCld3bTTVCikh274m4XRIQ==
+"@nebular/eva-icons@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@nebular/eva-icons/-/eva-icons-6.1.0.tgz#a687b28e9d74e8e649ffc43211c8e64e66a1bc60"
+  integrity sha512-C+jFmVs6uwcVRleeKMBaThd8R6GAfUmkpUD0fGlCZ0ZN3a+kP4buxlPYyGVy1tYdMRs1w6MnN0vw1f1S5QUY4g==
 
-"@nebular/moment@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@nebular/moment/-/moment-6.0.0.tgz#c57aac297c2f1d547138aad2fc9943836368913b"
-  integrity sha512-jz/oo9PEKWM0/OgxOd+hveASNJ5SEjuTwrcigSao3MA6UcAyatRWSyyshVsGzVSr9mLzcIuE3pKQet9hKKc8ug==
+"@nebular/moment@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@nebular/moment/-/moment-6.1.0.tgz#3fdc579a0c91e99d6578eb6a0164faf4cc83662c"
+  integrity sha512-Ya3q/xnfkc6V16nbyu8xdf04KX2yW9vT75lLk6AE6YIRuFqboV/R23Xo2rAEGrHfvSr8rUBlkXRRYEqmCsKguA==
 
-"@nebular/theme@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@nebular/theme/-/theme-6.0.0.tgz#ef5ee6c7a91340ca626ca3e945c621684dea2024"
-  integrity sha512-1yq0PHRrAX9LufOzsecZX/CfBWUYJxZkaCP1eO7LjZ92OHiHHzigWG/hHjz3GU/gzpxRUn/6BUQYrJiens3kJg==
+"@nebular/theme@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@nebular/theme/-/theme-6.1.0.tgz#6bdb23923182134022bb49cac2199590c3c8943d"
+  integrity sha512-EVCPLgYXb+OHdGnJ3ScVWzy/DZ3Us9Y+9xnvRDqZGoMRptAWgXHWYGWFMF9brVEUFToeucVwOnwSwby11ufjwA==
   dependencies:
     intersection-observer "0.7.0"
 
