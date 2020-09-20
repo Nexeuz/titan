@@ -6,7 +6,7 @@ import {
   HostListener,
   Inject,
   Injector,
-  OnInit, ViewChild, ViewContainerRef, Type, OnDestroy
+  OnInit, ViewChild, ViewContainerRef, Type, OnDestroy, Input, AfterViewInit
 } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Observable, of} from 'rxjs';
@@ -18,9 +18,10 @@ import {Router} from '@angular/router';
 import {SearchBarHomeMobileComponent} from '../search-bar-home-mobile/search-bar-home-mobile.component';
 import {hours} from '../../../core/mock/hours';
 import {UserService} from '../../../core/state/user/user.service';
+import {SearchBarCarsSearchComponent} from '../search-bar-cars-search/search-bar-cars-search.component';
 
 export type ComponentsLayoutTypes = Type<SearchBarHomeDesktopComponent> |
-  Type<SearchBarHeaderDesktopComponent> | Type<SearchBarHomeMobileComponent>;
+  Type<SearchBarHeaderDesktopComponent> | Type<SearchBarHomeMobileComponent>  | Type<SearchBarCarsSearchComponent>;
 
 @Component({
   selector: 'titan-search-bar',
@@ -28,11 +29,13 @@ export type ComponentsLayoutTypes = Type<SearchBarHomeDesktopComponent> |
   styleUrls: ['./search-bar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SearchBarComponent implements OnInit {
+export class SearchBarComponent implements OnInit, AfterViewInit {
   rangeForm: FormGroup;
-  cities: string[];
-  filteredControlOptions$: Observable<string[]>;
   value: string;
+  @Input() carsSearchDetail = false;
+  cities = ['Gwangju'];
+  filteredControlOptions$ = of(this.cities);
+
 
   @ViewChild('viewContainer', {read: ViewContainerRef, static: true}) viewContainer: ViewContainerRef;
 
@@ -48,35 +51,43 @@ export class SearchBarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.renderComponentsLayout();
 
     this.listenFormValueChanges();
 
-    this.cities = ['Gwangju'];
-    this.filteredControlOptions$ = of(this.cities);
 
     this.filteredControlOptions$ = this.rangeForm.get('where').valueChanges
       .pipe(
-        startWith(''),
         map(filterString => this.filter(filterString)),
       );
 
-    this.renderComponentsLayout();
   }
 
-
+  ngAfterViewInit(): void {
+  }
 
 
   renderDataComponents(component: ComponentsLayoutTypes): void {
-    this.viewContainer.clear();
-    const factory = this.resolver.resolveComponentFactory(component);
-    const componentRef = this.viewContainer.createComponent(factory);
-    (componentRef.instance).filteredControlOptions$ = this.filteredControlOptions$;
-    (componentRef.instance).rangeForm = this.rangeForm;
-    (componentRef.instance).fromHours = hours();
-    (componentRef.instance).untilHour = hours();
+      setTimeout(() => { // hard coded due to change detection
+        if (this.viewContainer) {
+          this.viewContainer.clear();
+          const factory = this.resolver.resolveComponentFactory(component);
+          const componentRef = this.viewContainer.createComponent(factory);
+          (componentRef.instance).filteredControlOptions$ = this.filteredControlOptions$;
+          (componentRef.instance).rangeForm = this.rangeForm;
+          (componentRef.instance).fromHours = hours();
+          (componentRef.instance).untilHour = hours();
+          this.cd.detectChanges();
+        }
+      }, 0);
+
   }
 
   renderComponentsLayout(): void {
+    if (this.carsSearchDetail) {
+      this.renderDataComponents(SearchBarCarsSearchComponent);
+      return;
+    }
     if (this.responsiveUtils.lgMin && this.router.url.includes('cars-search')) {
       this.renderDataComponents(SearchBarHeaderDesktopComponent);
     } else if (this.responsiveUtils.lgMin) {

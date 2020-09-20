@@ -1,11 +1,12 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {NbDialogService} from '@nebular/theme';
 
 @Component({
   selector: 'titan-search-bar-header-mobile',
   templateUrl: './search-bar-header-mobile.component.html',
   styleUrls: ['./search-bar-header-mobile.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 
 })
 export class SearchBarHeaderMobileComponent implements OnInit {

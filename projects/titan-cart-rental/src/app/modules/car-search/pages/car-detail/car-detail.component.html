@@ -1,1 +1,28 @@
-<titan-car-gallery></titan-car-gallery>
+<nb-card>
+  <nb-card-body>
+    <titan-car-gallery [image]="(carInfo$ | async)?.image"></titan-car-gallery>
+
+    <div class="container-car-detail">
+      <div class="container-car-detail__badges-description">
+        <h3>{{ (carInfo$ | async).idescription }}</h3>
+        <div class="container-car-detail__badges-container">
+          <button
+            status="basic"
+            *ngFor="let badge of (carInfo$ | async).features"
+            nbButton
+            size="tiny">
+            {{badge}}
+          </button>
+        </div>
+      </div>
+      <div class="container-car-detail__border"></div>
+      <div class="container-car-detail__price">
+        <h4 >{{ (carInfo$ | async).isale | currency:(carInfo$ | async).icurrency:'₩' }}</h4>
+        <p><strong>{{ (carInfo$ | async).isale  / 24 | currency:(carInfo$ | async).icurrency:'₩' }}</strong> / day</p>
+        <titan-search-bar  [carsSearchDetail]="true">
+        </titan-search-bar>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
+

@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {FormGroup, Validators} from '@angular/forms';
+import {FormGroup} from '@angular/forms';
 import {UserService} from '../../../core/state/user/user.service';
 import {tap} from 'rxjs/operators';
 import * as moment from 'moment';
@@ -8,7 +8,8 @@ import * as moment from 'moment';
 @Component({
   selector: 'titan-search-bar-header-desktop',
   templateUrl: './search-bar-header-desktop.component.html',
-  styleUrls: ['./search-bar-header-desktop.component.scss']
+  styleUrls: ['./search-bar-header-desktop.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchBarHeaderDesktopComponent implements OnInit {
 
@@ -30,7 +31,7 @@ export class SearchBarHeaderDesktopComponent implements OnInit {
             this.rangeForm.patchValue({
               where: it.ui.city,
               formHour: it.ui.fromHour,
-              range: it.ui.bkdt,
+             // range: it.ui.bkdt,
               untilHour: it.ui.untilHour
             });
           }

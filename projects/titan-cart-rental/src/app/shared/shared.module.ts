@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
   NbAutocompleteModule,
   NbButtonModule,
@@ -19,6 +19,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { SearchBarHeaderMobileComponent } from './components/search-bar-header-mobile/search-bar-header-mobile.component';
 import { SearchBarHeaderDesktopComponent } from './components/search-bar-header-desktop/search-bar-header-desktop.component';
 import { HeaderHomeMenuComponent } from './components/header-home-menu/header-home-menu.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { SearchBarCarsSearchComponent } from './components/search-bar-cars-search/search-bar-cars-search.component';
+import { HeaderHomeCarsSearchComponent } from './components/header-home-cars-search/header-home-cars-search.component';
 
 
 
@@ -30,10 +33,14 @@ import { HeaderHomeMenuComponent } from './components/header-home-menu/header-ho
     HeaderComponent,
     SearchBarHeaderMobileComponent,
     SearchBarHeaderDesktopComponent,
-    HeaderHomeMenuComponent],
+    HeaderHomeMenuComponent,
+    CarouselComponent,
+    SearchBarCarsSearchComponent,
+    HeaderHomeCarsSearchComponent],
   exports: [
     HeaderComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    CarouselComponent
   ],
   imports: [
     CommonModule,
@@ -48,6 +55,7 @@ import { HeaderHomeMenuComponent } from './components/header-home-menu/header-ho
     NbIconModule,
     NbCardModule,
     NbFormFieldModule,
+    FormsModule,
   ]
 })
 export class SharedModule { }

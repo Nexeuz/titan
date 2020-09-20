@@ -17,9 +17,9 @@ import {GetCarsQuery} from './get-cars.query';
 export class GetCarsService extends NgEntityService<GetCarsState> {
 
   loading$ = this.getCarsQuery.selectLoading();
-  constructor(protected store: GetCarsStore,
-              private userQuery: UserQuery,
-              private getCarsQuery: GetCarsQuery) {
+  constructor(public store: GetCarsStore,
+              public userQuery: UserQuery,
+              public getCarsQuery: GetCarsQuery) {
     super(store);
   }
 
