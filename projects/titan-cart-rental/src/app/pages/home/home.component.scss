@@ -1,3 +1,5 @@
+@import "../../../themes";
+
 .bg-logo {
   position: absolute;
   width: 100%;
@@ -16,9 +18,15 @@
   position: relative;
   z-index: 99999;
 
+
+  .subtitle {
+    color: $color-ffffff;
+  }
+
   h1 {
     font-size: 3rem;
     max-width: 33vw;
+    color: $color-ffffff;
   }
 }
 

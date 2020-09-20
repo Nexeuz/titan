@@ -8,14 +8,15 @@ export interface UserState {
 }
 
 export interface  UserFormSelected {
-  select: string;
-  bkdt: {
+  isHeaderWhite?: boolean;
+  select?: string;
+  bkdt?: {
     start: Moment,
     end: Moment
   };
-  city: string;
-  untilHour: string;
-  fromHour: string;
+  city?: string;
+  untilHour?: string;
+  fromHour?: string;
 }
 
 

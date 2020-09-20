@@ -1,0 +1,21 @@
+<div #divElement id="about-carousel-container">
+  <div titan-carousel
+       [items]="servImage"
+       [width]="divElement.clientWidth"
+       [$item]="itemTemplate"
+       [$prev]="prevTemplate"
+       [$next]="nextTemplate">
+  </div>
+  <ng-template #prevTemplate>
+   <nb-icon icon="arrow-ios-back-outline"></nb-icon>
+  </ng-template>
+
+  <ng-template #nextTemplate>
+    <nb-icon icon="arrow-ios-forward-outline"></nb-icon>
+  </ng-template>
+
+  <ng-template let-thumbnail #itemTemplate>
+        <img style="width: 100%;
+    object-fit: cover;"  [alt]="thumbnail" [src]="thumbnail">
+  </ng-template>
+</div>

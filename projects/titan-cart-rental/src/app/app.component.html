@@ -1,5 +1,5 @@
 <nb-layout>
-  <nb-layout-header>
+  <nb-layout-header [ngClass]="{'background-transparent': !(isHeaderWhite$ | async)}" fixed>
     <titan-header>
       <ng-container #viewContainer></ng-container>
     </titan-header>

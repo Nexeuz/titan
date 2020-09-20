@@ -3,7 +3,7 @@ import {GetCarsStore, GetCarsState} from './get-cars.store';
 import {NgEntityService, NgEntityServiceConfig} from '@datorama/akita-ng-entity-service';
 import {UserQuery} from '../user/user.query';
 import {HttpParams} from '@angular/common/http';
-import {take, tap} from 'rxjs/operators';
+import { tap} from 'rxjs/operators';
 import {Car} from './get-car.model';
 import {Observable} from 'rxjs';
 import {RouterQuery} from '@datorama/akita-ng-router-store';
@@ -17,12 +17,10 @@ import {GetCarsQuery} from './get-cars.query';
 export class GetCarsService extends NgEntityService<GetCarsState> {
 
   loading$ = this.getCarsQuery.selectLoading();
-  constructor(protected store: GetCarsStore,
-              private userQuery: UserQuery,
-              private getCarsQuery: GetCarsQuery,
-              private routerQuery: RouterQuery) {
+  constructor(public store: GetCarsStore,
+              public userQuery: UserQuery,
+              public getCarsQuery: GetCarsQuery) {
     super(store);
-    /* this.routerQuery.selectParams* .subscribe(console.log) **/
   }
 
   getCars(select = 'models', bkdt = '2020-01-01:2020-02-03', city = 'Gwangju'): Observable<Car[]> {
