@@ -11,7 +11,7 @@
           placeholder="Where"/>
       </nb-form-field>
       <nb-select  fullWidth
-                  shape="semi-round" formControlName="formHour" placeholder="From">
+                  shape="semi-round" formControlName="formHour" placeholder="From Hour">
         <nb-option [value]="option"
                    *ngFor="let option of fromHours">
           {{ option }}
@@ -27,7 +27,7 @@
         <nb-rangepicker  format="DD-MM-YYYY" #formpicker></nb-rangepicker>
       </nb-form-field>
       <nb-select fullWidth
-                 shape="semi-round" formControlName="untilHour" placeholder="Until">
+                 shape="semi-round" formControlName="untilHour" placeholder="Until hour">
         <nb-option [value]="option"
                    *ngFor="let option of untilHour">{{ option }}</nb-option>
       </nb-select>
