@@ -6,7 +6,9 @@ import {
   NbAutocompleteModule,
   NbButtonModule,
   NbCardModule,
-  NbDatepickerModule, NbDialogModule, NbFormFieldModule,
+  NbDatepickerModule,
+  NbDialogModule,
+  NbFormFieldModule,
   NbIconModule,
   NbInputModule,
   NbSelectModule,
@@ -36,14 +38,16 @@ import { HeaderHomeCarsSearchComponent } from './components/header-home-cars-sea
     SearchBarHeaderMobileComponent,
     SearchBarHeaderDesktopComponent,
     HeaderHomeMenuComponent,
-    BenefitsComponent],
+    CarouselComponent,
+    SearchBarCarsSearchComponent,
+    HeaderHomeCarsSearchComponent,
+    BenefitsComponent
+  ],
   exports: [
     HeaderComponent,
     SearchBarComponent,
-    BenefitsComponent,
     CarouselComponent,
-    SearchBarCarsSearchComponent,
-    HeaderHomeCarsSearchComponent
+    BenefitsComponent
   ],
   imports: [
     CommonModule,

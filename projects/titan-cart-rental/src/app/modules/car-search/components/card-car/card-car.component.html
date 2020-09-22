@@ -2,8 +2,10 @@
   <nb-card-body>
     <div
       class="card-car-container">
-      <img
-        class="card-car-container__image" alt="car image" [src]="servImage + data.image">
+      <div class="card-car-container__show">
+        <img
+          class="card-car-container__image" alt="car image" [src]="servImage + data.image">
+      </div>
       <h3
         class="card-car-container__title">{{ data.idescription }}</h3>
       <p

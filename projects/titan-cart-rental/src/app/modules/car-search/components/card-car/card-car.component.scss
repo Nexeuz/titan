@@ -1,4 +1,11 @@
 @import "../../../../../themes";
+nb-card{
+  margin-left: 10%;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 3px 4px 12px #00000029;
+  border-radius: 25px;
+  opacity: 1;
+}
 .card-car-container {
   display: flex;
   flex-direction: column;
@@ -8,8 +15,15 @@
     height: auto;
   }
   &__title {
-    font-size: 1.5rem;
-    color: $color-000000;
+    top: 686px;
+    left: 792px;
+    width: 302px;
+    height: 29px;
+    text-align: center;
+    font: normal normal 600 20px/95px Poppins;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
   }
 
   &__units {
