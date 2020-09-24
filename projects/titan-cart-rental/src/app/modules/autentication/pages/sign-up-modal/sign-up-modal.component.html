@@ -1,0 +1,29 @@
+<nb-card class="sign-up-modal">
+  <nb-card-body>
+    <h2>Let's get started</h2>
+    <form class="sign-up-modal__form" [formGroup]="form">
+      <label>
+        <input formControlName="firstName" type="text" nbInput placeholder="Name">
+      </label>
+      <label>
+        <input formControlName="lastName" type="text" nbInput placeholder="Last Name">
+      </label>
+      <label>
+        <input formControlName="email" type="email" nbInput placeholder="Email">
+      </label>
+      <label>
+        <input formControlName="password" type="password" nbInput placeholder="Confirm Password">
+      </label>
+      <nb-checkbox formControlName="terms">
+       I agree to the <a href="#">terms of service</a>
+      </nb-checkbox>
+      <button [disabled]="form.invalid"
+              nbButton size="large"
+              status="info">
+        Sign Up
+      </button>
+    </form>
+  <titan-open-modal-middleman [isLogin]="false">
+  </titan-open-modal-middleman>
+  </nb-card-body>
+</nb-card>

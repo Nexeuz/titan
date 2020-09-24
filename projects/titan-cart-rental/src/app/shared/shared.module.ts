@@ -3,16 +3,16 @@ import { CommonModule } from '@angular/common';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
-    NbAutocompleteModule,
-    NbButtonModule,
-    NbCardModule,
-    NbDatepickerModule,
-    NbDialogModule,
-    NbFormFieldModule,
-    NbIconModule,
-    NbInputModule,
-    NbSelectModule,
-    NbLayoutModule, NbListModule
+  NbAutocompleteModule,
+  NbButtonModule,
+  NbCardModule,
+  NbDatepickerModule,
+  NbDialogModule,
+  NbFormFieldModule,
+  NbIconModule,
+  NbInputModule,
+  NbSelectModule,
+  NbLayoutModule, NbListModule, NbMenuModule
 } from '@nebular/theme';
 import {NbMomentDateModule, NbMomentDateService} from '@nebular/moment';
 import {NbEvaIconsModule} from '@nebular/eva-icons';
@@ -26,6 +26,7 @@ import { BenefitsComponent } from './components/benefits/benefits.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { SearchBarCarsSearchComponent } from './components/search-bar-cars-search/search-bar-cars-search.component';
 import { HeaderHomeCarsSearchComponent } from './components/header-home-cars-search/header-home-cars-search.component';
+import {AutenticationModule} from '../modules/autentication/autentication.module';
 
 
 
@@ -49,22 +50,24 @@ import { HeaderHomeCarsSearchComponent } from './components/header-home-cars-sea
     CarouselComponent,
     BenefitsComponent
   ],
-    imports: [
-        CommonModule,
-        ReactiveFormsModule,
-        NbDatepickerModule,
-        NbMomentDateModule,
-        NbInputModule,
-        NbSelectModule,
-        NbAutocompleteModule,
-        NbButtonModule,
-        NbEvaIconsModule,
-        NbIconModule,
-        NbCardModule,
-        NbFormFieldModule,
-        NbLayoutModule,
-        FormsModule,
-        NbListModule,
-    ]
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    NbDatepickerModule,
+    NbMomentDateModule,
+    NbInputModule,
+    NbSelectModule,
+    NbAutocompleteModule,
+    NbButtonModule,
+    NbEvaIconsModule,
+    NbIconModule,
+    NbCardModule,
+    NbFormFieldModule,
+    NbLayoutModule,
+    FormsModule,
+    NbListModule,
+    AutenticationModule,
+    NbMenuModule
+  ]
 })
 export class SharedModule { }

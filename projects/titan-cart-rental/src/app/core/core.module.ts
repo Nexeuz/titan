@@ -3,7 +3,7 @@ import {environment} from '@env/environment';
 import {AkitaNgDevtools} from '@datorama/akita-ngdevtools';
 import {AkitaNgRouterStoreModule} from '@datorama/akita-ng-router-store';
 import {NG_ENTITY_SERVICE_CONFIG} from '@datorama/akita-ng-entity-service';
-import {NbDatepickerModule, NbDialogModule, NbThemeModule} from '@nebular/theme';
+import {NbDatepickerModule, NbDialogModule, NbMenuModule, NbThemeModule} from '@nebular/theme';
 
 
 @NgModule({
@@ -13,7 +13,8 @@ import {NbDatepickerModule, NbDialogModule, NbThemeModule} from '@nebular/theme'
     AkitaNgRouterStoreModule.forRoot(),
     NbDatepickerModule.forRoot(),
     NbDialogModule.forRoot(),
-    NbThemeModule.forRoot({name: 'corporate'})
+    NbThemeModule.forRoot({name: 'corporate'}),
+    NbMenuModule.forRoot()
   ],
   providers: [
     {

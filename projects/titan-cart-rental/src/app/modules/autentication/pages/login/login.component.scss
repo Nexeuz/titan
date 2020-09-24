@@ -1,0 +1,13 @@
+.sign-up-modal {
+  text-align: center;
+  &__form {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    button {
+      width: 100%;
+    }
+  }
+
+}

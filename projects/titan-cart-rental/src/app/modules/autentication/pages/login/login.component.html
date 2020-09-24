@@ -1,0 +1,20 @@
+<nb-card class="sign-up-modal">
+  <nb-card-body>
+    <h2>Welcome back</h2>
+    <form class="sign-up-modal__form" [formGroup]="form">
+      <label>
+        <input formControlName="email" type="email" nbInput placeholder="Email">
+      </label>
+      <label>
+        <input formControlName="password" autocomplete="current-password" type="password" nbInput placeholder="Password">
+      </label>
+      <button [disabled]="form.invalid"
+              nbButton size="large"
+              status="info">
+        Login
+      </button>
+    </form>
+    <titan-open-modal-middleman [isLogin]="true">
+    </titan-open-modal-middleman>
+  </nb-card-body>
+</nb-card>
