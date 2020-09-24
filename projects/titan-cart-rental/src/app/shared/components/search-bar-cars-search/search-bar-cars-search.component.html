@@ -31,6 +31,14 @@
         <nb-option [value]="option"
                    *ngFor="let option of untilHour">{{ option }}</nb-option>
       </nb-select>
+      <nb-list >
+        <nb-list-item class="space-between"  *ngFor="let item of actives$ | async">
+          {{ item.idescription }} <strong>{{ item.isale | currency: 'USD' }}</strong>
+        </nb-list-item>
+        <nb-list-item class="space-between"  >
+          <strong>Total:</strong> <strong>{{ sumTotalAddons$ | async }}</strong>
+        </nb-list-item>
+      </nb-list>
       <button [disabled]="rangeForm.invalid"
               type="submit"
               fullWidth
@@ -39,4 +47,5 @@
               status="primary">
         Continue
       </button>
+
     </div>

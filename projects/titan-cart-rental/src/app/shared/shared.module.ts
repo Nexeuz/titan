@@ -3,16 +3,16 @@ import { CommonModule } from '@angular/common';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
-  NbAutocompleteModule,
-  NbButtonModule,
-  NbCardModule,
-  NbDatepickerModule,
-  NbDialogModule,
-  NbFormFieldModule,
-  NbIconModule,
-  NbInputModule,
-  NbSelectModule,
-  NbLayoutModule
+    NbAutocompleteModule,
+    NbButtonModule,
+    NbCardModule,
+    NbDatepickerModule,
+    NbDialogModule,
+    NbFormFieldModule,
+    NbIconModule,
+    NbInputModule,
+    NbSelectModule,
+    NbLayoutModule, NbListModule
 } from '@nebular/theme';
 import {NbMomentDateModule, NbMomentDateService} from '@nebular/moment';
 import {NbEvaIconsModule} from '@nebular/eva-icons';
@@ -49,21 +49,22 @@ import { HeaderHomeCarsSearchComponent } from './components/header-home-cars-sea
     CarouselComponent,
     BenefitsComponent
   ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    NbDatepickerModule,
-    NbMomentDateModule,
-    NbInputModule,
-    NbSelectModule,
-    NbAutocompleteModule,
-    NbButtonModule,
-    NbEvaIconsModule,
-    NbIconModule,
-    NbCardModule,
-    NbFormFieldModule,
-    NbLayoutModule,
-    FormsModule,
-  ]
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        NbDatepickerModule,
+        NbMomentDateModule,
+        NbInputModule,
+        NbSelectModule,
+        NbAutocompleteModule,
+        NbButtonModule,
+        NbEvaIconsModule,
+        NbIconModule,
+        NbCardModule,
+        NbFormFieldModule,
+        NbLayoutModule,
+        FormsModule,
+        NbListModule,
+    ]
 })
 export class SharedModule { }

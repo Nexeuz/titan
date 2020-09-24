@@ -21,7 +21,7 @@
     "@angular/platform-browser-dynamic": "~10.0.5",
     "@angular/router": "~10.0.5",
     "@datorama/akita": "4.22.0",
-    "@datorama/akita-ng-entity-service": "^1.0.0",
+    "@datorama/akita-ng-entity-service": "^5.0.2",
     "@nebular/eva-icons": "^6.1.0",
     "@nebular/moment": "^6.1.0",
     "@nebular/theme": "^6.1.0",

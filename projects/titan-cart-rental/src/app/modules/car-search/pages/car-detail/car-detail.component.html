@@ -1,7 +1,6 @@
 <nb-card>
   <nb-card-body>
     <titan-car-gallery [image]="(carInfo$ | async)?.image"></titan-car-gallery>
-
     <div class="container-car-detail">
       <div class="container-car-detail__badges-description">
         <h3>{{ (carInfo$ | async).idescription }}</h3>
@@ -14,6 +13,8 @@
             {{badge}}
           </button>
         </div>
+        <titan-car-detail-addons class="container-car-detail__addons">
+        </titan-car-detail-addons>
       </div>
       <div class="container-car-detail__border"></div>
       <div class="container-car-detail__price">

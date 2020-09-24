@@ -6,23 +6,25 @@ import { CarSearchComponent } from './car-search.component';
 import { CardCarComponent } from './components/card-car/card-car.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { CardCarSkeletonComponent } from './components/card-car-skeleton/card-car-skeleton.component';
-import {NbButtonModule, NbCardModule, NbIconModule} from '@nebular/theme';
+import {NbButtonModule, NbCardModule, NbIconModule, NbListModule} from '@nebular/theme';
 import { CarDetailComponent } from './pages/car-detail/car-detail.component';
 import { CarGalleryComponent } from './components/car-gallery/car-gallery.component';
 import { CarListComponent } from './pages/car-list/car-list.component';
 import {SharedModule} from '../../shared/shared.module';
+import { CarDetailAddonsComponent } from './components/car-detail-addons/car-detail-addons.component';
 
 
 @NgModule({
-  declarations: [CarSearchComponent, CardCarComponent, CardCarSkeletonComponent, CarDetailComponent, CarGalleryComponent, CarListComponent],
-  imports: [
-    CommonModule,
-    CarSearchRoutingModule,
-    NgxSkeletonLoaderModule,
-    NbCardModule,
-    NbButtonModule,
-    SharedModule,
-    NbIconModule,
-  ]
+  declarations: [CarSearchComponent, CardCarComponent, CardCarSkeletonComponent, CarDetailComponent, CarGalleryComponent, CarListComponent, CarDetailAddonsComponent],
+    imports: [
+        CommonModule,
+        CarSearchRoutingModule,
+        NgxSkeletonLoaderModule,
+        NbCardModule,
+        NbButtonModule,
+        SharedModule,
+        NbIconModule,
+        NbListModule,
+    ]
 })
 export class CarSearchModule { }
