@@ -28,7 +28,7 @@ export class CardCarComponent implements OnInit {
     this.user
       .userQuery.userKey$
       .pipe(
-        tap(it => this.servImage = `${ environment.host }/admincars/carimage.php/?token=${ it }&img_id=`)
+        tap(it => this.servImage = `${ environment.host }/${ environment.hostImg }/?token=${ it }&img_id=`)
       ).subscribe();
   }
 

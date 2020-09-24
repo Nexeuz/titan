@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {AddonsService} from '../../../../core/state/addons/addons.service';
-import {combineLatest, Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 import {Addon} from '../../../../core/state/addons/addon.model';
-import {selectPersistStateInit} from '@datorama/akita';
-import {map, take} from 'rxjs/operators';
+import {map, switchMap} from 'rxjs/operators';
+import {environment} from '@env/environment';
+import {UserService} from '../../../../core/state/user/user.service';
+
 
 @Component({
   selector: 'titan-car-detail-addons',
@@ -11,8 +13,22 @@ import {map, take} from 'rxjs/operators';
   styleUrls: ['./car-detail-addons.component.scss']
 })
 export class CarDetailAddonsComponent implements OnInit {
-  addons$: Observable<Addon[]> = this.addons.addonsQuery.selectAll();
-  constructor(private addons: AddonsService) { }
+  addons$: Observable<Addon[]> = this.addons.addonsQuery.selectAll()
+    .pipe(
+      switchMap(it => {
+        return this.usersService.userQuery.userKey$
+          .pipe(
+            map(key => {
+              return it.map(img => {
+                return {...img,
+                  image: `${ environment.host }/${ environment.hostImg }?token=${ key }&img_id=${img.image}` };
+              });
+            })
+          );
+      })
+    );
+  constructor(private addons: AddonsService,
+              private usersService: UserService) { }
 
   ngOnInit(): void {
   this.addons.getCars()

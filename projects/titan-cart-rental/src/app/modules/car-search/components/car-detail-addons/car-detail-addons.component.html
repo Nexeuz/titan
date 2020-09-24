@@ -1,10 +1,13 @@
 <h4>Addons</h4>
 <nb-list>
   <nb-list-item *ngFor="let addon of addons$ | async">
-    <div  class="container-car-detail-addons-text">
-      <span>{{ addon.idescription }}</span>
+    <div class="container-car-detail">
+      <div class="container-car-detail__image-text">
+        <img height="auto" width="30" alt="addon thumbnail" [src]="addon.image">
+        <span>{{ addon.idescription }}</span>
+      </div>
         <button *ngIf="!addon?.added" (click)="updateEntity(addon)" nbButton size="small" status="info">Add</button>
-      <button *ngIf="addon?.added" (click)="removeEntity(addon)" nbButton size="small" status="danger">Remove</button>
+        <button *ngIf="addon?.added" (click)="removeEntity(addon)" nbButton size="small" status="danger">Remove</button>
     </div>
   </nb-list-item>
 </nb-list>

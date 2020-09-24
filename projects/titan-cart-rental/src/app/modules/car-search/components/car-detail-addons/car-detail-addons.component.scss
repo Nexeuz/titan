@@ -1,6 +1,12 @@
-.container-car-detail-addons-text {
+.container-car-detail {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  &__image-text {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
 }
+
