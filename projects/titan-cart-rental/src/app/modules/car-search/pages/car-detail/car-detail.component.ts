@@ -3,22 +3,42 @@ import {UserService} from '../../../../core/state/user/user.service';
 import {GetCarsService} from '../../../../core/state/get-cars/get-cars.service';
 import {Observable, pipe} from 'rxjs';
 import {Car} from '../../../../core/state/get-cars/get-car.model';
-import {share} from 'rxjs/operators';
+import {map, share, switchMap} from 'rxjs/operators';
 import {getEntityType} from '@datorama/akita';
 import {GetCarsState} from '../../../../core/state/get-cars/get-cars.store';
-
+import {AddonsService} from '../../../../core/state/addons/addons.service';
+import {Addon} from '../../../../core/state/addons/addon.model';
+import { environment } from '@env/environment';
 @Component({
   selector: 'titan-car-detail',
   templateUrl: './car-detail.component.html',
   styleUrls: ['./car-detail.component.scss']
 })
 export class CarDetailComponent implements OnInit {
-
+  actives$: Observable<Addon[]>;
+  sumTotalAddons$: Observable<number>;
   carInfo$: Observable<getEntityType<GetCarsState>[]> | Observable<getEntityType<GetCarsState>> = this.getCarsService.getCarsQuery.selectActive();
   constructor(private userService: UserService,
-              private getCarsService: GetCarsService) { }
+              private getCarsService: GetCarsService,
+              private addonsService: AddonsService) { }
 
   ngOnInit(): void {
+    this.actives$ = this.addonsService.addonsQuery.selectActive().pipe(
+      switchMap(it => {
+        return this.userService.userQuery.userKey$
+          .pipe(
+            map(key => {
+              return it.map(img => {
+                return {...img,
+                  image: `${ environment.host }/${ environment.hostImg }?token=${ key }&img_id=${img.image}` };
+              });
+            })
+          );
+      })
+    );;
+    this.sumTotalAddons$ = this.actives$.pipe(
+      map((it) => it.map(num => Number(num.isale)).reduce((curr, acc ) => curr + acc ))
+    );
   }
 
 }

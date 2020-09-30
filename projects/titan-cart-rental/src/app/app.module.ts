@@ -23,7 +23,7 @@ import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
     BrowserAnimationsModule,
     SharedModule,
     NbLayoutModule,
-    NbThemeModule.forRoot({name: 'corporate'})
+    NbThemeModule.forRoot({name: 'default'})
   ],
   bootstrap: [AppComponent]
 })

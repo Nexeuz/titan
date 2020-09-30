@@ -6,31 +6,21 @@
         <img
           class="card-car-container__image" alt="car image" [src]="servImage + data.image">
       </div>
-      <h3
-        class="card-car-container__title">{{ data.idescription }}</h3>
-      <p
-        class="card-car-container__units">
-        <strong>Units:</strong>
-        {{ data.u_units }}
-      </p>
-      <p
-        class="card-car-container__units">
-        <strong>Seats:</strong>
-        {{ data.cseats }}
-      </p>
-      <div class="card-car-container__badges">
-        <button
+      <p class="card-car-container__title">{{ data.idescription }}</p>
+      <p class="card-car-container__subtitle">{{ data.isale | currency:data.icurrency}} / Day</p>
+    </div>
+  </nb-card-body>
+  <nb-card-footer style="padding: 0rem 1.5rem !important;">
+    <div class="card-footer">
+      <div class="card-car-container__badges" *ngFor="let badge of data.features | slice: 0:4">
+        <!--<button
           *ngFor="let badge of data.features | slice: 0:4"
           nbButton
           size="tiny">
-            {{badge}}
-        </button>
+        </button>-->
+        <p class="card-car-container__badge">{{badge}}<p>
       </div>
-    </div>
-  </nb-card-body>
-  <nb-card-footer>
-    <div class="card-footer">
-      {{ data.isale | currency:'USD'}} USD
+      <!---->
     </div>
   </nb-card-footer>
 </nb-card>
