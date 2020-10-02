@@ -6,9 +6,10 @@ import {Car} from '../../../../core/state/get-cars/get-car.model';
 import {map, share, switchMap} from 'rxjs/operators';
 import {getEntityType} from '@datorama/akita';
 import {GetCarsState} from '../../../../core/state/get-cars/get-cars.store';
-import {AddonsService} from '../../../../core/state/addons/addons.service';
-import {Addon} from '../../../../core/state/addons/addon.model';
+import {AddonsService} from '../../../../core/state/cars/addons/addons.service';
+import {Addon} from '../../../../core/state/cars/addons/addon.model';
 import { environment } from '@env/environment';
+import {Router} from '@angular/router';
 @Component({
   selector: 'titan-car-detail',
   templateUrl: './car-detail.component.html',
@@ -20,7 +21,8 @@ export class CarDetailComponent implements OnInit {
   carInfo$: Observable<getEntityType<GetCarsState>[]> | Observable<getEntityType<GetCarsState>> = this.getCarsService.getCarsQuery.selectActive();
   constructor(private userService: UserService,
               private getCarsService: GetCarsService,
-              private addonsService: AddonsService) { }
+              private addonsService: AddonsService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.actives$ = this.addonsService.addonsQuery.selectActive().pipe(
@@ -35,10 +37,14 @@ export class CarDetailComponent implements OnInit {
             })
           );
       })
-    );;
+    );
     this.sumTotalAddons$ = this.actives$.pipe(
       map((it) => it.map(num => Number(num.isale)).reduce((curr, acc ) => curr + acc ))
     );
   }
 
+  navigateToCheckout(): void {
+    this.router.navigate(['checkout']);
+
+  }
 }

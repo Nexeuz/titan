@@ -5,7 +5,7 @@ import {Observable} from 'rxjs';
 import {HttpParams} from '@angular/common/http';
 import {tap} from 'rxjs/operators';
 import {applyTransaction, transaction} from '@datorama/akita';
-import {UserQuery} from '../user/user.query';
+import {UserQuery} from '../../user/user.query';
 import {Addon} from './addon.model';
 import {AddonsQuery} from './addons.query';
 @NgEntityServiceConfig({

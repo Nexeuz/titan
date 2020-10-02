@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AddonsService} from '../../../../core/state/addons/addons.service';
+import {AddonsService} from '../../../../core/state/cars/addons/addons.service';
 import { Observable } from 'rxjs';
-import {Addon} from '../../../../core/state/addons/addon.model';
+import {Addon} from '../../../../core/state/cars/addons/addon.model';
 import {map, switchMap} from 'rxjs/operators';
 import {environment} from '@env/environment';
 import {UserService} from '../../../../core/state/user/user.service';
