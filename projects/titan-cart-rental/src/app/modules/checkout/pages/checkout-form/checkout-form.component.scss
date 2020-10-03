@@ -1,0 +1,34 @@
+.container-checkout {
+  display: flex;
+  &__card-details {
+    flex: 25%;
+  }
+  &__form {
+    flex: 75%;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+
+    input {
+      max-width: 100%;
+    }
+
+    &__id {
+      display: flex;
+      gap: 10px;
+    }
+    &__names {
+      display: flex;
+      gap: 10px;
+    }
+    &__address {
+      display: flex;
+      gap: 10px;
+    }
+    &__contact {
+      display: flex;
+      gap: 10px;
+
+    }
+  }
+}

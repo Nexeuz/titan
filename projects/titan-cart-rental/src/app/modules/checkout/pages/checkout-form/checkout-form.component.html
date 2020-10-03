@@ -1,1 +1,86 @@
-<p>checkout-form works!</p>
+<div class="container-checkout">
+  <div class="container-checkout__card-details">
+    <titan-sub-total-card>
+      <titan-sub-total-card-title>Hello</titan-sub-total-card-title>
+      <titan-sub-total-card-column  *ngFor="let item of ['QTY', 'Rate', 'Subtotal']; last as last">
+        <h6 style="margin: 0" titanSubtotalHeader [last]="last">
+          {{item}}
+        </h6>
+      </titan-sub-total-card-column>
+    </titan-sub-total-card>
+  </div>
+  <form class="container-checkout__form" [formGroup]="form">
+    <div class="container-checkout__form__names">
+      <input fieldSize="large" placeholder="First name" formControlName="firstName" type="text" nbInput>
+      <input fieldSize="large" placeholder="Last name" formControlName="lastName" type="text" nbInput>
+    </div>
+    <div class="container-checkout__form__id">
+      <input fieldSize="large" placeholder="Korean or USSK licence number" formControlName="koreanLicence" type="text" nbInput>
+      <input fieldSize="large" placeholder="Expiration date" formControlName="expirationDate" type="text" nbInput>
+    </div>
+      <nb-select size="large" formControlName="country" placeholder="Select Showcase" >
+        <nb-option value="">Option empty</nb-option>
+        <nb-option value="0">Option 0</nb-option>
+        <nb-option value="1">Option 1</nb-option>
+        <nb-option value="2">Option 2</nb-option>
+        <nb-option value="3">Option 3</nb-option>
+        <nb-option value="4">Option 4</nb-option>
+      </nb-select>
+    <input fieldSize="large" placeholder="International driving permit (IDP) number" formControlName="expirationDate" type="text" nbInput>
+    <input fieldSize="large" placeholder="Passport /Korean ARC card" formControlName="passportOrKoreanCard" type="text" nbInput>
+    <input fieldSize="large" placeholder="Permanent resident card number number (OPTIONAL)" formControlName="permanentResident" type="text" nbInput>
+    <div class="container-checkout__form__address">
+      <input fieldSize="large" placeholder="Hotel name" formControlName="hotel" type="text" nbInput>
+      <input fieldSize="large" placeholder="Korean Home address / Hotel address" formControlName="hotel" type="text" nbInput>
+    </div>
+    <input fieldSize="large" nbInput placeholder="Date of birth" formControlName="dateOfBirth" [nbDatepicker]="dateTimePicker">
+    <nb-datepicker format="DD-MM-YYYY" #dateTimePicker></nb-datepicker>
+    <div class="container-checkout__form__contact">
+      <input fieldSize="large" placeholder="Phone (WhatsApp)" formControlName="phoneWhatsApp" type="number" nbInput>
+      <input fieldSize="large" placeholder="Email" formControlName="email" type="email" nbInput>
+    </div>
+    <input fieldSize="large" placeholder="Account username" formControlName="username" type="text" nbInput>
+    <input fieldSize="large" placeholder="Create account passwowrd" formControlName="accountPassword" type="password" nbInput>
+    <nb-radio-group formControlName="payment">
+      <nb-radio value="1">
+        <nb-card>
+          <nb-card-header>
+            Direct bank transfer - Korean bank only
+          </nb-card-header>
+          <nb-card-body>
+            <i>This option is for customers that cannot make payments via Paypal Checkout.
+              <br>Make your payment directly into our bank account.
+              <br>Please use your Order ID as the payment reference. Your car will not be booked until the funds have cleared in our account.</i>
+          </nb-card-body>
+        </nb-card>
+      </nb-radio>
+      <nb-radio value="2">
+        <nb-card>
+          <nb-card-header>
+            Pay with credit card
+          </nb-card-header>
+          <nb-card-body>
+            <i>Pay with credit cardSecure payment by credit card via PayPal, PayPal does not accept payments using Korean credit and debit/bank cards.<br> Please use Direct Bank Transfer option.</i>
+          </nb-card-body>
+        </nb-card>
+      </nb-radio>
+      <nb-radio value="3">
+        <nb-card>
+          <nb-card-header>
+            Pay with Smartro
+          </nb-card-header>
+          <nb-card-body>
+            <i>Pay with Smartro</i>
+          </nb-card-body>
+        </nb-card>
+      </nb-radio>
+    </nb-radio-group>
+    <p>
+      Your personal data will be used to process your order, support your experience throughout this website, an for other purposes described in your privacy policy.
+    </p>
+    <nb-checkbox formControlName="conditions">I have read and agree to the website terms and conditions</nb-checkbox>
+    <button nbButton appearance="outline">
+      Place order
+    </button>
+  </form>
+</div>

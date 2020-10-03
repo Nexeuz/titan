@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import * as moment from 'moment';
 
 @Component({
   selector: 'titan-checkout-form',
@@ -28,11 +29,12 @@ export class CheckoutFormComponent implements OnInit {
       permanentResident: ['', [Validators.required]],
       hotel: ['', [Validators.required]],
       koreanHome: ['', [Validators.required]],
-      dateOfBirth: ['', [Validators.required]],
+      dateOfBirth: [moment(), [Validators.required]],
       phoneWhatsApp: ['', [Validators.required]],
       email: ['', [Validators.email, Validators.required]],
       username: ['', [Validators.required]],
       accountPassword: ['', [Validators.required]],
+      payment: ['', [Validators.required]],
       conditions: ['', [Validators.required]]
     });
   }

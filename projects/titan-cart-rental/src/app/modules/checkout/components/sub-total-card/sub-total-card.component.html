@@ -1,0 +1,11 @@
+<nb-card>
+  <nb-card-body>
+    <ng-content select="titan-sub-total-card-title"></ng-content>
+    <div class="sub-total-card-column">
+      <ng-content #column select="titan-sub-total-card-column"></ng-content>
+    </div>
+    <ng-content select="titan-sub-total-card-rows"></ng-content>
+    <ng-content select="nb-card-footer"></ng-content>
+  </nb-card-body>
+</nb-card>
+
