@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import * as moment from 'moment';
+import {UserService} from '../../../../core/state/user/user.service';
+import {Observable} from 'rxjs';
+import {CarsFee} from '../../../../core/state/user/user.query';
+import {Addon} from '../../../../core/state/cars/addons/addon.model';
+import {AddonsService} from '../../../../core/state/cars/addons/addons.service';
+import {tap} from 'rxjs/operators';
 
 @Component({
   selector: 'titan-checkout-form',
@@ -10,11 +16,20 @@ import * as moment from 'moment';
 export class CheckoutFormComponent implements OnInit {
 
   form: FormGroup;
+  subtotalCarRentFee$: Observable<CarsFee[]>;
+  addons$: Observable<Addon[]>;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+              private userService: UserService,
+              private addons: AddonsService) { }
 
   ngOnInit(): void {
     this.createForm();
+    this.subtotalCarRentFee$ =   this.userService.userQuery.subtotalCarRentDaysFee$;
+    this.addons$ = this.addons.addonsQuery.actives$
+      .pipe(
+        tap(it => console.log(it))
+      );
   }
 
   createForm(): void {

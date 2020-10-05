@@ -12,10 +12,11 @@ import { CarGalleryComponent } from './components/car-gallery/car-gallery.compon
 import { CarListComponent } from './pages/car-list/car-list.component';
 import {SharedModule} from '../../shared/shared.module';
 import { CarDetailAddonsComponent } from './components/car-detail-addons/car-detail-addons.component';
+import { CarDetailInsuranceComponent } from './components/car-detail-insurance/car-detail-insurance.component';
 
 
 @NgModule({
-  declarations: [CarSearchComponent, CardCarComponent, CardCarSkeletonComponent, CarDetailComponent, CarGalleryComponent, CarListComponent, CarDetailAddonsComponent],
+  declarations: [CarSearchComponent, CardCarComponent, CardCarSkeletonComponent, CarDetailComponent, CarGalleryComponent, CarListComponent, CarDetailAddonsComponent, CarDetailInsuranceComponent],
     imports: [
         CommonModule,
         CarSearchRoutingModule,

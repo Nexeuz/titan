@@ -2,9 +2,35 @@
 
 @import '~@nebular/theme/styles/globals';
 
+@import 'https://fonts.googleapis.com/css?family=Source Serif Pro';
+@import 'https://fonts.googleapis.com/css?family=Poppins';
+
+
+.title-addons{
+  text-align: left !important;
+  font: normal normal 300 14px/23px Poppins !important;
+  letter-spacing: 1.12px !important;
+  color: #696969 !important;
+  opacity: 1 !important;
+}
+
+
+.button-add {
+    background-color: white !important;
+    border: 1px solid #E54300 !important;
+    border-radius: 71px !important;
+    opacity: 1 !important;
+    text-align: left !important;
+    font: normal normal bold 14px/21px Poppins !important;
+    letter-spacing: 0px !important;
+    color: #000000 !important;
+
+}
+
 @include nb-install() {
   @include nb-theme-global();
 };
+
 
 
 
@@ -13,7 +39,9 @@
   background-color: transparent !important;
 }
 
-
+.d-flex {
+  display: flex;
+}
 
 
 

@@ -25,6 +25,13 @@ $nb-themes: nb-register-theme((
 ), corporate, corporate);
 
 
+.title-addons{
+  text-align: left;
+  font: normal normal 300 14px/23px Poppins;
+  letter-spacing: 1.12px;
+  color: #696969;
+  opacity: 1;
+}
 
 /* Colors: */
 $color-ffffff: #FFFFFF;

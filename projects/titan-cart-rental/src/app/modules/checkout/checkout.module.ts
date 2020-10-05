@@ -17,11 +17,14 @@ import {
 } from '@nebular/theme';
 import {NbMomentDateModule} from '@nebular/moment';
 import { SubTotalCardComponent } from './components/sub-total-card/sub-total-card.component';
-import { SubtotalHeaderDirective } from './directives/subtotal-header.directive';
+import { SubtotalHeaderDirective } from './directives/subtotal-header/subtotal-header.directive';
+import { SubtotalBodyDirective } from './directives/subtotal-body/subtotal-body.directive';
+import { SubtotalFooterDirective } from './directives/subtotal-footer/subtotal-footer.directive';
+import { SubtotalResultComponent } from './components/subtotal-result/subtotal-result.component';
 
 
 @NgModule({
-  declarations: [CheckoutComponent, CheckoutFormComponent, SubTotalCardComponent, SubtotalHeaderDirective],
+  declarations: [CheckoutComponent, CheckoutFormComponent, SubTotalCardComponent, SubtotalHeaderDirective, SubtotalBodyDirective, SubtotalFooterDirective, SubtotalResultComponent],
   imports: [
     CommonModule,
     CheckoutRoutingModule,
