@@ -24,6 +24,7 @@ export class CarDetailInsuranceComponent implements OnInit {
   }
 
   initObs(): void {
+
     this.userService$ = this.userService.userQuery.select(it => it.ui)
       .pipe(
         tap(console.log),
@@ -44,28 +45,17 @@ export class CarDetailInsuranceComponent implements OnInit {
       );
   }
 
-  toggleInsurance(keys, added: boolean): void {
-    if (added) {
-      this.userService.userStore.update(state => ({
-          ...state,
-          ui: {
-            ...state.ui,
-            insuranceSelected: ''
-          }
-        })
-      );
-    } else {
-      const arrKeys = Object.keys(keys);
-      this.userService.userStore.update(state => ({
-          ...state,
-          ui: {
-            ...state.ui,
-            insuranceSelected: arrKeys[0]
-          }
-        })
-      );
-    }
+
+  change(object): void {
+    const arrKeys = Object.keys(object);
+    this.userService.userStore.update(state => ({
+        ...state,
+        ui: {
+          ...state.ui,
+          insuranceSelected: arrKeys[0]
+        }
+      })
+    );
+
   }
-
-
 }

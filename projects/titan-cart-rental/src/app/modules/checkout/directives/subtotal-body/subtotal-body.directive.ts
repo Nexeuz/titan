@@ -3,7 +3,7 @@ import {Directive, ElementRef} from '@angular/core';
 @Directive({
   selector: '[titanSubtotalBody]',
   host: {
-    style: 'display: flex; justify-content: space-between'
+    class: 'body-content'
   }
 })
 export class SubtotalBodyDirective {

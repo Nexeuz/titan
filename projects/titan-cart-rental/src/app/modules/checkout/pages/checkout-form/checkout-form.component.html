@@ -10,6 +10,17 @@
         <p>{{ fee.rate | currency:'USD':'$': '0.0-0'}} </p>
         <p>{{ fee.subtotal | currency:'USD':'$': '0.0-0'}} </p>
       </div>
+      <div titanSubtotalBody>
+        <p>
+          {{ 'Insurance x' }}
+        </p>
+        <p>
+          {{ getInsuranceValue$ | async  | currency:'USD':'$': '0.0-0' }}
+        </p>
+        <p>
+          {{ getInsuranceValue$ | async  | currency:'USD':'$': '0.0-0' }}
+        </p>
+      </div>
       <div titanSubtotalFooter>
         <p>Rental charges fee</p>
         <div titan-subtotal-result>
@@ -17,7 +28,6 @@
         </div>
       </div>
     </titan-sub-total-card>
-
     <titan-sub-total-card>
       <titan-sub-total-card-title>Addons</titan-sub-total-card-title>
       <h6 *ngFor="let item of ['Add-On', 'Subtotal']; last as last" titanSubtotalHeader [last]="last">
@@ -33,20 +43,9 @@
         </div>
     </titan-sub-total-card>
 
-    <titan-sub-total-card>
-      <titan-sub-total-card-title>Insurance</titan-sub-total-card-title>
-      <h6 *ngFor="let item of ['Add-On', 'Subtotal']; last as last" titanSubtotalHeader [last]="last">
-        {{item}}
-      </h6>
-      <div *ngFor="let addon of addons$ | async" titanSubtotalBody>
-        <p>
-          {{ addon.idescription }}
-        </p>
-        <p>
-          {{ addon.isale  | currency:'USD':'$': '0.0-0' }}
-        </p>
-      </div>
-    </titan-sub-total-card>
+    <div class="container-checkout__card-details__final-value">
+      <span>Estimated total:</span> <strong>{{ sumValues$ | async | currency: 'USD': '$': '0.0-0' }}</strong>
+    </div>
   </div>
   <form class="container-checkout__form" [formGroup]="form">
     <div class="container-checkout__form__names">

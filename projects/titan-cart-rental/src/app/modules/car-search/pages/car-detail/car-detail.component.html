@@ -8,7 +8,7 @@
         </h4>
         <titan-car-gallery [image]="(carInfo$ | async)?.image"></titan-car-gallery>
         <h3>{{ (carInfo$ | async).idescription }}</h3>
-        <titan-search-bar  [carsSearchDetail]="true">
+        <titan-search-bar [carsSearchDetail]="true">
         </titan-search-bar>
       </div>
       <div class="container-car-detail__border"></div>
@@ -23,7 +23,8 @@
           </button>
         </div>
         <div class="container-car-detail__description-container">
-          <hr style="border:15px;"><hr style="border:2px;">
+          <hr style="border:15px;">
+          <hr style="border:2px;">
           <span>DESCRIPTION</span>
           <p>{{(carInfo$ | async).ldescription}}</p>
         </div>
@@ -33,20 +34,23 @@
         </titan-car-detail-insurance>
         <div class="container-car-detail__total-list">
           <span>YOUR CART</span>
-          <nb-list >
-            <nb-list-item class="space-between"  *ngFor="let item of actives$ | async">
-
-              <p><img alt="addon thumbnail" [src]="item.image"> {{ item.idescription }}<p>
-              <strong>{{ item.isale | currency: 'USD' }}</strong>
+          <nb-list>
+            <nb-list-item class="space-between" *ngFor="let item of actives$ | async">
+              <p><img alt="addon thumbnail" [src]="item.image"> {{ item.idescription }}</p>
+                <strong>{{ item.isale | currency: 'USD' }}</strong>
+            </nb-list-item>
+            <nb-list-item *ngIf="(getInsurance$ | async)" class="space-between">
+              <p>Insurance</p>
+              <strong>{{ (getInsurance$ | async) | currency: 'USD' }}</strong>
             </nb-list-item>
           </nb-list>
           <button
-                  (click)="navigateToCheckout()"
-                  type="submit"
-                  fullWidth
-                  nbButton
-                  shape="rectangle"
-                  status="primary">
+            (click)="navigateToCheckout()"
+            type="submit"
+            fullWidth
+            nbButton
+            shape="rectangle"
+            status="primary">
             Continue
           </button>
         </div>
