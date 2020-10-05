@@ -19,7 +19,8 @@ import {Car} from '../../../../core/state/get-cars/get-car.model';
 export class CarDetailComponent implements OnInit {
   actives$: Observable<Addon[]>;
   sumTotalAddons$: Observable<number>;
-  carInfo$: Observable<getEntityType<GetCarsState>[]> | Observable<getEntityType<GetCarsState>> = this.getCarsService.getCarsQuery.selectActive();
+  carInfo$: Observable<getEntityType<GetCarsState>[]> | Observable<getEntityType<GetCarsState>> =
+    this.getCarsService.getCarsQuery.selectActive();
   getInsuranceValue$: Observable<string | null>;
 
   constructor(private userService: UserService,

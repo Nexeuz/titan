@@ -37,11 +37,11 @@
           <nb-list>
             <nb-list-item class="space-between" *ngFor="let item of actives$ | async">
               <p><img alt="addon thumbnail" [src]="item.image"> {{ item.idescription }}</p>
-                <strong>{{ item.isale | currency: 'USD' }}</strong>
+                <strong>{{ item.isale | currency: 'KRW':'₩' }}</strong>
             </nb-list-item>
             <nb-list-item *ngIf="(getInsuranceValue$ | async)" class="space-between">
               <p>Insurance</p>
-              <strong>{{ (getInsuranceValue$ | async) | currency: 'USD' }}</strong>
+              <strong>{{ (getInsuranceValue$ | async) | currency: 'KRW': '₩' }}</strong>
             </nb-list-item>
           </nb-list>
           <button

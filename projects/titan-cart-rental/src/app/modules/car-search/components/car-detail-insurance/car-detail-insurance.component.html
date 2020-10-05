@@ -9,12 +9,12 @@
         <div class="container-car-insurance__actions">
           <div class="container-car-insurance__actions__price">
             <h6 class="container-car-insurance__headline-styles first-h6"
-                *ngIf="item?.insurf">{{ item?.insurf | currency:'USD':'$':'0.0-4' }}
-              <small>USD</small>
+                *ngIf="item?.insurf">{{ item?.insurf | currency:'KRW':'₩':'0.0-4' }}
+              <small>KRW</small>
             </h6>
             <h6 class="container-car-insurance__headline-styles second-h6"
-                *ngIf="item?.insurb">{{ item?.insurb | currency:'USD':'$':'0.0-4' }}
-              <small>USD</small>
+                *ngIf="item?.insurb">{{ item?.insurb | currency:'KRW':'₩':'0.0-4' }}
+              <small>KRW</small>
             </h6>
             <small>Price per day</small>
           </div>

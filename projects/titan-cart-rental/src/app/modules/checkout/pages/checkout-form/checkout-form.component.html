@@ -7,24 +7,27 @@
       </h6>
       <div titanSubtotalBody *ngFor="let fee of subtotalCarRentFee$ | async">
         <p>{{ fee.days }} days</p>
-        <p>{{ fee.rate | currency:'USD':'$': '0.0-0'}} </p>
-        <p>{{ fee.subtotal | currency:'USD':'$': '0.0-0'}} </p>
+        <p>{{ fee.rate | currency:'KRW':'₩': '0.0-0'}} </p>
+        <p>{{ fee.subtotal | currency:'KRW':'₩': '0.0-0'}} </p>
       </div>
       <div titanSubtotalBody>
         <p>
           {{ 'Insurance x' }}
+          {{ daysSelected$ | async }} days
         </p>
         <p>
-          {{ getInsuranceValue$ | async  | currency:'USD':'$': '0.0-0' }}
+          {{ getInsuranceValue$ | async  | currency:'KRW':'₩': '0.0-0' }}
         </p>
         <p>
-          {{ getInsuranceValue$ | async  | currency:'USD':'$': '0.0-0' }}
+          {{ ((getInsuranceValue$ | async ) * (daysSelected$ | async)) | currency:'KRW':'$': '0.0-0' }}
         </p>
       </div>
       <div titanSubtotalFooter>
-        <p>Rental charges fee</p>
+        <p>
+          <strong>Subtotal</strong>
+        </p>
         <div titan-subtotal-result>
-          $0.00 USD
+          {{ ((getInsuranceValue$ | async ) * (daysSelected$ | async)) + (subtotalCarValueDays$ | async) | currency:'KRW':'$': '0.0-0' }}
         </div>
       </div>
     </titan-sub-total-card>
@@ -38,13 +41,22 @@
             {{ addon.idescription }}
           </p>
           <p>
-            {{ addon.isale  | currency:'USD':'$': '0.0-0' }}
+            {{ addon.isale  | currency:'KRW':'₩': '0.0-0' }}
           </p>
         </div>
+      <div titanSubtotalFooter>
+        <p>
+          <strong>Subtotal</strong>
+        </p>
+        <div titan-subtotal-result>
+           {{ (addonsSubtotal$ | async) | currency:'KRW':'₩': '0.0-0' }}
+        </div>
+      </div>
     </titan-sub-total-card>
 
     <div class="container-checkout__card-details__final-value">
-      <span>Estimated total:</span> <strong>{{ sumValues$ | async | currency: 'USD': '$': '0.0-0' }}</strong>
+      <span>Estimated total:</span>
+      <strong>{{ sumValues$ | async | currency: 'KRW': '₩': '0.0-0' }}</strong>
     </div>
   </div>
   <form class="container-checkout__form" [formGroup]="form">
