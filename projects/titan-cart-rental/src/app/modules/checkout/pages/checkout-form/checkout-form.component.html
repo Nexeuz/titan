@@ -1,7 +1,12 @@
+<h1 class="title">Checkout</h1>
+<h2 class="subtitle">PLEASE FILL THE FOLLOWING INFORMATION</h2>
+<h3 class="requeried"><span style="color: #E54300">*</span> These fields are required.</h3>
+<img class="points-right" src="assets/points.svg">
 <div class="container-checkout">
   <div class="container-checkout__card-details">
     <titan-sub-total-card>
       <titan-sub-total-card-title>Rate</titan-sub-total-card-title>
+      <br>
       <h6 *ngFor="let item of ['QTY', 'Rate', 'Subtotal']; last as last" titanSubtotalHeader [last]="last">
         {{item}}
       </h6>
@@ -23,9 +28,16 @@
         </p>
       </div>
       <div titanSubtotalFooter>
-        <p>
+        <p style="
+          padding-left: 3%;
+          text-align: left;
+          font: normal normal normal 17px/20px Poppins;
+          letter-spacing: 0px;
+          color: #000000;
+          opacity: 1;">
           <strong>Subtotal</strong>
         </p>
+
         <div titan-subtotal-result>
           {{ ((getInsuranceValue$ | async ) * (daysSelected$ | async)) + (subtotalCarValueDays$ | async) | currency:'KRW':'$': '0.0-0' }}
         </div>
@@ -60,16 +72,24 @@
     </div>
   </div>
   <form class="container-checkout__form" [formGroup]="form">
+    <label for="fullname">Full name <span>*</span></label>
     <div class="container-checkout__form__names">
-      <input fieldSize="large" placeholder="First name" formControlName="firstName" type="text" nbInput>
-      <input fieldSize="large" placeholder="Last name" formControlName="lastName" type="text" nbInput>
+      <input fieldSize="large" placeholder="Full name" formControlName="fullname" type="text" nbInput>
     </div>
+    <label for="koreanLicence">Korean or USSK licence number <span>*</span></label>
     <div class="container-checkout__form__id">
       <input fieldSize="large" placeholder="Korean or USSK licence number" formControlName="koreanLicence" type="text"
              nbInput>
+    </div>
+    <label for="expirationDate">International driving permit (IDP) number <span>*</span></label>
+    <input fieldSize="large" placeholder="International driving permit (IDP) number" formControlName="expirationDate"
+           type="text" nbInput>
+    <label for="expirationDate">Expiration date <span>*</span></label>
+    <div class="container-checkout__form__id">
       <input fieldSize="large" placeholder="Expiration date" formControlName="expirationDate" type="text" nbInput>
     </div>
-    <nb-select size="large" formControlName="country" placeholder="Select Showcase">
+    <label for="country">Country <span>*</span></label>
+    <nb-select size="large" formControlName="country">
       <nb-option value="">Option empty</nb-option>
       <nb-option value="0">Option 0</nb-option>
       <nb-option value="1">Option 1</nb-option>
@@ -77,29 +97,32 @@
       <nb-option value="3">Option 3</nb-option>
       <nb-option value="4">Option 4</nb-option>
     </nb-select>
-    <input fieldSize="large" placeholder="International driving permit (IDP) number" formControlName="expirationDate"
-           type="text" nbInput>
+    <label for="passportOrKoreanCard">Passport /Korean ARC card <span>*</span></label>
     <input fieldSize="large" placeholder="Passport /Korean ARC card" formControlName="passportOrKoreanCard" type="text"
            nbInput>
-    <input fieldSize="large" placeholder="Permanent resident card number number (OPTIONAL)"
-           formControlName="permanentResident" type="text" nbInput>
+    <label for="permanentResident">Permanent resident card number number (OPTIONAL)</label>
+    <input fieldSize="large"
+          placeholder="Permanent resident card number number"
+          formControlName="permanentResident" type="text" nbInput>
+    <label for="hotel">Hotel name or Korean Home address/Hotel address <span>*</span></label>
     <div class="container-checkout__form__address">
       <input fieldSize="large" placeholder="Hotel name" formControlName="hotel" type="text" nbInput>
-      <input fieldSize="large" placeholder="Korean Home address / Hotel address" formControlName="hotel" type="text"
-             nbInput>
     </div>
+    <label for="dateOfBirth">Date of birth <span>*</span></label>
     <input fieldSize="large" nbInput placeholder="Date of birth" formControlName="dateOfBirth"
-           [nbDatepicker]="dateTimePicker">
+           [nbDatepicker]="dateTimePicker" style="margin-bottom: -20px;">
     <nb-datepicker format="DD-MM-YYYY" #dateTimePicker></nb-datepicker>
+    <label for="dateOfBirth">Phone (WhatsApp)<span>*</span></label>
     <div class="container-checkout__form__contact">
       <input fieldSize="large" placeholder="Phone (WhatsApp)" formControlName="phoneWhatsApp" type="number" nbInput>
-      <input fieldSize="large" placeholder="Email" formControlName="email" type="email" nbInput>
     </div>
+    <label for="dateOfBirth">Account username<span>*</span></label>
     <input fieldSize="large" placeholder="Account username" formControlName="username" type="text" nbInput>
-    <input fieldSize="large" placeholder="Create account passwowrd" formControlName="accountPassword" type="password"
+    <label for="dateOfBirth">account password or Create account password<span>*</span></label>
+    <input fieldSize="large" placeholder="Create account password" formControlName="accountPassword" type="password"
            nbInput>
-    <nb-radio-group formControlName="payment">
-      <nb-radio value="1">
+    <nb-radio-group formControlName="payment" warning>
+      <nb-radio value="1" >
         <nb-card>
           <nb-card-header>
             Direct bank transfer - Korean bank only
@@ -116,6 +139,12 @@
         <nb-card>
           <nb-card-header>
             Pay with credit card
+            <img src="assets/logos/PayPal.svg" alt="PayPal" class="initial">
+            <img src="assets/logos/PayPal_CREDIT.svg" alt="PayPal">
+            <img src="assets/logos/mastercard.svg" alt="MasterCard">
+            <img src="assets/logos/VISA.svg" alt="Visa">
+            <img src="assets/logos/Discover@2x.png" alt="Discover">
+            <img src="assets/logos/AMERICAN.svg" alt="American">
           </nb-card-header>
           <nb-card-body>
             <i>Pay with credit cardSecure payment by credit card via PayPal, PayPal does not accept payments using
@@ -126,7 +155,8 @@
       <nb-radio value="3">
         <nb-card>
           <nb-card-header>
-            Pay with Smartro
+            Pay with
+            <img src="assets/logos/SMARTRO.svg" alt="American">
           </nb-card-header>
           <nb-card-body>
             <i>Pay with Smartro</i>
@@ -135,10 +165,12 @@
       </nb-radio>
     </nb-radio-group>
     <p>
-      Your personal data will be used to process your order, support your experience throughout this website, an for
-      other purposes described in your privacy policy.
+      Your personal data will be used to process your order, support your experience throughout this website,
+      an for other purposes described in your <span style="color: #E54300">privacy policy.</span>
     </p>
-    <nb-checkbox formControlName="conditions">I have read and agree to the website terms and conditions</nb-checkbox>
+    <nb-checkbox formControlName="conditions">
+      <span>I have read and agree to the website terms and conditions</span>
+    </nb-checkbox>
     <button nbButton appearance="outline">
       Place order
     </button>

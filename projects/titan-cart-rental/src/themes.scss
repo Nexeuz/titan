@@ -1,28 +1,21 @@
 @import '~@nebular/theme/styles/theming';
-@import '~@nebular/theme/styles/themes/corporate';
+@import '~@nebular/theme/styles/themes/default';
 @import 'https://fonts.googleapis.com/css?family=Source Serif Pro';
 @import 'https://fonts.googleapis.com/css?family=Poppins';
 $nb-themes: nb-register-theme((
 
-  // add your ables here like:
+  background-basic-color-1: white,
+  background-basic-color-2: white,
+  background-basic-color-3: white,
+  background-basic-color-4: white,
 
-  // color-primary-100: #f2f6ff,
-  // color-primary-200: #d9e4ff,
-  // color-primary-300: #a6c1ff,
-  // color-primary-400: #598bff,
-  // color-primary-500: #3366ff,
-  // color-primary-600: #274bdb,
-  // color-primary-700: #1a34b8,
-  // color-primary-800: #102694,
-  // color-primary-900: #091c7a,
+  border-basic-color-1: white,
+  border-basic-color-2: white,
+  border-basic-color-3: white,
+  border-basic-color-4: white,
+  border-basic-color-5: white,
 
-
-
-
-
-
-
-), corporate, corporate);
+), template, default);
 
 
 .title-addons{
