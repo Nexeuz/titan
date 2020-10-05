@@ -3,13 +3,13 @@
   display: flex;
   justify-content: space-between;
   img{
-    display:block;
-    margin:auto;
+    display: block;
+    margin: 0 auto;
   }
   &__links-profile {
     display: flex;
     width: 70%;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     align-items: center;
   }
 

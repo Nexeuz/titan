@@ -62,8 +62,7 @@ export class CheckoutFormComponent implements OnInit {
 
   createForm(): void {
     this.form = this.fb.group({
-      firstName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
+      fullname: ['', [Validators.required]],
       koreanLicence: ['', [Validators.required]],
       expirationDate: ['', [Validators.required]],
       country: ['', [Validators.required]],
@@ -71,7 +70,6 @@ export class CheckoutFormComponent implements OnInit {
       passportOrKoreanCard: ['', [Validators.required]],
       permanentResident: ['', [Validators.required]],
       hotel: ['', [Validators.required]],
-      koreanHome: ['', [Validators.required]],
       dateOfBirth: [moment(), [Validators.required]],
       phoneWhatsApp: ['', [Validators.required]],
       email: ['', [Validators.email, Validators.required]],
