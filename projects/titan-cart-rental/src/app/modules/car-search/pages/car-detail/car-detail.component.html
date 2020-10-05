@@ -39,9 +39,9 @@
               <p><img alt="addon thumbnail" [src]="item.image"> {{ item.idescription }}</p>
                 <strong>{{ item.isale | currency: 'USD' }}</strong>
             </nb-list-item>
-            <nb-list-item *ngIf="(getInsurance$ | async)" class="space-between">
+            <nb-list-item *ngIf="(getInsuranceValue$ | async)" class="space-between">
               <p>Insurance</p>
-              <strong>{{ (getInsurance$ | async) | currency: 'USD' }}</strong>
+              <strong>{{ (getInsuranceValue$ | async) | currency: 'USD' }}</strong>
             </nb-list-item>
           </nb-list>
           <button
