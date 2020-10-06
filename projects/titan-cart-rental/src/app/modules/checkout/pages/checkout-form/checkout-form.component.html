@@ -121,7 +121,7 @@
     <label for="dateOfBirth">account password or Create account password<span>*</span></label>
     <input fieldSize="large" placeholder="Create account password" formControlName="accountPassword" type="password"
            nbInput>
-    <nb-radio-group formControlName="payment" warning>
+    <nb-radio-group formControlName="payment">
       <nb-radio value="1" >
         <nb-card>
           <nb-card-header>
@@ -171,8 +171,11 @@
     <nb-checkbox formControlName="conditions">
       <span>I have read and agree to the website terms and conditions</span>
     </nb-checkbox>
-    <button nbButton appearance="outline">
+    <button *ngIf="form.get('payment').value !== '2'" nbButton appearance="outline">
       Place order
     </button>
+    <titan-paypal-btn [btnVisible]="form.get('payment').value === '2'" [description]="'Test transaction'" [price]="sumValues$ | async">
+    </titan-paypal-btn>
+
   </form>
 </div>

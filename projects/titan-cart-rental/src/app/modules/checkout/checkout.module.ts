@@ -21,24 +21,26 @@ import { SubtotalHeaderDirective } from './directives/subtotal-header/subtotal-h
 import { SubtotalBodyDirective } from './directives/subtotal-body/subtotal-body.directive';
 import { SubtotalFooterDirective } from './directives/subtotal-footer/subtotal-footer.directive';
 import { SubtotalResultComponent } from './components/subtotal-result/subtotal-result.component';
+import {SharedModule} from '../../shared/shared.module';
 
 
 @NgModule({
   declarations: [CheckoutComponent, CheckoutFormComponent, SubTotalCardComponent, SubtotalHeaderDirective, SubtotalBodyDirective, SubtotalFooterDirective, SubtotalResultComponent],
-  imports: [
-    CommonModule,
-    CheckoutRoutingModule,
-    ReactiveFormsModule,
-    NbFormFieldModule,
-    NbInputModule,
-    NbSelectModule,
-    NbDatepickerModule,
-    NbMomentDateModule,
-    NbCheckboxModule,
-    NbRadioModule,
-    NbCardModule,
-    NbButtonModule
-  ],
+    imports: [
+        CommonModule,
+        CheckoutRoutingModule,
+        ReactiveFormsModule,
+        NbFormFieldModule,
+        NbInputModule,
+        NbSelectModule,
+        NbDatepickerModule,
+        NbMomentDateModule,
+        NbCheckboxModule,
+        NbRadioModule,
+        NbCardModule,
+        NbButtonModule,
+        SharedModule
+    ],
   schemas: [
     NO_ERRORS_SCHEMA
   ]

@@ -27,6 +27,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { SearchBarCarsSearchComponent } from './components/search-bar-cars-search/search-bar-cars-search.component';
 import { HeaderHomeCarsSearchComponent } from './components/header-home-cars-search/header-home-cars-search.component';
 import {AutenticationModule} from '../modules/autentication/autentication.module';
+import { PaypalBtnComponent } from './components/paypal-btn/paypal-btn.component';
 
 
 
@@ -42,14 +43,16 @@ import {AutenticationModule} from '../modules/autentication/autentication.module
     CarouselComponent,
     SearchBarCarsSearchComponent,
     HeaderHomeCarsSearchComponent,
-    BenefitsComponent
+    BenefitsComponent,
+    PaypalBtnComponent
   ],
-  exports: [
-    HeaderComponent,
-    SearchBarComponent,
-    CarouselComponent,
-    BenefitsComponent
-  ],
+    exports: [
+        HeaderComponent,
+        SearchBarComponent,
+        CarouselComponent,
+        BenefitsComponent,
+        PaypalBtnComponent
+    ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
