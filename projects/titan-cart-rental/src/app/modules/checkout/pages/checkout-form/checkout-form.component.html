@@ -174,7 +174,9 @@
     <button *ngIf="form.get('payment').value !== '2'" nbButton appearance="outline">
       Place order
     </button>
-    <titan-paypal-btn [btnVisible]="form.get('payment').value === '2'" [description]="'Test transaction'" [price]="sumValues$ | async">
+    <titan-paypal-btn [btnVisible]="form.get('payment').value === '2'"
+                      [description]="'Test transaction'"
+                      [price]="sumValues$ | async">
     </titan-paypal-btn>
 
   </form>
