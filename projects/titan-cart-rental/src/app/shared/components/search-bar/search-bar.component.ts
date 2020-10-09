@@ -56,10 +56,6 @@ export class SearchBarComponent implements OnInit, AfterViewInit {
     this.listenFormValueChanges();
 
 
-    this.filteredControlOptions$ = this.rangeForm.get('where').valueChanges
-      .pipe(
-        map(filterString => this.filter(filterString)),
-      );
 
   }
 
