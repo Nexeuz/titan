@@ -1,0 +1,34 @@
+
+    <div [formGroup]="rangeForm"  class="search-bar-cars-search-container">
+      <nb-form-field>
+        <input
+          fieldSize="medium"
+          formControlName="where"
+          nbInput
+          fullWidth
+          shape="semi-round"
+          type="text"
+          placeholder="Where"/>
+      </nb-form-field>
+      <nb-select  fullWidth
+                  shape="semi-round" formControlName="formHour" placeholder="From Hour">
+        <nb-option [value]="option"
+                   *ngFor="let option of fromHours">
+          {{ option }}
+        </nb-option>
+
+      </nb-select>
+      <nb-form-field>
+        <input fullWidth
+               shape="semi-round"
+               formControlName="range"
+               nbInput placeholder="From to Until"
+               [nbDatepicker]="formpicker">
+        <nb-rangepicker  format="DD-MM-YYYY" #formpicker></nb-rangepicker>
+      </nb-form-field>
+      <nb-select fullWidth
+                 shape="semi-round" formControlName="untilHour" placeholder="Until hour">
+        <nb-option [value]="option"
+                   *ngFor="let option of untilHour">{{ option }}</nb-option>
+      </nb-select>
+    </div>

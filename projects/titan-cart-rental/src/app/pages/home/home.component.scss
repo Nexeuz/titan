@@ -1,0 +1,50 @@
+@import "../../../themes";
+
+.bg-logo {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 0;
+  left: 0;
+  z-index: 0;
+
+}
+
+
+.home-container-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  position: relative;
+
+
+  .subtitle {
+    color: $color-ffffff;
+  }
+
+  h1 {
+    font-size: 3rem;
+    max-width: 33vw;
+    color: $color-ffffff;
+  }
+}
+
+.home-container-search-bar {
+  position:absolute;
+  top: -20px;
+  text-align: center;
+  width: 97%;
+
+}
+
+.home-container-benefits {
+  position:absolute;
+  text-align: center;
+  top: 1006px;
+  width: 97%;
+}
+
+.tamra-kr {
+  position: fixed;
+  opacity: 1;
+}

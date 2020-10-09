@@ -1,0 +1,19 @@
+<div class="container-search-bar" [formGroup]="rangeForm">
+  <nb-select class="input-left" formControlName="where" placeholder="Where">
+    <nb-option *ngFor="let where of filteredControlOptions$ | async" [value]="where">
+      {{where}}
+    </nb-option>
+  </nb-select>
+  <nb-select formControlName="formHour" placeholder="From">
+    <nb-option *ngFor="let hour of fromHours" [value]="hour">
+      {{hour}}
+    </nb-option>
+  </nb-select>
+  <input  formControlName="range" nbInput placeholder="Pick Date Range" [nbDatepicker]="formpicker">
+  <nb-rangepicker format="DD-MM-YYYY"  #formpicker></nb-rangepicker>
+  <nb-select class="input-right" formControlName="untilHour" placeholder="Until">
+    <nb-option *ngFor="let hour of untilHour" [value]="hour">
+      {{hour}}
+    </nb-option>
+  </nb-select>
+</div>

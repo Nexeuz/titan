@@ -1,0 +1,17 @@
+.container-range__btn-search-desktop {
+  margin-left: 8px;
+
+}
+
+
+.input-left {
+  border-top-left-radius: 12px !important;
+  border-bottom-left-radius: 12px !important;
+}
+
+.input-right {
+  ::ng-deep button {
+    border-top-right-radius: 12px !important;
+    border-bottom-right-radius: 12px !important;
+  }
+}

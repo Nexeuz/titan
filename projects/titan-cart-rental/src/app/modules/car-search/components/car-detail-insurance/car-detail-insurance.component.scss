@@ -1,0 +1,31 @@
+@import "../../../../../themes";
+.container-car-insurance {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__description {
+    flex: 70%;
+  }
+
+  &__actions {
+    flex: 30%;
+    &__price {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+  }
+
+  &__headline-styles {
+    margin: 0;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  h6 {
+    color: $color-e54300;
+  }
+
+
+}

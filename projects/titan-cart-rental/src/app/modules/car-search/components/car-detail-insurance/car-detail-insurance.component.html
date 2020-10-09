@@ -1,0 +1,25 @@
+<h4 class="title-addons">Insurances</h4>
+<nb-list>
+  <nb-list-item *ngFor="let item of insurance$ | async">
+    <nb-radio (valueChange)="change(item)">
+      <div class="container-car-insurance">
+      <span class="container-car-insurance__description">
+        {{ item.description }}
+      </span>
+        <div class="container-car-insurance__actions">
+          <div class="container-car-insurance__actions__price">
+            <h6 class="container-car-insurance__headline-styles first-h6"
+                *ngIf="item?.insurf">{{ item?.insurf | currency:'KRW':'₩':'0.0-4' }}
+              <small>KRW</small>
+            </h6>
+            <h6 class="container-car-insurance__headline-styles second-h6"
+                *ngIf="item?.insurb">{{ item?.insurb | currency:'KRW':'₩':'0.0-4' }}
+              <small>KRW</small>
+            </h6>
+            <small>Price per day</small>
+          </div>
+        </div>
+      </div>
+    </nb-radio>
+  </nb-list-item>
+</nb-list>

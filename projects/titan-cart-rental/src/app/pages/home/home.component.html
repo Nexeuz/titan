@@ -1,1 +1,12 @@
-<titan-search-bar></titan-search-bar>
+<img #img class="bg-logo" alt="background logo" src="assets/background-home.png">
+<div class="home-container-text">
+  <span></span>
+  <div>
+    <span class="subtitle">Tamra Rent a car | Jeju island's leading Car Rental Angency</span>
+    <h1>Book the right car for your Jeju Island trip and more.</h1>
+  </div>
+</div>
+<div class="home-container-search-bar" [style]="'margin-top:'+img?.clientHeight+'px'">
+  <titan-search-bar></titan-search-bar>
+  <titan-benefits></titan-benefits>
+</div>

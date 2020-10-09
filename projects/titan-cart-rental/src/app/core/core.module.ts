@@ -1,10 +1,9 @@
-import { NgModule } from '@angular/core';
+import {DEFAULT_CURRENCY_CODE, NgModule} from '@angular/core';
 import {environment} from '@env/environment';
 import {AkitaNgDevtools} from '@datorama/akita-ngdevtools';
 import {AkitaNgRouterStoreModule} from '@datorama/akita-ng-router-store';
 import {NG_ENTITY_SERVICE_CONFIG} from '@datorama/akita-ng-entity-service';
-import {NbDatepickerModule} from '@nebular/theme';
-
+import {NbDatepickerModule, NbDialogModule, NbMenuModule, NbThemeModule} from '@nebular/theme';
 
 
 @NgModule({
@@ -12,8 +11,22 @@ import {NbDatepickerModule} from '@nebular/theme';
   imports: [
     environment.production ? [] : AkitaNgDevtools.forRoot(),
     AkitaNgRouterStoreModule.forRoot(),
-    NbDatepickerModule.forRoot()
+    NbDatepickerModule.forRoot(),
+    NbDialogModule.forRoot(),
+    NbThemeModule.forRoot({name: 'corporate'}),
+    NbMenuModule.forRoot()
   ],
-  providers: [{ provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: 'https://jsonplaceholder.typicode.com' }}],
+  providers: [
+    {
+      provide: NG_ENTITY_SERVICE_CONFIG, useValue: {
+        baseUrl: `${environment.host}`
+      }
+    },
+    {
+      provide: DEFAULT_CURRENCY_CODE,
+      useValue: 'KRW'
+    }
+  ],
 })
-export class CoreModule { }
+export class CoreModule {
+}

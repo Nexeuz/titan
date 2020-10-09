@@ -1,0 +1,27 @@
+<nb-card>
+  <nb-card-body>
+    <div
+      class="card-car-container">
+      <div class="card-car-container__show">
+        <img
+          class="card-car-container__image" alt="car image" [src]="servImage + data.image">
+      </div>
+      <p class="card-car-container__title">{{ data.idescription }}</p>
+      <p class="card-car-container__subtitle">{{ data.isale | currency:data.icurrency}} / Day</p>
+    </div>
+  </nb-card-body>
+  <nb-card-footer style="padding: 0rem 1.5rem !important;">
+    <div class="card-footer">
+      <div class="card-car-container__badges" *ngFor="let badge of data.features | slice: 0:4">
+        <!--<button
+          *ngFor="let badge of data.features | slice: 0:4"
+          nbButton
+          size="tiny">
+        </button>-->
+        <p class="card-car-container__badge">{{badge}}<p>
+      </div>
+      <!---->
+    </div>
+  </nb-card-footer>
+</nb-card>
+

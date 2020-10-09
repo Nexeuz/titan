@@ -1,0 +1,73 @@
+@import "../../../../../themes";
+nb-card{
+  width: 528px;
+  height: 453px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 3px 4px 12px #00000029;
+  border-radius: 25px;
+  opacity: 1;
+}
+.card-car-container {
+  display: flex;
+  flex-direction: column;
+  &__show{
+    width: 474px;
+    height: 237px;
+    border: 1px solid #D5D5D5;
+    border-radius: 20px;
+    opacity: 1;
+  }
+  &__image {
+    width: 309px;
+    height: 232px;
+    display:block;
+    margin:auto;
+  }
+  &__title {
+    margin-top:0px;
+    text-align: center;
+    font: normal normal 600 20px/95px Poppins;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+  }
+
+  &__subtitle {
+    margin-top:-50px;
+    text-align: center;
+    font: normal normal 200 15px Poppins;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+  }
+  &__units {
+   color: $color-000000;
+  }
+
+  &__badges {
+    width: 170px;
+    height: 59px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #D5D5D5;
+    border-radius: 25px 25px 0px 0px;
+    opacity: 1;
+  }
+
+  &__badge {
+    text-align: center;
+    font: normal normal medium 17px/95px Poppins;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+  }
+}
+
+.card-footer {
+  display: flex;
+  font-weight: 700;
+  font-size: 1.3rem;
+  justify-content: flex-end;
+}
+nb-layout .layout{
+  background-color: white !important;
+}

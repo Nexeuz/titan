@@ -1,0 +1,16 @@
+.cars-search-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  titan-card-car {
+    width: 528px;
+    height: 453px;
+  }
+  titan-card-car-skeleton {
+    width: 100%;
+    max-width: 480px;
+
+  }
+}
