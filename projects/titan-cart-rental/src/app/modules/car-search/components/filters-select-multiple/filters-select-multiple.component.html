@@ -1,0 +1,19 @@
+
+<nb-card class="filters-select-multiple-card">
+  <nb-card-header>
+    <h5>{{ filter.name }}</h5>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="filters-select-multiple-card__checkbox">
+      <nb-checkbox
+        [checked]="filter.checked"
+        *ngFor="let filter of filter.values"
+        (checkedChange)="toggle(filter, $event)">
+        {{ filter.value }}
+      </nb-checkbox>
+    </div>
+  </nb-card-body>
+  <button (click)="closeAndSend()" nbButton appearance="outline">
+    Apply filters
+  </button>
+</nb-card>

@@ -1,0 +1,16 @@
+
+<button nbButton
+        (click)="openDialog()"
+        appearance="outline"
+        class="container-filter-btn"
+        status="warning">
+  <nb-badge
+    *ngIf="getChecked.length > 0"
+    [text]="getChecked.length"
+    status="danger"
+    position="top right">
+  </nb-badge>
+  {{ filter.name }}
+</button>
+
+

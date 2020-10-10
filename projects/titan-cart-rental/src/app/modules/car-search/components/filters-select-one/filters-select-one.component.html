@@ -1,0 +1,14 @@
+<nb-card class="filters-select-range-card">
+  <nb-card-header>
+    <h5>{{ filter.name }}</h5>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="filters-select-range-card__checkbox">
+      <input type="text" nbInput fullWidth fieldSize="giant" placeholder="Giant">
+
+    </div>
+  </nb-card-body>
+  <button (click)="closeAndSend()" nbButton appearance="outline">
+    Apply filters
+  </button>
+</nb-card>

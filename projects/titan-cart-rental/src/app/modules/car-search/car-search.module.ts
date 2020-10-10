@@ -6,17 +6,42 @@ import { CarSearchComponent } from './car-search.component';
 import { CardCarComponent } from './components/card-car/card-car.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { CardCarSkeletonComponent } from './components/card-car-skeleton/card-car-skeleton.component';
-import {NbButtonModule, NbCardModule, NbIconModule, NbListModule, NbRadioModule} from '@nebular/theme';
+import {
+    NbBadgeModule,
+    NbButtonModule,
+    NbCardModule,
+    NbCheckboxModule,
+    NbIconModule,
+    NbInputModule,
+    NbListModule,
+    NbRadioModule
+} from '@nebular/theme';
 import { CarDetailComponent } from './pages/car-detail/car-detail.component';
 import { CarGalleryComponent } from './components/car-gallery/car-gallery.component';
 import { CarListComponent } from './pages/car-list/car-list.component';
 import {SharedModule} from '../../shared/shared.module';
 import { CarDetailAddonsComponent } from './components/car-detail-addons/car-detail-addons.component';
 import { CarDetailInsuranceComponent } from './components/car-detail-insurance/car-detail-insurance.component';
+import { FiltersContainerComponent } from './components/filter-container/filters-container.component';
+import { FilterBtnComponent } from './components/filter-btn/filter-btn.component';
+import { FiltersSelectMultipleComponent } from './components/filters-select-multiple/filters-select-multiple.component';
+import { FiltersSelectOneComponent } from './components/filters-select-one/filters-select-one.component';
 
 
 @NgModule({
-  declarations: [CarSearchComponent, CardCarComponent, CardCarSkeletonComponent, CarDetailComponent, CarGalleryComponent, CarListComponent, CarDetailAddonsComponent, CarDetailInsuranceComponent],
+  declarations: [
+    CarSearchComponent,
+    CardCarComponent,
+    CardCarSkeletonComponent,
+    CarDetailComponent,
+    CarGalleryComponent,
+    CarListComponent,
+    CarDetailAddonsComponent,
+    CarDetailInsuranceComponent,
+    FiltersContainerComponent,
+    FilterBtnComponent,
+    FiltersSelectMultipleComponent,
+    FiltersSelectOneComponent],
     imports: [
         CommonModule,
         CarSearchRoutingModule,
@@ -27,6 +52,9 @@ import { CarDetailInsuranceComponent } from './components/car-detail-insurance/c
         NbIconModule,
         NbListModule,
         NbRadioModule,
+        NbBadgeModule,
+        NbCheckboxModule,
+        NbInputModule,
     ]
 })
 export class CarSearchModule { }
