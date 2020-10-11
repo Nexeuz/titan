@@ -22,10 +22,11 @@ import { SubtotalBodyDirective } from './directives/subtotal-body/subtotal-body.
 import { SubtotalFooterDirective } from './directives/subtotal-footer/subtotal-footer.directive';
 import { SubtotalResultComponent } from './components/subtotal-result/subtotal-result.component';
 import {SharedModule} from '../../shared/shared.module';
+import { ModalCheckoutComponent } from './pages/modal-checkout/modal-checkout.component';
 
 
 @NgModule({
-  declarations: [CheckoutComponent, CheckoutFormComponent, SubTotalCardComponent, SubtotalHeaderDirective, SubtotalBodyDirective, SubtotalFooterDirective, SubtotalResultComponent],
+  declarations: [CheckoutComponent, CheckoutFormComponent, SubTotalCardComponent, SubtotalHeaderDirective, SubtotalBodyDirective, SubtotalFooterDirective, SubtotalResultComponent, ModalCheckoutComponent],
     imports: [
         CommonModule,
         CheckoutRoutingModule,
