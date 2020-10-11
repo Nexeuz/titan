@@ -26,6 +26,7 @@ import { FiltersContainerComponent } from './components/filter-container/filters
 import { FilterBtnComponent } from './components/filter-btn/filter-btn.component';
 import { FiltersSelectMultipleComponent } from './components/filters-select-multiple/filters-select-multiple.component';
 import { FiltersSelectOneComponent } from './components/filters-select-one/filters-select-one.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -42,19 +43,20 @@ import { FiltersSelectOneComponent } from './components/filters-select-one/filte
     FilterBtnComponent,
     FiltersSelectMultipleComponent,
     FiltersSelectOneComponent],
-    imports: [
-        CommonModule,
-        CarSearchRoutingModule,
-        NgxSkeletonLoaderModule,
-        NbCardModule,
-        NbButtonModule,
-        SharedModule,
-        NbIconModule,
-        NbListModule,
-        NbRadioModule,
-        NbBadgeModule,
-        NbCheckboxModule,
-        NbInputModule,
-    ]
+  imports: [
+    CommonModule,
+    CarSearchRoutingModule,
+    NgxSkeletonLoaderModule,
+    NbCardModule,
+    NbButtonModule,
+    SharedModule,
+    NbIconModule,
+    NbListModule,
+    NbRadioModule,
+    NbBadgeModule,
+    NbCheckboxModule,
+    NbInputModule,
+    ReactiveFormsModule,
+  ]
 })
 export class CarSearchModule { }

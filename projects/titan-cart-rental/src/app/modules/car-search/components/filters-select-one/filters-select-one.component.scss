@@ -1,0 +1,10 @@
+.filters-select-range-card {
+  padding: 20px;
+  &__form {
+    display: flex;
+    justify-content: space-between;
+    min-width: 283px;
+    align-items: center;
+    gap: 5px;
+  }
+}
