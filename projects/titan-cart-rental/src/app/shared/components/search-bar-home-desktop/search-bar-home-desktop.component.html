@@ -11,14 +11,14 @@
       {{ option }}
     </nb-option>
   </nb-autocomplete>
-  <nb-select formControlName="formHour" placeholder="From">
+  <nb-select formControlName="formHour" placeholder="Pick Up Hour" class="input-left">
     <nb-option *ngFor="let hour of fromHours" [value]="hour">
       {{hour}}
     </nb-option>
   </nb-select>
-  <input    formControlName="range" nbInput placeholder="Pick Date Range" [nbDatepicker]="formPicker">
+  <input formControlName="range" nbInput placeholder="Pick Booking Range" [nbDatepicker]="formPicker" class="input-left">
   <nb-rangepicker  [min]="tomorrow" format="DD-MM-YYYY" #formPicker></nb-rangepicker>
-  <nb-select class="input-right" formControlName="untilHour" placeholder="Until">
+  <nb-select class="input-right" formControlName="untilHour" placeholder="Return Hour">
     <nb-option *ngFor="let hour of untilHour" [value]="hour">
       {{hour}}
     </nb-option>

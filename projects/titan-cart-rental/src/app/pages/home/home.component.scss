@@ -16,25 +16,37 @@
   flex-direction: row;
   justify-content: space-around;
   position: relative;
-
+  margin-top: 100px;
+  margin-left: 250px;
 
   .subtitle {
-    color: $color-ffffff;
+    text-align: left;
+    font: normal normal 600 22px/75px Poppins;
+    letter-spacing: 0px;
+    color: #FFFFFF;
   }
 
   h1 {
-    font-size: 3rem;
-    max-width: 33vw;
-    color: $color-ffffff;
+    width: 758px;
+    margin-top:0;
+    text-align: left;
+    font: normal normal bold 60px/65px Source Serif Pro;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
   }
 }
 
 .home-container-search-bar {
-  position:absolute;
   top: -20px;
+  opacity: 1;
+  width: 930px;
+  margin-left: 321px;
+  position:absolute;
   text-align: center;
-  width: 97%;
-
+  border-radius: 71px;
+  box-shadow: 2px 7px 10px #00000029;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
 }
 
 .home-container-benefits {
