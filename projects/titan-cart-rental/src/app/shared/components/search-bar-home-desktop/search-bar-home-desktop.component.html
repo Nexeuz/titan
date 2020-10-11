@@ -1,17 +1,10 @@
 <ng-container [formGroup]="rangeForm">
-  <input
-    class="input-left"
-    formControlName="where"
-    nbInput
-    type="text"
-    placeholder="Where"
-    [nbAutocomplete]="autoControl" />
-  <nb-autocomplete #autoControl>
-    <nb-option *ngFor="let option of filteredControlOptions$ | async" [value]="option">
-      {{ option }}
+  <nb-select class="input-left" formControlName="where" placeholder="Where">
+    <nb-option *ngFor="let where of filteredControlOptions$ | async" [value]="where">
+      {{where}}
     </nb-option>
-  </nb-autocomplete>
-  <nb-select formControlName="formHour" placeholder="Pick Up Hour" class="input-left">
+  </nb-select>
+  <nb-select formControlName="formHour" placeholder="From">
     <nb-option *ngFor="let hour of fromHours" [value]="hour">
       {{hour}}
     </nb-option>

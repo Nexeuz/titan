@@ -2,20 +2,11 @@
   <nb-card-body>
     <div  class="container-range__card-mobile">
       <nb-form-field>
-        <input
-          fieldSize="medium"
-          formControlName="where"
-          nbInput
-          fullWidth
-          shape="semi-round"
-          type="text"
-          placeholder="Where"
-          [nbAutocomplete]="autoControl" />
-        <nb-autocomplete #autoControl>
-          <nb-option *ngFor="let option of filteredControlOptions$ | async" [value]="option">
-            {{ option }}
+        <nb-select  formControlName="where" placeholder="Where">
+          <nb-option *ngFor="let where of filteredControlOptions$ | async" [value]="where">
+            {{where}}
           </nb-option>
-        </nb-autocomplete>
+        </nb-select>
       </nb-form-field>
 
       <nb-select  fullWidth
