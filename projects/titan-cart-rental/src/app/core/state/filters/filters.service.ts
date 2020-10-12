@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {ID} from '@datorama/akita';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {FiltersStore} from './filters.store';
 import {Filter} from './filter.model';
