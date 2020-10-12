@@ -9,11 +9,11 @@
         [checked]="filter.checked"
         *ngFor="let filter of filter.values"
         (checkedChange)="toggle(filter, $event)">
-        {{ filter.value }}
+        <span class="option-text">{{ filter.value }}</span>
       </nb-checkbox>
     </div>
   </nb-card-body>
-  <button (click)="closeAndSend()" nbButton appearance="outline">
+  <button (click)="closeAndSend()" nbButton class="filters-select-multiple-card__btn">
     Apply filters
   </button>
 </nb-card>
