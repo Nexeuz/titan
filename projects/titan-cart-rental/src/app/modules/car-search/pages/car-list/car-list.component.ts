@@ -6,6 +6,7 @@ import {UserService} from '../../../../core/state/user/user.service';
 import {GetCarsService} from '../../../../core/state/get-cars/get-cars.service';
 import {switchMap, tap} from 'rxjs/operators';
 import * as moment from 'moment';
+import {FiltersService} from '../../../../core/state/filters/filters.service';
 
 @Component({
   selector: 'titan-car-list',
@@ -20,10 +21,13 @@ export class CarListComponent implements  OnInit, OnDestroy, AfterViewInit {
 
   constructor(private router: Router,
               private userService: UserService,
-              private carsService: GetCarsService) {
+              private carsService: GetCarsService,
+              private filters: FiltersService) {
   }
 
   ngOnInit(): void {
+    this.filters.filtersQuery.selectAll()
+      .subscribe(console.log);
     this.setDataStoreOrRouter();
   }
 

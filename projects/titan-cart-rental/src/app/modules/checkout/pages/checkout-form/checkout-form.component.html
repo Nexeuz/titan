@@ -80,19 +80,23 @@
   <form class="container-checkout__form" [formGroup]="form">
     <label for="fullname">Full name <span>*</span></label>
     <div class="container-checkout__form__names">
-      <input fieldSize="large" placeholder="Full name" formControlName="fullname" type="text" nbInput>
+      <input fieldSize="large" placeholder="Full name" formControlName="fullName" type="text" nbInput>
     </div>
     <label for="koreanLicence">Korean or USSK licence number <span>*</span></label>
     <div class="container-checkout__form__id">
-      <input fieldSize="large" placeholder="Korean or USSK licence number" formControlName="koreanLicence" type="text"
+      <input fieldSize="large" placeholder="Korean or USSK licence number"
+             formControlName="koreanLicence" type="text"
              nbInput>
     </div>
     <label for="expirationDate">International driving permit (IDP) number <span>*</span></label>
-    <input fieldSize="large" placeholder="International driving permit (IDP) number" formControlName="expirationDate"
+    <input fieldSize="large" placeholder="International driving permit (IDP) number"
+           formControlName="internationalDriving"
            type="text" nbInput>
     <label for="expirationDate">Expiration date <span>*</span></label>
     <div class="container-checkout__form__id">
-      <input fieldSize="large" placeholder="Expiration date" formControlName="expirationDate" type="text" nbInput>
+      <input fieldSize="large" nbInput placeholder="Date of birth" formControlName="expirationDate"
+             [nbDatepicker]="dateTimePicker" style="margin-bottom: -20px;">
+      <nb-datepicker format="DD-MM-YYYY" #dateTimePicker></nb-datepicker>
     </div>
     <label for="country">Country <span>*</span></label>
     <nb-select size="large" formControlName="country">
@@ -104,7 +108,8 @@
       <nb-option value="4">Option 4</nb-option>
     </nb-select>
     <label for="passportOrKoreanCard">Passport /Korean ARC card <span>*</span></label>
-    <input fieldSize="large" placeholder="Passport /Korean ARC card" formControlName="passportOrKoreanCard" type="text"
+    <input fieldSize="large" placeholder="Passport /Korean ARC card"
+           formControlName="passportOrKoreanCard" type="text"
            nbInput>
     <label for="permanentResident">Permanent resident card number number (OPTIONAL)</label>
     <input fieldSize="large"
@@ -118,7 +123,7 @@
     <input fieldSize="large" nbInput placeholder="Date of birth" formControlName="dateOfBirth"
            [nbDatepicker]="dateTimePicker" style="margin-bottom: -20px;">
     <nb-datepicker format="DD-MM-YYYY" #dateTimePicker></nb-datepicker>
-    <label for="dateOfBirth">Phone (WhatsApp)<span>*</span></label>
+    <label for="Phone">Phone (WhatsApp)<span>*</span></label>
     <div class="container-checkout__form__contact">
       <input fieldSize="large" placeholder="Phone (WhatsApp)" formControlName="phoneWhatsApp" type="number" nbInput>
     </div>
@@ -176,7 +181,7 @@
     <nb-checkbox formControlName="conditions">
       <span>I have read and agree to the website terms and conditions</span>
     </nb-checkbox>
-    <button *ngIf="form.get('payment').value !== '2'" nbButton appearance="outline">
+    <button [disabled]="form.invalid" *ngIf="form.get('payment').value !== '2'" nbButton appearance="outline">
       Place order
     </button>
     <titan-paypal-btn [btnVisible]="form.get('payment').value === '2'"

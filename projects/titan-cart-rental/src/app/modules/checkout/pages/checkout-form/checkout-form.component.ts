@@ -79,22 +79,23 @@ export class CheckoutFormComponent implements OnInit {
 
   createForm(): void {
     this.form = this.fb.group({
-      fullname: ['', [Validators.required]],
+      fullName: ['', [Validators.required]],
       koreanLicence: ['', [Validators.required]],
-      expirationDate: ['', [Validators.required]],
-      country: ['', [Validators.required]],
       internationalDriving: ['', [Validators.required]],
+      expirationDate: [moment(), [Validators.required]],
+      country: ['', [Validators.required]],
       passportOrKoreanCard: ['', [Validators.required]],
       permanentResident: ['', [Validators.required]],
       hotel: ['', [Validators.required]],
       dateOfBirth: [moment(), [Validators.required]],
       phoneWhatsApp: ['', [Validators.required]],
-      email: ['', [Validators.email, Validators.required]],
       username: ['', [Validators.required]],
       accountPassword: ['', [Validators.required]],
       payment: ['', [Validators.required]],
-      conditions: ['', [Validators.required]]
+      conditions: [false, [Validators.requiredTrue]]
     });
+
+    this.form.valueChanges.subscribe(console.log)
   }
 
 }
