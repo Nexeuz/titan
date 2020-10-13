@@ -19,6 +19,8 @@ import {SearchBarHomeMobileComponent} from '../search-bar-home-mobile/search-bar
 import {hours} from '../../../core/mock/hours';
 import {UserService} from '../../../core/state/user/user.service';
 import {SearchBarCarsSearchComponent} from '../search-bar-cars-search/search-bar-cars-search.component';
+import {CitiesService} from '../../../core/state/cars/cities/cities.service';
+import {City} from '../../../core/state/cars/cities/city.model';
 
 export type ComponentsLayoutTypes = Type<SearchBarHomeDesktopComponent> |
   Type<SearchBarHeaderDesktopComponent> | Type<SearchBarHomeMobileComponent>  | Type<SearchBarCarsSearchComponent>;
@@ -33,8 +35,7 @@ export class SearchBarComponent implements OnInit, AfterViewInit {
   rangeForm: FormGroup;
   value: string;
   @Input() carsSearchDetail = false;
-  cities = ['Gwangju'];
-  filteredControlOptions$ = of(this.cities);
+  filteredControlOptions$ = this.citiesService.citiesQuery.selectAll() as Observable<City[]>;
 
 
   @ViewChild('viewContainer', {read: ViewContainerRef, static: true}) viewContainer: ViewContainerRef;
@@ -44,6 +45,7 @@ export class SearchBarComponent implements OnInit, AfterViewInit {
               private cd: ChangeDetectorRef,
               private injector: Injector,
               private router: Router,
+              private citiesService: CitiesService,
               private userService: UserService,
               private resolver: ComponentFactoryResolver) {
     this.createForm();
@@ -51,6 +53,8 @@ export class SearchBarComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.citiesService.getCities()
+      .subscribe();
     this.renderComponentsLayout();
 
     this.listenFormValueChanges();

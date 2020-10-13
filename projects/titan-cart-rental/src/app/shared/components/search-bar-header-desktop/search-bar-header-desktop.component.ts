@@ -4,6 +4,7 @@ import {FormGroup} from '@angular/forms';
 import {UserService} from '../../../core/state/user/user.service';
 import {tap} from 'rxjs/operators';
 import * as moment from 'moment';
+import {City} from '../../../core/state/cars/cities/city.model';
 
 @Component({
   selector: 'titan-search-bar-header-desktop',
@@ -13,7 +14,7 @@ import * as moment from 'moment';
 })
 export class SearchBarHeaderDesktopComponent implements OnInit {
 
-  @Input() filteredControlOptions$: Observable<string[]>;
+  @Input() filteredControlOptions$: Observable<City[]>;
   @Input() rangeForm: FormGroup;
   @Input() fromHours: Array<any>;
   @Input() untilHour: Array<any>;

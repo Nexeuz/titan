@@ -4,8 +4,8 @@ import {UserStore, UserState} from './user.store';
 import {map, tap} from 'rxjs/operators';
 import * as moment from 'moment';
 import {combineLatest, Observable} from 'rxjs';
-import {GetCarsQuery} from '../get-cars/get-cars.query';
-import {Car} from '../get-cars/get-car.model';
+import {GetCarsQuery} from '../cars/get-cars/get-cars.query';
+import {Car} from '../cars/get-cars/get-car.model';
 
 export interface CarsFee {
   days: number;

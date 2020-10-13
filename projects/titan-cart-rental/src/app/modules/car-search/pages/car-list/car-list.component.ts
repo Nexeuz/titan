@@ -1,9 +1,9 @@
 import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Car} from '../../../../core/state/get-cars/get-car.model';
+import {Car} from '../../../../core/state/cars/get-cars/get-car.model';
 import {Router} from '@angular/router';
 import {UserService} from '../../../../core/state/user/user.service';
-import {GetCarsService} from '../../../../core/state/get-cars/get-cars.service';
+import {GetCarsService} from '../../../../core/state/cars/get-cars/get-cars.service';
 import {switchMap, tap} from 'rxjs/operators';
 import * as moment from 'moment';
 import {FiltersService} from '../../../../core/state/filters/filters.service';

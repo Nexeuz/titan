@@ -1,10 +1,10 @@
 import {Component, HostListener, Input, OnInit} from '@angular/core';
-import {Car} from '../../../../core/state/get-cars/get-car.model';
+import {Car} from '../../../../core/state/cars/get-cars/get-car.model';
 import {environment} from '@env/environment';
 import {UserService} from '../../../../core/state/user/user.service';
 import {tap} from 'rxjs/operators';
 import {ActivatedRoute, Router} from '@angular/router';
-import {GetCarsService} from '../../../../core/state/get-cars/get-cars.service';
+import {GetCarsService} from '../../../../core/state/cars/get-cars/get-cars.service';
 
 @Component({
   selector: 'titan-card-car',

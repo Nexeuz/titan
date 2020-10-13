@@ -4,6 +4,7 @@ import {FormGroup} from '@angular/forms';
 import {UserService} from '../../../core/state/user/user.service';
 import {tap} from 'rxjs/operators';
 import * as moment from 'moment';
+import {City} from '../../../core/state/cars/cities/city.model';
 
 @Component({
   selector: 'titan-search-bar-cars-search',
@@ -12,7 +13,7 @@ import * as moment from 'moment';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchBarCarsSearchComponent implements OnInit {
-  @Input() filteredControlOptions$: Observable<string[]>;
+  @Input() filteredControlOptions$: Observable<City[]>;
   @Input() rangeForm: FormGroup;
   @Input() fromHours: Array<any>;
   @Input() untilHour: Array<any>;

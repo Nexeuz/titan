@@ -7,8 +7,8 @@ import {CarsFee} from '../../../../core/state/user/user.query';
 import {Addon} from '../../../../core/state/cars/addons/addon.model';
 import {AddonsService} from '../../../../core/state/cars/addons/addons.service';
 import {map, scan, shareReplay, switchMap, tap} from 'rxjs/operators';
-import {Car} from '../../../../core/state/get-cars/get-car.model';
-import {GetCarsService} from '../../../../core/state/get-cars/get-cars.service';
+import {Car} from '../../../../core/state/cars/get-cars/get-car.model';
+import {GetCarsService} from '../../../../core/state/cars/get-cars/get-cars.service';
 
 @Component({
   selector: 'titan-checkout-form',
