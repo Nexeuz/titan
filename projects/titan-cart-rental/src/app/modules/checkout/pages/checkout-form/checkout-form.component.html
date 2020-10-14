@@ -1,3 +1,8 @@
+<img class="img-car" [src]="(urlImage)+(carInfo$ | async)?.image">
+<div class="info-car">
+  <p class="name">{{(carInfo$ | async)?.idescription}}</p>
+  <p class="type">{{(carInfo$ | async)?.tdescription}}</p>
+</div>
 <h1 class="title">Checkout</h1>
 <h2 class="subtitle">PLEASE FILL THE FOLLOWING INFORMATION</h2>
 <h3 class="requeried"><span style="color: #E54300">*</span> These fields are required.</h3>
