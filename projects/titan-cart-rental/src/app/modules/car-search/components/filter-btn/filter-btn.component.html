@@ -1,10 +1,8 @@
 
 <button nbButton
         (click)="openDialog()"
-        appearance="outline"
         size="large"
-        class="container-filter-btn"
-        status="warning">
+        class="container-filter-btn">
   <nb-badge
     *ngIf="getChecked.length > 0 && !filter?.priceRangeSelected"
     [text]="getChecked.length"
@@ -18,7 +16,7 @@
     class="container-filter-btn__badge"
     position="top start">
   </nb-badge>
-  {{ filter.name }}
+  <span class="filter-text">{{ filter.name }}</span>
 </button>
 
 
