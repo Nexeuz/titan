@@ -127,7 +127,7 @@ export class SearchBarComponent implements OnInit, AfterViewInit {
 
   submit(): void {
     this.userService.dispatchUserValueForm({
-      city: this.rangeForm.get('where').value,
+      city: this.rangeForm.get('where').value.islocation,
       select: 'model',
       bkdt: {
         start: this.rangeForm.get('range').value.start,
@@ -137,16 +137,11 @@ export class SearchBarComponent implements OnInit, AfterViewInit {
       fromHour: this.rangeForm.get('formHour').value
     });
     this.router.navigate(['cars-search',
-      this.rangeForm.get('where').value,
+      this.rangeForm.get('where').value.islocation,
       'model',
       `${this.rangeForm.get('range').value.start.format('DD-MM-YYYY')}:${this.rangeForm.get('range').value.end.format('DD-MM-YYYY')}`,
       this.rangeForm.get('formHour').value,
       this.rangeForm.get('untilHour').value
     ]);
-  }
-
-  private filter(value: string): string[] {
-    const filterValue = value?.toLowerCase();
-    return this.cities.filter(optionValue => optionValue.toLowerCase().includes(filterValue));
   }
 }
