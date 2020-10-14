@@ -13,7 +13,7 @@ import {SearchBarComponent} from './shared/components/search-bar/search-bar.comp
 import {HeaderHomeMenuComponent} from './shared/components/header-home-menu/header-home-menu.component';
 import {SearchBarHeaderMobileComponent} from './shared/components/search-bar-header-mobile/search-bar-header-mobile.component';
 import {ResponsiveUtilsService} from './core/services/responsive-utils/responsive-utils.service';
-import {GetCarsService} from './core/state/get-cars/get-cars.service';
+import {GetCarsService} from './core/state/cars/get-cars/get-cars.service';
 import {UserService} from './core/state/user/user.service';
 import {Observable} from 'rxjs';
 import {HeaderHomeCarsSearchComponent} from './shared/components/header-home-cars-search/header-home-cars-search.component';

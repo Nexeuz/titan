@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {NbDateService} from '@nebular/theme';
 import {Moment} from 'moment';
 import * as moment from 'moment';
+import {City} from '../../../core/state/cars/cities/city.model';
 
 @Component({
   selector: 'titan-search-bar-home-desktop',
@@ -13,7 +14,7 @@ import * as moment from 'moment';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchBarHomeDesktopComponent implements OnInit, AfterViewInit {
-   @Input() filteredControlOptions$: Observable<string[]>;
+   @Input() filteredControlOptions$: Observable<City[]>;
    @Input() rangeForm: FormGroup;
    @Input() fromHours: Array<any>;
    @Input() untilHour: Array<any>;

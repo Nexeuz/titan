@@ -1,15 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../../../core/state/user/user.service';
-import {GetCarsService} from '../../../../core/state/get-cars/get-cars.service';
+import {GetCarsService} from '../../../../core/state/cars/get-cars/get-cars.service';
 import {Observable} from 'rxjs';
 import {map, switchMap} from 'rxjs/operators';
 import {getEntityType} from '@datorama/akita';
-import {GetCarsState} from '../../../../core/state/get-cars/get-cars.store';
+import {GetCarsState} from '../../../../core/state/cars/get-cars/get-cars.store';
 import {AddonsService} from '../../../../core/state/cars/addons/addons.service';
 import {Addon} from '../../../../core/state/cars/addons/addon.model';
 import {environment} from '@env/environment';
 import {Router} from '@angular/router';
-import {Car} from '../../../../core/state/get-cars/get-car.model';
+import {Car} from '../../../../core/state/cars/get-cars/get-car.model';
 
 @Component({
   selector: 'titan-car-detail',

@@ -7,10 +7,10 @@ import {CarsFee} from '../../../../core/state/user/user.query';
 import {Addon} from '../../../../core/state/cars/addons/addon.model';
 import {AddonsService} from '../../../../core/state/cars/addons/addons.service';
 import {map, scan, shareReplay, switchMap, tap} from 'rxjs/operators';
-import {Car} from '../../../../core/state/get-cars/get-car.model';
-import {GetCarsService} from '../../../../core/state/get-cars/get-cars.service';
+import {Car} from '../../../../core/state/cars/get-cars/get-car.model';
+import {GetCarsService} from '../../../../core/state/cars/get-cars/get-cars.service';
 import { getEntityType } from '@datorama/akita';
-import { GetCarsState } from 'projects/titan-cart-rental/src/app/core/state/get-cars/get-cars.store';
+import { GetCarsState } from '../../../../core/state/cars/get-cars/get-cars.store';
 import {environment} from '@env/environment';
 
 @Component({

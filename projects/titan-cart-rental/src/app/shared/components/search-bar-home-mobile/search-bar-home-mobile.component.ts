@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {FormGroup} from '@angular/forms';
+import {City} from '../../../core/state/cars/cities/city.model';
 
 @Component({
   selector: 'titan-search-bar-home-mobile',
@@ -9,7 +10,7 @@ import {FormGroup} from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchBarHomeMobileComponent implements OnInit {
-  @Input() filteredControlOptions$: Observable<string[]>;
+  @Input() filteredControlOptions$: Observable<City[]>;
   @Input() rangeForm: FormGroup;
   @Input() fromHours: Array<any>;
   @Input() untilHour: Array<any>;
