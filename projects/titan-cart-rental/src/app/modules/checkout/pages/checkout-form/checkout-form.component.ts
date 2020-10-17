@@ -9,6 +9,9 @@ import {AddonsService} from '../../../../core/state/cars/addons/addons.service';
 import {map, scan, shareReplay, switchMap, tap} from 'rxjs/operators';
 import {Car} from '../../../../core/state/cars/get-cars/get-car.model';
 import {GetCarsService} from '../../../../core/state/cars/get-cars/get-cars.service';
+import { getEntityType } from '@datorama/akita';
+import { GetCarsState } from '../../../../core/state/cars/get-cars/get-cars.store';
+import {environment} from '@env/environment';
 
 @Component({
   selector: 'titan-checkout-form',
@@ -25,7 +28,9 @@ export class CheckoutFormComponent implements OnInit {
   sumValues$: Observable<number>;
   daysSelected$: Observable<number>;
   addonsSubtotal$: Observable<number>;
-
+  carInfo$: Observable<getEntityType<GetCarsState>[]> | Observable<getEntityType<GetCarsState>> =
+  this.getCarsService.getCarsQuery.selectActive();
+  public urlImage: String;
   constructor(private fb: FormBuilder,
               private userService: UserService,
               private addons: AddonsService,
@@ -66,6 +71,13 @@ export class CheckoutFormComponent implements OnInit {
         switchMap(addons => from(addons)),
           scan((acc, value) => acc + Number(value.isale), 0)
     );
+    this.userService
+    .userQuery.userKey$
+    .pipe(
+      tap(it => {
+        this.urlImage = `${environment.host}/${environment.hostImg}/?token=${it}&img_id=`;
+      })
+    ).subscribe();
   }
 
   obsSum(): void {
