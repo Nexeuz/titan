@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import * as moment from 'moment';
 import {UserService} from '../../../../core/state/user/user.service';
@@ -9,14 +9,17 @@ import {AddonsService} from '../../../../core/state/cars/addons/addons.service';
 import {map, scan, shareReplay, switchMap, tap} from 'rxjs/operators';
 import {Car} from '../../../../core/state/cars/get-cars/get-car.model';
 import {GetCarsService} from '../../../../core/state/cars/get-cars/get-cars.service';
-import { getEntityType } from '@datorama/akita';
-import { GetCarsState } from '../../../../core/state/cars/get-cars/get-cars.store';
+import {getEntityType} from '@datorama/akita';
+import {GetCarsState} from '../../../../core/state/cars/get-cars/get-cars.store';
 import {environment} from '@env/environment';
+import {CountryService} from '../../../../core/state/country/country.service';
+import {Country} from '../../../../core/state/country/country.model';
 
 @Component({
   selector: 'titan-checkout-form',
   templateUrl: './checkout-form.component.html',
-  styleUrls: ['./checkout-form.component.scss']
+  styleUrls: ['./checkout-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CheckoutFormComponent implements OnInit {
 
@@ -30,10 +33,12 @@ export class CheckoutFormComponent implements OnInit {
   addonsSubtotal$: Observable<number>;
   carInfo$: Observable<getEntityType<GetCarsState>[]> | Observable<getEntityType<GetCarsState>> =
   this.getCarsService.getCarsQuery.selectActive();
-  public urlImage: String;
+  public urlImage: string;
+  countries$: Observable<Country[]>;
   constructor(private fb: FormBuilder,
               private userService: UserService,
               private addons: AddonsService,
+              private countriesService: CountryService,
               private getCarsService: GetCarsService) {
   }
 
@@ -78,6 +83,13 @@ export class CheckoutFormComponent implements OnInit {
         this.urlImage = `${environment.host}/${environment.hostImg}/?token=${it}&img_id=`;
       })
     ).subscribe();
+
+    this.countriesService.get()
+      .subscribe();
+
+    this.countries$ = this.countriesService.countryQuery.selectAll();
+
+
   }
 
   obsSum(): void {

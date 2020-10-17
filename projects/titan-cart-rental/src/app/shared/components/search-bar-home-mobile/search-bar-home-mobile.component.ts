@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {FormGroup} from '@angular/forms';
-import {City} from '../../../core/state/cars/cities/city.model';
+import {City} from '../../../core/state/cities/city.model';
 
 @Component({
   selector: 'titan-search-bar-home-mobile',

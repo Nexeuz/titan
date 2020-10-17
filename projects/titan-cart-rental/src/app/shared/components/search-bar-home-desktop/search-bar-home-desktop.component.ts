@@ -5,7 +5,7 @@ import {Router} from '@angular/router';
 import {NbDateService} from '@nebular/theme';
 import {Moment} from 'moment';
 import * as moment from 'moment';
-import {City} from '../../../core/state/cars/cities/city.model';
+import {City} from '../../../core/state/cities/city.model';
 
 @Component({
   selector: 'titan-search-bar-home-desktop',

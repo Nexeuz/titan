@@ -5,8 +5,8 @@ import { CitiesStore } from './cities.store';
 import { City } from './city.model';
 import { tap } from 'rxjs/operators';
 import {Observable} from 'rxjs';
-import {UserService} from '../../user/user.service';
-import {environment} from '@env/environment';
+import {UserService} from '../user/user.service';
+import {environment} from '../../../../../../../environments/environment';
 import {CitiesQuery} from './cities.query';
 
 @Injectable({ providedIn: 'root' })

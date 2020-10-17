@@ -1,10 +1,11 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, Input, OnInit} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, Input, OnInit} from '@angular/core';
 import {from, Observable, of} from 'rxjs';
 import {FormGroup} from '@angular/forms';
 import {UserService} from '../../../core/state/user/user.service';
 import {tap} from 'rxjs/operators';
 import * as moment from 'moment';
-import {City} from '../../../core/state/cars/cities/city.model';
+import {City} from '../../../core/state/cities/city.model';
+
 
 @Component({
   selector: 'titan-search-bar-cars-search',
@@ -12,11 +13,13 @@ import {City} from '../../../core/state/cars/cities/city.model';
   styleUrls: ['./search-bar-cars-search.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SearchBarCarsSearchComponent implements OnInit {
+export class SearchBarCarsSearchComponent implements OnInit, AfterViewInit {
   @Input() filteredControlOptions$: Observable<City[]>;
   @Input() rangeForm: FormGroup;
   @Input() fromHours: Array<any>;
   @Input() untilHour: Array<any>;
+
+  tomorrow = moment().add(1, 'day');
 
   constructor(private userService: UserService) {
   }
@@ -31,13 +34,14 @@ export class SearchBarCarsSearchComponent implements OnInit {
             where: it.city,
             formHour: it.fromHour,
             untilHour: it.untilHour,
-            range: {
-              start: moment(it.bkdt.start),
-              end: moment(it.bkdt.end)
-            }
+            rangeStart: moment(it.bkdt.start, 'DD-MM-YYYY'),
+            rangeEnd: moment(it.bkdt.end, 'DD-MM-YYYY')
           });
         })
       ).subscribe();
+  }
+
+  ngAfterViewInit(): void {
   }
 
 

@@ -146,10 +146,10 @@
   dependencies:
     tslib "^2.0.0"
 
-"@angular/cdk@^10.2.1":
-  version "10.2.2"
-  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-10.2.2.tgz#429816d2f8d15d1da99b85ee6810d54bf46e3d05"
-  integrity sha512-DVMnj7QY1prZblRjYfDeyEH79p1TDI0JGgg2D2BAWwzMoPKCgVCqy1uRuvi+WNhYoDR3QJJJ8tXLKucUoShuIw==
+"@angular/cdk@^10.2.2":
+  version "10.2.5"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-10.2.5.tgz#768204ff4db1282297d15f382970f151f87434ec"
+  integrity sha512-SI/YdaxfkttG92A0uGRixyJkfTKHn0GIU+7BCSRq0d31ru3Ugfln+jr+5/xttxWr88CNPTfpGaUt0ZuSqYCzqw==
   dependencies:
     tslib "^2.0.0"
   optionalDependencies:
@@ -235,6 +235,20 @@
   version "10.0.14"
   resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-10.0.14.tgz#b6e1a7f872c318039be21b0a11839c8df063f0a3"
   integrity sha512-McKh3rXDlAE7qmCnyWKENb2HhqAT+1dsAfChuqs0w8jhKkoRgA00RDFee6dZ6XQCc907DwuV0K8+wC3CvBp35w==
+  dependencies:
+    tslib "^2.0.0"
+
+"@angular/material-moment-adapter@^10.2.5":
+  version "10.2.5"
+  resolved "https://registry.yarnpkg.com/@angular/material-moment-adapter/-/material-moment-adapter-10.2.5.tgz#1ba6f3f19dd447753ce55863237a442aa9dc4cc2"
+  integrity sha512-2nIYwG5Xfd2XTaag8ZZKc7zUKHeh3xkFZA/+iCEDA+i0kuS+6OUUj5+wBxsl8TWC6joxoWdKMrReXjfJOlwD0A==
+  dependencies:
+    tslib "^2.0.0"
+
+"@angular/material@^10.2.2":
+  version "10.2.5"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-10.2.5.tgz#bdfc0bfdbadbca47db2dfd0170b8a31a3484ffd7"
+  integrity sha512-gYFqpXdLLuRYb9N1jVj9Gig/AlqsEfT/m+RtzHm4mawmHqeQbEV+0C0Qvc6fKRb1060Nkzfz8TDNGu5B+Xzq5A==
   dependencies:
     tslib "^2.0.0"
 
@@ -1106,20 +1120,20 @@
     merge-source-map "^1.1.0"
     schema-utils "^2.6.4"
 
-"@nebular/eva-icons@^6.1.0":
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/@nebular/eva-icons/-/eva-icons-6.1.0.tgz#a687b28e9d74e8e649ffc43211c8e64e66a1bc60"
-  integrity sha512-C+jFmVs6uwcVRleeKMBaThd8R6GAfUmkpUD0fGlCZ0ZN3a+kP4buxlPYyGVy1tYdMRs1w6MnN0vw1f1S5QUY4g==
+"@nebular/eva-icons@^6.2.1":
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/@nebular/eva-icons/-/eva-icons-6.2.1.tgz#e347aa22c1477e5ccfc9bc210a2710eeadbd1283"
+  integrity sha512-YoZqHpSy9VPy/MiAczOeclEOtwyhKA0HrsXMIInUbzc5vmC2xFcVsYNXi9S48DufgANDLjH3I61CiOp11ynyRw==
 
-"@nebular/moment@^6.1.0":
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/@nebular/moment/-/moment-6.1.0.tgz#3fdc579a0c91e99d6578eb6a0164faf4cc83662c"
-  integrity sha512-Ya3q/xnfkc6V16nbyu8xdf04KX2yW9vT75lLk6AE6YIRuFqboV/R23Xo2rAEGrHfvSr8rUBlkXRRYEqmCsKguA==
+"@nebular/moment@^6.2.1":
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/@nebular/moment/-/moment-6.2.1.tgz#e876f702cd9ea1d75b5491c08f8a6344db70be08"
+  integrity sha512-130pCdqAecY2I3VSdNq0xdpZbCMlcw5HSPASPF9NA4r6v/0oUFf4+x+hxxsxJRHGDuIK0Omc6aZ5p6OXf1HpfA==
 
-"@nebular/theme@^6.1.0":
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/@nebular/theme/-/theme-6.1.0.tgz#6bdb23923182134022bb49cac2199590c3c8943d"
-  integrity sha512-EVCPLgYXb+OHdGnJ3ScVWzy/DZ3Us9Y+9xnvRDqZGoMRptAWgXHWYGWFMF9brVEUFToeucVwOnwSwby11ufjwA==
+"@nebular/theme@^6.2.1":
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/@nebular/theme/-/theme-6.2.1.tgz#9faa3bc8354fd1fc5ea43420b0cae3428dfc228c"
+  integrity sha512-0lknv6t8IY7l05/G8d/9OFfkNVjISYoTFzIWAmGQPvBL+MlQIoOstAOSlTmWNcJP/KdHvr3iUXupR2P3bTv4Ow==
   dependencies:
     intersection-observer "0.7.0"
 

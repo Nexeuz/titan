@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   host: 'http://181.59.120.30/tamra',
   hostImg: 'admincars/carimage.php',
-  hostCars: 'admincars/carlist.php'
+  hostCars: 'admincars/carlist.php',
+  hostCountries: 'admincars/extrainfo.php'
 };
 
 /*

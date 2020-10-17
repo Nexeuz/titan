@@ -19,8 +19,8 @@ import {SearchBarHomeMobileComponent} from '../search-bar-home-mobile/search-bar
 import {hours} from '../../../core/mock/hours';
 import {UserService} from '../../../core/state/user/user.service';
 import {SearchBarCarsSearchComponent} from '../search-bar-cars-search/search-bar-cars-search.component';
-import {CitiesService} from '../../../core/state/cars/cities/cities.service';
-import {City} from '../../../core/state/cars/cities/city.model';
+import {CitiesService} from '../../../core/state/cities/cities.service';
+import {City} from '../../../core/state/cities/city.model';
 
 export type ComponentsLayoutTypes = Type<SearchBarHomeDesktopComponent> |
   Type<SearchBarHeaderDesktopComponent> | Type<SearchBarHomeMobileComponent>  | Type<SearchBarCarsSearchComponent>;

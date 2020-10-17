@@ -18,9 +18,7 @@ export class UserQuery extends Query<UserState> {
   userKey$ = this.select(it => it.userKey);
   countDays$: Observable<number> = this.select(it => it.ui.bkdt)
     .pipe(
-      map(it => {
-        return moment(it.end).diff(moment(it.start), 'days');
-      })
+      map(it => moment(it.end, 'DD-MM-YYYY').diff(moment(it.start, 'DD-MM-YYYY'), 'days'))
     );
 
   subtotalCarRentDaysFee$: Observable<CarsFee[]> = combineLatest([this.countDays$, (this.getCarsQuery.selectActive() as Observable<Car>)])
