@@ -1,10 +1,11 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../../core/state/user/user.service';
-import {tap} from 'rxjs/operators';
+import {take, tap} from 'rxjs/operators';
 import * as moment from 'moment';
 import {City} from '../../../core/state/cars/cities/city.model';
+import {CitiesService} from '../../../core/state/cars/cities/cities.service';
 
 @Component({
   selector: 'titan-search-bar-header-desktop',
@@ -12,36 +13,47 @@ import {City} from '../../../core/state/cars/cities/city.model';
   styleUrls: ['./search-bar-header-desktop.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SearchBarHeaderDesktopComponent implements OnInit {
+export class SearchBarHeaderDesktopComponent implements AfterViewInit {
 
   @Input() filteredControlOptions$: Observable<City[]>;
   @Input() rangeForm: FormGroup;
   @Input() fromHours: Array<any>;
   @Input() untilHour: Array<any>;
+  // tslint:disable-next-line:variable-name
+  _rangeForm: FormGroup;
 
-  tomorrow = moment();
+  tomorrow = moment().add(1, 'day');
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService,
+              private citiesService: CitiesService,
+              private fb: FormBuilder) {
   }
 
   setFormValue(): void {
+
     this.userService.userQuery.select(it => it)
       .pipe(
-        tap(it => {
+        tap(async (it) => {
           if (it.ui) {
-            this.rangeForm.patchValue({
-              where: it.ui.city,
+            const activeWhere = await this.citiesService.citiesQuery.selectActive()
+              .pipe(
+                take(1)
+              ).toPromise();
+            this.rangeForm.setValue({
+              where: activeWhere.islocation,
+              rangeStart: moment(it.ui.bkdt.start, 'DD-MM-YYYY'),
+              rangeEnd: moment(it.ui.bkdt.end, 'DD-MM-YYYY'),
               formHour: it.ui.fromHour,
-             // range: it.ui.bkdt,
               untilHour: it.ui.untilHour
             });
+
           }
         })
       ).subscribe();
   }
 
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.setFormValue();
   }
 

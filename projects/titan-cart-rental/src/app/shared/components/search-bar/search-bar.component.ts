@@ -113,7 +113,8 @@ export class SearchBarComponent implements OnInit, AfterViewInit {
       {
         where: ['', [Validators.required]],
         formHour: ['', [Validators.required]],
-        range: ['', [Validators.required]],
+        rangeStart: ['', [Validators.required]],
+        rangeEnd: ['', [Validators.required]],
         untilHour: ['', [Validators.required]]
       }
     );
@@ -126,12 +127,13 @@ export class SearchBarComponent implements OnInit, AfterViewInit {
   }
 
   submit(): void {
+    this.citiesService.store.setActive(this.rangeForm.get('where').value['0']);
     this.userService.dispatchUserValueForm({
       city: this.rangeForm.get('where').value.islocation,
       select: 'model',
       bkdt: {
-        start: this.rangeForm.get('range').value.start,
-        end: this.rangeForm.get('range').value.end
+        start: this.rangeForm.get('rangeStart').value,
+        end: this.rangeForm.get('rangeEnd').value.end
       },
       untilHour: this.rangeForm.get('untilHour').value,
       fromHour: this.rangeForm.get('formHour').value
@@ -139,7 +141,7 @@ export class SearchBarComponent implements OnInit, AfterViewInit {
     this.router.navigate(['cars-search',
       this.rangeForm.get('where').value.islocation,
       'model',
-      `${this.rangeForm.get('range').value.start.format('DD-MM-YYYY')}:${this.rangeForm.get('range').value.end.format('DD-MM-YYYY')}`,
+      `${this.rangeForm.get('rangeStart').value.format('DD-MM-YYYY')}:${this.rangeForm.get('rangeEnd').value.format('DD-MM-YYYY')}`,
       this.rangeForm.get('formHour').value,
       this.rangeForm.get('untilHour').value
     ]);

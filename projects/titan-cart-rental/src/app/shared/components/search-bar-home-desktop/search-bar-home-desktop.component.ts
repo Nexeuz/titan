@@ -18,7 +18,7 @@ export class SearchBarHomeDesktopComponent implements OnInit, AfterViewInit {
    @Input() rangeForm: FormGroup;
    @Input() fromHours: Array<any>;
    @Input() untilHour: Array<any>;
-   tomorrow;
+   tomorrow = moment().add(1, 'day');
   constructor(private router: Router,
               public dateService: NbDateService<Moment>) {
 

@@ -28,6 +28,9 @@ import { SearchBarCarsSearchComponent } from './components/search-bar-cars-searc
 import { HeaderHomeCarsSearchComponent } from './components/header-home-cars-search/header-home-cars-search.component';
 import {AutenticationModule} from '../modules/autentication/autentication.module';
 import { PaypalBtnComponent } from './components/paypal-btn/paypal-btn.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatMomentDateModule} from '@angular/material-moment-adapter';
 
 
 
@@ -70,7 +73,10 @@ import { PaypalBtnComponent } from './components/paypal-btn/paypal-btn.component
     FormsModule,
     NbListModule,
     AutenticationModule,
-    NbMenuModule
+    NbMenuModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatMomentDateModule
   ]
 })
 export class SharedModule { }
