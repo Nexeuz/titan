@@ -1,11 +1,12 @@
 import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Car} from '../../../../core/state/get-cars/get-car.model';
+import {Car} from '../../../../core/state/cars/get-cars/get-car.model';
 import {Router} from '@angular/router';
 import {UserService} from '../../../../core/state/user/user.service';
-import {GetCarsService} from '../../../../core/state/get-cars/get-cars.service';
+import {FilterBody, GetCarsService} from '../../../../core/state/cars/get-cars/get-cars.service';
 import {switchMap, tap} from 'rxjs/operators';
 import * as moment from 'moment';
+import {FiltersService} from '../../../../core/state/filters/filters.service';
 
 @Component({
   selector: 'titan-car-list',
@@ -20,11 +21,32 @@ export class CarListComponent implements  OnInit, OnDestroy, AfterViewInit {
 
   constructor(private router: Router,
               private userService: UserService,
-              private carsService: GetCarsService) {
+              private carsService: GetCarsService,
+              private filters: FiltersService) {
   }
 
   ngOnInit(): void {
     this.setDataStoreOrRouter();
+    this.formatAndSendFilters();
+  }
+
+  formatAndSendFilters(): void {
+   /** this.filters.filtersQuery.selectAll()
+      .pipe(
+        switchMap(it => {
+          const filters: FilterBody[] = [
+            {
+              id: 0,
+              values: it[0].priceRangeSelected
+            },
+            {
+              id: 1,
+             // values: it[1].values.filter(vl => vl.checked === true).map(mp => ({ id: mp.id, value: mp.value }))
+            },
+          ];
+          return this.carsService.filterCars(filters);
+        })
+      ).subscribe(); **/
   }
 
   setDataStoreOrRouter(): void {

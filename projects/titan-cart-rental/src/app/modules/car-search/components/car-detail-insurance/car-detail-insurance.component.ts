@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../../../core/state/user/user.service';
-import {GetCarsService} from '../../../../core/state/get-cars/get-cars.service';
+import {GetCarsService} from '../../../../core/state/cars/get-cars/get-cars.service';
 import {Observable} from 'rxjs';
-import {Car} from '../../../../core/state/get-cars/get-car.model';
+import {Car} from '../../../../core/state/cars/get-cars/get-car.model';
 import {map, share, tap} from 'rxjs/operators';
 
 @Component({

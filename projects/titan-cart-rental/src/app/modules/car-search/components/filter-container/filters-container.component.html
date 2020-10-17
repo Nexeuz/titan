@@ -1,0 +1,11 @@
+<div class="container-filters-container">
+  <titan-btn-filter
+    [filter]="filter"
+    *ngFor="let filter of filters$ | async">
+  </titan-btn-filter>
+  <button nbButton class="btn-filter" status="danger">
+    <nb-icon icon="funnel-outline"></nb-icon>
+    Clear filters
+  </button>
+</div>
+

@@ -1,7 +1,7 @@
 <div class="container-search-bar" [formGroup]="rangeForm">
   <nb-select class="input-left" formControlName="where" placeholder="Where">
     <nb-option *ngFor="let where of filteredControlOptions$ | async" [value]="where">
-      {{where}}
+      {{where.islocation}}
     </nb-option>
   </nb-select>
   <nb-select formControlName="formHour" placeholder="From">
