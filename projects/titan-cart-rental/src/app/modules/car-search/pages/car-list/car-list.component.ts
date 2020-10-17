@@ -63,7 +63,7 @@ export class CarListComponent implements  OnInit, OnDestroy, AfterViewInit {
               ...state,
               ui: {
                 ...state.ui,
-                bkdt: {start: moment(start, 'DD-MM-YYYY'), end: moment(end, 'DD-MM-YYYY')},
+                bkdt: {start, end},
                 city: param.city,
                 select: param.select,
                 untilHour: param.until.replace('%20', ' '),

@@ -11,8 +11,8 @@ export interface  UserFormSelected {
   isHeaderWhite?: boolean;
   select?: string;
   bkdt?: {
-    start: Moment,
-    end: Moment
+    start: string,
+    end: string
   };
   city?: string;
   untilHour?: string;
