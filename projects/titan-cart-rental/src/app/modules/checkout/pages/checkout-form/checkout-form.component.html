@@ -35,7 +35,7 @@
           letter-spacing: 0px;
           color: #000000;
           opacity: 1;">
-          <strong>Subtotal</strong>
+          <strong>Rental Charges Rate</strong>
         </p>
 
         <div titan-subtotal-result>
@@ -57,7 +57,13 @@
           </p>
         </div>
       <div titanSubtotalFooter>
-        <p>
+        <p style="
+          padding-left: 3%;
+          text-align: left;
+          font: normal normal normal 17px/20px Poppins;
+          letter-spacing: 0px;
+          color: #000000;
+          opacity: 1;">
           <strong>Subtotal</strong>
         </p>
         <div titan-subtotal-result>
@@ -155,11 +161,10 @@
       <nb-radio value="3">
         <nb-card>
           <nb-card-header>
-            Pay with
-            <img src="assets/logos/SMARTRO.svg" alt="American">
+            Pay with Smartro
           </nb-card-header>
           <nb-card-body>
-            <i>Pay with Smartro</i>
+            <i>Pay with <img src="assets/logos/SMARTRO.svg" alt="American"></i>
           </nb-card-body>
         </nb-card>
       </nb-radio>
@@ -178,6 +183,6 @@
                       [description]="'Test transaction'"
                       [price]="sumValues$ | async">
     </titan-paypal-btn>
-
   </form>
 </div>
+<img class="ilustration" src="assets/Ilustracion_checkout.svg" alt="American">
