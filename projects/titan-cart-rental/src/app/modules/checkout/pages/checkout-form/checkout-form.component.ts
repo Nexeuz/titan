@@ -33,7 +33,7 @@ export class CheckoutFormComponent implements OnInit {
   addonsSubtotal$: Observable<number>;
   carInfo$: Observable<getEntityType<GetCarsState>[]> | Observable<getEntityType<GetCarsState>> =
   this.getCarsService.getCarsQuery.selectActive();
-  public urlImage: string;
+  urlImage: string;
   countries$: Observable<Country[]>;
   constructor(private fb: FormBuilder,
               private userService: UserService,

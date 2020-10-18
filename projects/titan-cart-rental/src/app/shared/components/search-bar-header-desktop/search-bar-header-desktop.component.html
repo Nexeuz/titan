@@ -4,7 +4,7 @@
       {{where.islocation}}
     </nb-option>
   </nb-select>
-  <nb-select [formControl]="rangeForm.controls.formHour" placeholder="From">
+  <nb-select [formControl]="rangeForm.controls.formHour" placeholder="From" class="input-single">
     <nb-option *ngFor="let hour of fromHours" [value]="hour">
       {{hour}}
     </nb-option>

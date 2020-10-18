@@ -14,7 +14,8 @@ import {
     NbIconModule,
     NbInputModule,
     NbListModule,
-    NbRadioModule
+    NbRadioModule,
+    NbLayoutModule
 } from '@nebular/theme';
 import { CarDetailComponent } from './pages/car-detail/car-detail.component';
 import { CarGalleryComponent } from './components/car-gallery/car-gallery.component';
@@ -57,6 +58,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     NbCheckboxModule,
     NbInputModule,
     ReactiveFormsModule,
+    NbLayoutModule
   ]
 })
 export class CarSearchModule { }

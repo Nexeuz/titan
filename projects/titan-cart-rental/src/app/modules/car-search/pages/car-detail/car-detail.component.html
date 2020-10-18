@@ -11,16 +11,10 @@
         <titan-search-bar [carsSearchDetail]="true">
         </titan-search-bar>
       </div>
-      <div class="container-car-detail__border"></div>
       <div class="container-car-detail__badges-description">
-        <div class="container-car-detail__badges-container">
-          <button
-            status="basic"
-            *ngFor="let badge of (carInfo$ | async).features"
-            nbButton
-            size="tiny">
-            {{badge}}
-          </button>
+        <div class="container-car-detail__badges-container" *ngFor="let badge of (carInfo$ | async).features">
+          <img [src]="urlImage + badge[1]" class="feature_image" alt="">
+          <p class="feature_text"><b>{{badge[0]}}</b><p>
         </div>
         <div class="container-car-detail__description-container">
           <hr style="border:15px;">
@@ -28,10 +22,10 @@
           <span>DESCRIPTION</span>
           <p>{{(carInfo$ | async).ldescription}}</p>
         </div>
-        <titan-car-detail-addons class="container-car-detail__addons">
-        </titan-car-detail-addons>
         <titan-car-detail-insurance>
         </titan-car-detail-insurance>
+        <titan-car-detail-addons class="container-car-detail__addons">
+        </titan-car-detail-addons>
         <div class="container-car-detail__total-list">
           <span>YOUR CART</span>
           <nb-list>

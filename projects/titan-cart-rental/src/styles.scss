@@ -102,15 +102,18 @@ $titan-cart-rental-theme: mat-light-theme((
   justify-content: space-between;
 }
 
-mat-form-field {
+ng::deep mat-form-field {
+  height: 40px !important;
+}
+ng::deep .select-button {
   background: #FFFFFF 0% 0% no-repeat padding-box;
   box-shadow: 2px 7px 10px #00000029;
   border-radius: 71px;
   opacity: 1;
 }
-
 .mat-form-field-appearance-fill .mat-form-field-flex {
   background-color: transparent !important;
+  margin-top: -10px;
 }
 
 

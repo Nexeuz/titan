@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../../../core/state/user/user.service';
 import {GetCarsService} from '../../../../core/state/cars/get-cars/get-cars.service';
 import {Observable} from 'rxjs';
-import {map, switchMap} from 'rxjs/operators';
+import {map, switchMap, tap} from 'rxjs/operators';
 import {getEntityType} from '@datorama/akita';
 import {GetCarsState} from '../../../../core/state/cars/get-cars/get-cars.store';
 import {AddonsService} from '../../../../core/state/cars/addons/addons.service';
@@ -22,6 +22,7 @@ export class CarDetailComponent implements OnInit {
   carInfo$: Observable<getEntityType<GetCarsState>[]> | Observable<getEntityType<GetCarsState>> =
     this.getCarsService.getCarsQuery.selectActive();
   getInsuranceValue$: Observable<string | null>;
+  urlImage: string;
 
   constructor(private userService: UserService,
               private getCarsService: GetCarsService,
@@ -58,6 +59,13 @@ export class CarDetailComponent implements OnInit {
             );
         })
       );
+      this.userService
+      .userQuery.userKey$
+      .pipe(
+        tap(it => {
+          this.urlImage = `${environment.host}/${environment.hostImg}/?token=${it}&img_id=`;
+        })
+      ).subscribe();
   }
 
   navigateToCheckout(): void {
