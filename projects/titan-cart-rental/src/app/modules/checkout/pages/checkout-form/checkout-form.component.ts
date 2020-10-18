@@ -119,7 +119,6 @@ export class CheckoutFormComponent implements OnInit {
       conditions: [false, [Validators.requiredTrue]]
     });
 
-    this.form.valueChanges.subscribe(console.log)
   }
 
 }
