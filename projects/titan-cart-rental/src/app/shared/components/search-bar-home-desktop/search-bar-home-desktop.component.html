@@ -1,5 +1,5 @@
 <ng-container [formGroup]="rangeForm">
-  <nb-select class="input-left" formControlName="where" placeholder="Where">
+  <nb-select class="input-left" formControlName="where" placeholder="Where" class="input-single" >
     <nb-option *ngFor="let where of filteredControlOptions$ | async" [value]="where">
       {{where.islocation}}
     </nb-option>

@@ -104,8 +104,8 @@
       <nb-datepicker format="DD-MM-YYYY" #dateTimePicker></nb-datepicker>
     </div>
     <label for="country">Country <span>*</span></label>
-    <nb-select size="large" formControlName="country">
-      <nb-option value="">Option empty</nb-option>
+    <nb-select shape="semi-round" size="large" formControlName="country">
+      <nb-option value="">Select...</nb-option>
       <nb-option *ngFor="let country of countries$ | async" [value]="country.cocode">
         {{ country.cdescription }}
       </nb-option>

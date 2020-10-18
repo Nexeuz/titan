@@ -2,7 +2,7 @@
   <nb-card-body>
     <div  class="container-range__card-mobile">
       <nb-form-field>
-        <nb-select  formControlName="where" placeholder="Where">
+        <nb-select  formControlName="where" placeholder="Where" fullWidth>
           <nb-option *ngFor="let where of filteredControlOptions$ | async" [value]="where">
             {{where}}
           </nb-option>

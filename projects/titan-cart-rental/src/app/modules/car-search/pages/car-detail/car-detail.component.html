@@ -10,6 +10,13 @@
         <h3>{{ (carInfo$ | async).idescription }}</h3>
         <titan-search-bar [carsSearchDetail]="true">
         </titan-search-bar>
+        <div class="container-car-detail__policy_container">
+          <span>CANCELLATION POLICY</span>
+        </div>
+        <div class="container-car-detail__policy_text">
+          <img src="assets/icons/icon_policy_cancellation.svg" style="width: 30px;height: 33px;">
+          <p style="margin-left:1%"> See our Insurance policy <a href="">here</a></p>
+        </div>
       </div>
       <div class="container-car-detail__badges-description">
         <div class="container-car-detail__badges-container" *ngFor="let badge of (carInfo$ | async).features">

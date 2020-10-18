@@ -1,19 +1,16 @@
 
     <div [formGroup]="rangeForm"  class="search-bar-cars-search-container">
-      <nb-form-field>
-        <nb-select  formControlName="where" placeholder="Where">
-          <nb-option *ngFor="let where of filteredControlOptions$ | async" [value]="where">
-            {{where.islocation}}
-          </nb-option>
-        </nb-select>
-      </nb-form-field>
+      <nb-select class="input-background" shape="semi-round" formControlName="where" placeholder="Where" fullWidth>
+        <nb-option *ngFor="let where of filteredControlOptions$ | async" [value]="where">
+          {{where.islocation}}
+        </nb-option>
+      </nb-select>
       <nb-select  fullWidth
                   shape="semi-round" formControlName="formHour" placeholder="From Hour">
         <nb-option [value]="option"
                    *ngFor="let option of fromHours">
           {{ option }}
         </nb-option>
-
       </nb-select>
       <mat-form-field appearance="fill">
         <mat-label>Dates selected</mat-label>
