@@ -1,10 +1,11 @@
-import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, Input, OnInit} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {from, Observable, of} from 'rxjs';
 import {FormGroup} from '@angular/forms';
 import {UserService} from '../../../core/state/user/user.service';
-import {tap} from 'rxjs/operators';
+import {take, tap} from 'rxjs/operators';
 import * as moment from 'moment';
 import {City} from '../../../core/state/cities/city.model';
+import {CitiesService} from '../../../core/state/cities/cities.service';
 
 
 @Component({
@@ -21,27 +22,37 @@ export class SearchBarCarsSearchComponent implements OnInit, AfterViewInit {
 
   tomorrow = moment().add(1, 'day');
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService,
+              private citiesService: CitiesService) {
   }
 
 
   ngOnInit(): void {
 
-    this.userService.userQuery.select(it => it.ui)
-      .pipe(
-        tap(it => {
-          this.rangeForm.patchValue({
-            where: it.city,
-            formHour: it.fromHour,
-            untilHour: it.untilHour,
-            rangeStart: moment(it.bkdt.start, 'DD-MM-YYYY'),
-            rangeEnd: moment(it.bkdt.end, 'DD-MM-YYYY')
-          });
-        })
-      ).subscribe();
+
   }
 
   ngAfterViewInit(): void {
+
+    this.userService.userQuery.select(it => it)
+      .pipe(
+        tap(async (it) => {
+          if (it.ui) {
+            const activeWhere = await this.citiesService.citiesQuery.selectActive()
+              .pipe(
+                take(1)
+              ).toPromise();
+            this.rangeForm.setValue({
+              where: activeWhere,
+              rangeStart: moment(it.ui.bkdt.start, 'DD-MM-YYYY'),
+              rangeEnd: moment(it.ui.bkdt.end, 'DD-MM-YYYY'),
+              formHour: it.ui.fromHour,
+              untilHour: it.ui.untilHour
+            });
+
+          }
+        })
+      ).subscribe();
   }
 
 
