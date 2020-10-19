@@ -34,14 +34,14 @@ export class CarDetailInsuranceComponent implements OnInit {
       .pipe(
         map(it => (
           [{
-            title: "Basic Insurance",
             insurb: it.insurb,
+            title: "Basic Insurance",
             excess: ' 500,00 KRW + loss of business charges.',
             coverage: ' Does not include rims and tires, side mirrors, keys and road-side assistance.'
           },
             {
-              title: "Full Insurance",
               insurf: it.insurf,
+              title: "Full Insurance",
               excess: ' 0 KRW.',
               coverage: ' Does not include rims and tires, side mirrors, keys and road-side assistance.'
             }]
