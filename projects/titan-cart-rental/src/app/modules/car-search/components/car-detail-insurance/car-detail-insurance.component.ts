@@ -56,7 +56,7 @@ export class CarDetailInsuranceComponent implements OnInit {
         ...state,
         ui: {
           ...state.ui,
-          insuranceSelected: arrKeys[0]
+          insuranceSelected: arrKeys.filter(str => str === 'insurf')[0]
         }
       })
     );
