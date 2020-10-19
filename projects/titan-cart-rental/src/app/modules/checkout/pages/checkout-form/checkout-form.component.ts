@@ -32,10 +32,9 @@ export class CheckoutFormComponent implements OnInit {
   daysSelected$: Observable<number>;
   addonsSubtotal$: Observable<number>;
   carInfo$: Observable<getEntityType<GetCarsState>[]> | Observable<getEntityType<GetCarsState>> =
-    this.getCarsService.getCarsQuery.selectActive();
+  this.getCarsService.getCarsQuery.selectActive();
   urlImage: string;
   countries$: Observable<Country[]>;
-
   constructor(private fb: FormBuilder,
               private userService: UserService,
               private addons: AddonsService,
@@ -59,11 +58,8 @@ export class CheckoutFormComponent implements OnInit {
         switchMap(it => {
           return (this.getCarsService.getCarsQuery.selectActive() as Observable<Car>)
             .pipe(
-              map((car) => {
-                debugger
-                  return (car ? car[`${it}`] : null);
-                }
-              ));
+              map((car) => (car ? car[`${it}`] : null))
+            );
         })
       );
     this.subtotalCarRentFee$ = this.userService.userQuery.subtotalCarRentDaysFee$
@@ -77,16 +73,16 @@ export class CheckoutFormComponent implements OnInit {
       );
     this.addons$ = this.addons.addonsQuery.actives$;
     this.addonsSubtotal$ = this.addons$.pipe(
-      switchMap(addons => from(addons)),
-      scan((acc, value) => acc + Number(value.isale), 0)
+        switchMap(addons => from(addons)),
+          scan((acc, value) => acc + Number(value.isale), 0)
     );
     this.userService
-      .userQuery.userKey$
-      .pipe(
-        tap(it => {
-          this.urlImage = `${environment.host}/${environment.hostImg}/?token=${it}&img_id=`;
-        })
-      ).subscribe();
+    .userQuery.userKey$
+    .pipe(
+      tap(it => {
+        this.urlImage = `${environment.host}/${environment.hostImg}/?token=${it}&img_id=`;
+      })
+    ).subscribe();
 
     this.countriesService.get()
       .subscribe();

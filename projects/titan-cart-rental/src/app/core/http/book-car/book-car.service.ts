@@ -3,6 +3,7 @@ import {UserService} from '../../state/user/user.service';
 import {Observable} from 'rxjs';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {environment} from '@env/environment';
+import {Addon} from "../../state/cars/addons/addon.model";
 
 export interface BookCar {
   token: string;
@@ -31,11 +32,11 @@ export interface BookCar {
   resident_card: string;
   insurance_type: string;
   transaction_id: string;
-  price: string;
-  ivalue: string;
+  price: number;
+  ivalue: number;
   country_passport: string;
   ip_cliente: string;
-  addons: string;
+  addons: string | Addon[];
   acc_citycode: string;
   contac_phone: string;
   password: string;
